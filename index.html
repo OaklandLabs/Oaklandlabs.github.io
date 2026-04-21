@@ -3,93 +3,492 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Oakland Labs LLC | Software Development</title>
+    <title>Oakland Labs LLC | Mobile App Development</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
         :root {
-            --bg-color: #0d1117;
-            --text-color: #c9d1d9;
-            --accent-color: #58a6ff;
-            --card-bg: #161b22;
+            --bg: #0a0c10;
+            --surface: #111318;
+            --surface-2: #1a1d24;
+            --border: rgba(255,255,255,0.08);
+            --text: #e2e8f0;
+            --muted: #8b95a5;
+            --accent: #4f8ef7;
+            --accent-glow: rgba(79,142,247,0.15);
+            --gold: #f0b429;
+            --gold-glow: rgba(240,180,41,0.12);
         }
+
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            background-color: var(--bg-color);
-            color: var(--text-color);
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
             line-height: 1.6;
-            margin: 0;
-            padding: 0;
+            min-height: 100vh;
             display: flex;
             flex-direction: column;
-            min-height: 100vh;
         }
-        header {
-            padding: 4rem 2rem;
+
+        /* ── NAV ── */
+        nav {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1.25rem 2rem;
+            border-bottom: 1px solid var(--border);
+            position: sticky;
+            top: 0;
+            background: rgba(10,12,16,0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            z-index: 100;
+        }
+        .nav-logo {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            text-decoration: none;
+        }
+        .nav-logo img {
+            height: 32px;
+            width: auto;
+        }
+        .nav-logo-text {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            letter-spacing: -0.01em;
+        }
+        nav a.nav-link {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: color 0.2s;
+        }
+        nav a.nav-link:hover { color: var(--text); }
+
+        /* ── HERO ── */
+        .hero {
+            flex: none;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
             text-align: center;
-            border-bottom: 1px solid #30363d;
+            padding: 6rem 1.5rem 5rem;
+            position: relative;
+            overflow: hidden;
         }
-        h1 { color: #ffffff; margin-bottom: 0.5rem; font-size: 2.5rem; }
-        .tagline { font-size: 1.2rem; color: #8b949e; }
-        
-        main {
-            flex: 1;
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 3rem 1rem;
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -120px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 700px;
+            height: 700px;
+            background: radial-gradient(circle, rgba(79,142,247,0.08) 0%, transparent 70%);
+            pointer-events: none;
         }
+        .hero-eyebrow {
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--accent);
+            margin-bottom: 1.25rem;
+        }
+        .hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: #fff;
+            line-height: 1.1;
+            max-width: 700px;
+            margin-bottom: 1.25rem;
+        }
+        .hero h1 span {
+            background: linear-gradient(135deg, #4f8ef7, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+        .hero-sub {
+            font-size: 1.1rem;
+            color: var(--muted);
+            max-width: 480px;
+            margin-bottom: 2.5rem;
+            font-weight: 400;
+        }
+        .hero-actions {
+            display: flex;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--accent);
+            color: #fff;
+            padding: 0.7rem 1.4rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.15s;
+        }
+        .btn-primary:hover { background: #3a7de8; transform: translateY(-1px); }
+        .btn-secondary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--surface-2);
+            color: var(--text);
+            padding: 0.7rem 1.4rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-decoration: none;
+            border: 1px solid var(--border);
+            transition: background 0.2s, transform 0.15s;
+        }
+        .btn-secondary:hover { background: #22262f; transform: translateY(-1px); }
+
+        /* ── PROVENANT SECTION ── */
         .app-section {
-            background-color: var(--card-bg);
-            border: 1px solid #30363d;
-            border-radius: 12px;
-            padding: 2rem;
-            text-align: center;
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem 6rem;
+            width: 100%;
         }
-        .app-name {
-            font-size: 2rem;
-            font-weight: bold;
-            color: var(--accent-color);
+        .section-label {
+            text-align: center;
+            font-size: 0.75rem;
+            font-weight: 600;
+            letter-spacing: 0.1em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-bottom: 0.75rem;
+        }
+        .section-title {
+            text-align: center;
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: #fff;
             margin-bottom: 1rem;
         }
-        .cta-button {
-            display: inline-block;
-            background-color: #238636;
-            color: white;
-            padding: 0.8rem 1.5rem;
-            border-radius: 6px;
-            text-decoration: none;
-            font-weight: bold;
-            margin-top: 1rem;
-        }
-        footer {
+        .section-sub {
             text-align: center;
-            padding: 2rem;
-            font-size: 0.9rem;
-            color: #8b949e;
-            border-top: 1px solid #30363d;
+            font-size: 1rem;
+            color: var(--muted);
+            max-width: 520px;
+            margin: 0 auto 3.5rem;
         }
-        footer a { color: var(--accent-color); text-decoration: none; margin: 0 10px; }
+
+        .app-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 20px;
+            overflow: hidden;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+        }
+        .app-card-content {
+            padding: 3rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .app-logo {
+            height: 64px;
+            width: auto;
+            margin-bottom: 1.5rem;
+        }
+        .app-card-content h2 {
+            font-size: 1.75rem;
+            font-weight: 800;
+            letter-spacing: -0.025em;
+            color: #fff;
+            margin-bottom: 0.75rem;
+        }
+        .app-card-content p {
+            color: var(--muted);
+            font-size: 0.95rem;
+            margin-bottom: 2rem;
+            line-height: 1.7;
+        }
+        .coming-soon-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--gold-glow);
+            border: 1px solid rgba(240,180,41,0.25);
+            color: var(--gold);
+            font-size: 0.8rem;
+            font-weight: 600;
+            padding: 0.35rem 0.75rem;
+            border-radius: 20px;
+            margin-bottom: 1.5rem;
+            width: fit-content;
+        }
+        .store-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 0.6rem;
+        }
+        .store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.75rem;
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 10px;
+            padding: 0.65rem 1rem;
+            text-decoration: none;
+            transition: background 0.2s, border-color 0.2s;
+            max-width: 220px;
+        }
+        .store-btn:hover { background: #22262f; border-color: rgba(255,255,255,0.15); }
+        .store-btn-icon { font-size: 1.5rem; line-height: 1; }
+        .store-btn-text { display: flex; flex-direction: column; }
+        .store-btn-sub { font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+        .store-btn-name { font-size: 0.9rem; font-weight: 600; color: var(--text); }
+
+        .app-card-visual {
+            background: linear-gradient(135deg, #0f1520 0%, #1a1f2e 50%, #0f1520 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 340px;
+            position: relative;
+            overflow: hidden;
+        }
+        .app-card-visual::before {
+            content: '';
+            position: absolute;
+            inset: 0;
+            background: radial-gradient(circle at 60% 40%, rgba(240,180,41,0.08), transparent 60%);
+        }
+        .app-mockup-icon {
+            font-size: 7rem;
+            opacity: 0.9;
+            position: relative;
+            z-index: 1;
+            filter: drop-shadow(0 20px 40px rgba(240,180,41,0.2));
+        }
+
+        /* ── FEATURES GRID ── */
+        .features-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem 6rem;
+            width: 100%;
+        }
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1rem;
+        }
+        .feature-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 1.75rem;
+            transition: border-color 0.2s;
+        }
+        .feature-card:hover { border-color: rgba(255,255,255,0.14); }
+        .feature-icon {
+            font-size: 1.75rem;
+            margin-bottom: 1rem;
+            display: block;
+        }
+        .feature-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+        .feature-card p {
+            font-size: 0.875rem;
+            color: var(--muted);
+            line-height: 1.6;
+        }
+
+        /* ── DIVIDER ── */
+        .divider {
+            border: none;
+            border-top: 1px solid var(--border);
+            max-width: 1000px;
+            margin: 0 auto 6rem;
+            width: calc(100% - 3rem);
+        }
+
+        /* ── FOOTER ── */
+        footer {
+            margin-top: auto;
+            border-top: 1px solid var(--border);
+            padding: 2.5rem 2rem;
+        }
+        .footer-inner {
+            max-width: 1000px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .footer-brand img { height: 24px; width: auto; }
+        .footer-brand-name { font-size: 0.875rem; font-weight: 600; color: var(--muted); }
+        .footer-copy { font-size: 0.8rem; color: var(--muted); }
+        .footer-links { display: flex; gap: 1.25rem; }
+        .footer-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.85rem;
+            transition: color 0.2s;
+        }
+        .footer-links a:hover { color: var(--text); }
+
+        /* ── RESPONSIVE ── */
+        @media (max-width: 700px) {
+            nav { padding: 1rem 1.25rem; }
+            .hero { padding: 4rem 1.25rem 3.5rem; }
+            .app-card { grid-template-columns: 1fr; }
+            .app-card-visual { min-height: 220px; }
+            .features-grid { grid-template-columns: 1fr; }
+            .footer-inner { flex-direction: column; align-items: flex-start; }
+        }
+        @media (max-width: 500px) {
+            .features-grid { grid-template-columns: 1fr; }
+        }
+        @media (min-width: 501px) and (max-width: 700px) {
+            .features-grid { grid-template-columns: 1fr 1fr; }
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Oakland Labs LLC</h1>
-        <p class="tagline">Innovative Software Publishing & App Development</p>
-    </header>
+    <nav>
+        <a href="/" class="nav-logo">
+            <img src="assets/OaklandLabs.png" alt="Oakland Labs">
+            <span class="nav-logo-text">Oakland Labs</span>
+        </a>
+        <a href="mailto:contact@oaklandlabs.com" class="nav-link">Contact</a>
+    </nav>
 
-    <main>
-        <div class="app-section">
-            <div class="app-name">Provenant</div>
-            <p>Provenant is the premier digital management platform for high-value sports memorabilia and collectibles. Track history, verify authentication, and manage your portfolio with precision.</p>
-            <p><em>Coming soon to the App Store and Google Play.</em></p>
+    <section class="hero">
+        <p class="hero-eyebrow">iOS &amp; Android Development</p>
+        <h1>Apps built for<br><span>collectors who care.</span></h1>
+        <p class="hero-sub">Oakland Labs builds precise, thoughtful mobile experiences for people serious about what they collect.</p>
+        <div class="hero-actions">
+            <a href="#provenant" class="btn-primary">Our App</a>
+            <a href="mailto:contact@oaklandlabs.com" class="btn-secondary">Get in Touch</a>
         </div>
-    </main>
+    </section>
+
+    <section id="provenant" class="app-section">
+        <p class="section-label">Our App</p>
+        <h2 class="section-title">Introducing Provenant</h2>
+        <p class="section-sub">The premier digital management platform for high-value sports memorabilia and collectibles.</p>
+
+        <div class="app-card">
+            <div class="app-card-content">
+                <img src="assets/Provenant.png" alt="Provenant" class="app-logo">
+                <span class="coming-soon-badge">
+                    <span>●</span> Coming Soon
+                </span>
+                <p>Track history, verify authentication, and manage your entire collection with precision — all in one place. Built for serious collectors who want full visibility into their portfolio.</p>
+                <div class="store-buttons">
+                    <a href="#" class="store-btn" aria-label="App Store (coming soon)">
+                        <span class="store-btn-icon"></span>
+                        <span class="store-btn-text">
+                            <span class="store-btn-sub">Coming soon to the</span>
+                            <span class="store-btn-name">App Store</span>
+                        </span>
+                    </a>
+                    <a href="#" class="store-btn" aria-label="Google Play (coming soon)">
+                        <span class="store-btn-icon">▶</span>
+                        <span class="store-btn-text">
+                            <span class="store-btn-sub">Coming soon to</span>
+                            <span class="store-btn-name">Google Play</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+            <div class="app-card-visual">
+                <span class="app-mockup-icon">🏆</span>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <section class="features-section">
+        <p class="section-label">Features</p>
+        <h2 class="section-title">Everything your collection needs</h2>
+        <p class="section-sub">Purpose-built tools for memorabilia collectors, from weekend hobbyists to serious investors.</p>
+
+        <div class="features-grid">
+            <div class="feature-card">
+                <span class="feature-icon">📋</span>
+                <h3>Collection Tracking</h3>
+                <p>Catalog every piece with photos, purchase details, grades, and provenance — organized and searchable.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🔏</span>
+                <h3>Authentication Records</h3>
+                <p>Store COAs, PSA/BGS grades, and authentication details alongside each item for instant verification.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">📈</span>
+                <h3>Portfolio Value</h3>
+                <p>Monitor the estimated value of your collection over time and understand what your pieces are worth.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">📖</span>
+                <h3>Item History</h3>
+                <p>Record the full chain of ownership and story behind each piece — because provenance matters.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">📱</span>
+                <h3>iOS &amp; Android</h3>
+                <p>A native experience on both platforms, built with performance and reliability from the ground up.</p>
+            </div>
+            <div class="feature-card">
+                <span class="feature-icon">🔒</span>
+                <h3>Private &amp; Secure</h3>
+                <p>Your collection data is yours. We never sell or share your information with third parties.</p>
+            </div>
+        </div>
+    </section>
 
     <footer>
-        <p>&copy; 2026 Oakland Labs LLC. All rights reserved.</p>
-        <p>
-            <a href="privacy.html">Privacy Policy</a> | 
-            <a href="mailto:contact@oaklandlabs.com">Contact Support</a>
-        </p>
+        <div class="footer-inner">
+            <div>
+                <div class="footer-brand">
+                    <img src="assets/OaklandLabs.png" alt="Oakland Labs">
+                    <span class="footer-brand-name">Oakland Labs LLC</span>
+                </div>
+                <p class="footer-copy" style="margin-top:0.4rem;">&copy; 2026 Oakland Labs LLC. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="mailto:contact@oaklandlabs.com">Contact</a>
+            </div>
+        </div>
     </footer>
 
 </body>

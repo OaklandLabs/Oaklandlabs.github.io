@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oakland Labs LLC | Mobile App Development</title>
+    <link rel="icon" type="image/png" href="assets/OaklandLabs.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -32,44 +33,17 @@
             flex-direction: column;
         }
 
-        /* ── NAV ── */
-        nav {
+        /* ── SITE LOGO ── */
+        .site-logo {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1.25rem 2rem;
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            background: rgba(10,12,16,0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            z-index: 100;
+            justify-content: center;
+            margin-bottom: 1.75rem;
         }
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            text-decoration: none;
-        }
-        .nav-logo img {
-            height: 32px;
+        .site-logo img {
+            height: 140px;
             width: auto;
+            object-fit: contain;
         }
-        .nav-logo-text {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #fff;
-            letter-spacing: -0.01em;
-        }
-        nav a.nav-link {
-            color: var(--muted);
-            text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        nav a.nav-link:hover { color: var(--text); }
 
         /* ── HERO ── */
         .hero {
@@ -206,15 +180,7 @@
             flex-direction: column;
             justify-content: center;
         }
-        .app-logo {
-            height: auto;
-            max-height: 64px;
-            max-width: 220px;
-            width: auto;
-            object-fit: contain;
-            margin-bottom: 1.5rem;
-        }
-        .app-card-content h2 {
+.app-card-content h2 {
             font-size: 1.75rem;
             font-weight: 800;
             letter-spacing: -0.025em;
@@ -280,11 +246,13 @@
             background: radial-gradient(circle at 60% 40%, rgba(240,180,41,0.08), transparent 60%);
         }
         .app-mockup-icon {
-            font-size: 7rem;
-            opacity: 0.9;
+            width: 52%;
+            max-width: 220px;
+            height: auto;
+            object-fit: contain;
             position: relative;
             z-index: 1;
-            filter: drop-shadow(0 20px 40px rgba(240,180,41,0.2));
+            filter: drop-shadow(0 20px 48px rgba(240,180,41,0.25));
         }
 
         /* ── FEATURES GRID ── */
@@ -362,6 +330,11 @@
             text-decoration: none;
             font-size: 0.85rem;
             transition: color 0.2s;
+            cursor: pointer;
+        }
+        .footer-links a[href^="mailto"],
+        .footer-links a[href^="tel"] {
+            color: var(--accent);
         }
         .footer-links a:hover { color: var(--text); }
 
@@ -384,15 +357,10 @@
 </head>
 <body>
 
-    <nav>
-        <a href="/" class="nav-logo">
-            <img src="assets/OaklandLabs.png" alt="Oakland Labs">
-            <span class="nav-logo-text">Oakland Labs</span>
-        </a>
-        <a href="mailto:support@oaklandlabs.app" class="nav-link">Contact</a>
-    </nav>
-
     <section class="hero">
+        <div class="site-logo">
+            <img src="assets/OaklandLabs.png" alt="Oakland Labs">
+        </div>
         <p class="hero-eyebrow">iOS &amp; Android Development</p>
         <h1>Apps built for<br><span>collectors who care.</span></h1>
         <p class="hero-sub">Oakland Labs builds precise, thoughtful mobile experiences for people serious about what they collect.</p>
@@ -409,7 +377,6 @@
 
         <div class="app-card">
             <div class="app-card-content">
-                <img src="assets/Provenant.png" alt="Provenant" class="app-logo">
                 <span class="coming-soon-badge">
                     <span>●</span> Coming Soon
                 </span>
@@ -432,7 +399,7 @@
                 </div>
             </div>
             <div class="app-card-visual">
-                <span class="app-mockup-icon">🏆</span>
+                <img src="assets/Provenant.png" alt="Provenant" class="app-mockup-icon">
             </div>
         </div>
     </section>

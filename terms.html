@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service | Oakland Labs LLC</title>
+    <link rel="icon" type="image/png" href="assets/OaklandLabs.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -28,35 +29,16 @@
             flex-direction: column;
         }
 
-        nav {
+        .site-logo {
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 1.25rem 2rem;
-            border-bottom: 1px solid var(--border);
-            position: sticky;
-            top: 0;
-            background: rgba(10,12,16,0.85);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            z-index: 100;
+            justify-content: center;
+            padding: 2.5rem 1.5rem 0;
         }
-        .nav-logo {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            text-decoration: none;
+        .site-logo img {
+            height: 72px;
+            width: auto;
+            object-fit: contain;
         }
-        .nav-logo img { height: 32px; width: auto; }
-        .nav-logo-text { font-size: 1rem; font-weight: 700; color: #fff; }
-        nav a.nav-link {
-            color: var(--muted);
-            text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 500;
-            transition: color 0.2s;
-        }
-        nav a.nav-link:hover { color: var(--text); }
 
         main {
             flex: 1;
@@ -131,13 +113,9 @@
 </head>
 <body>
 
-    <nav>
-        <a href="/" class="nav-logo">
-            <img src="assets/OaklandLabs.png" alt="Oakland Labs">
-            <span class="nav-logo-text">Oakland Labs</span>
-        </a>
-        <a href="mailto:support@oaklandlabs.app" class="nav-link">Contact</a>
-    </nav>
+    <div class="site-logo">
+        <img src="assets/OaklandLabs.png" alt="Oakland Labs">
+    </div>
 
     <main>
         <a href="index.html" class="back-link">← Back to Home</a>

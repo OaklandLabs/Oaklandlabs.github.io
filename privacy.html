@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy | Oakland Labs LLC</title>
+    <meta name="description" content="Privacy Policy for Provenant and Oakland Labs LLC. Learn how we handle your data.">
     <link rel="icon" type="image/png" href="assets/OaklandLabs.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -34,8 +35,9 @@
             justify-content: center;
             padding: 2.5rem 1.5rem 0;
         }
+        .site-logo a { display: inline-flex; }
         .site-logo img {
-            height: 72px;
+            height: 100px;
             width: auto;
             object-fit: contain;
         }
@@ -106,33 +108,60 @@
             margin-top: auto;
             border-top: 1px solid var(--border);
             padding: 2rem;
-            text-align: center;
+        }
+        .footer-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
         footer p { font-size: 0.8rem; color: var(--muted); }
+        .footer-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+        .footer-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: color 0.2s;
+        }
+        .footer-links a[href^="mailto"] { color: var(--accent); }
+        .footer-links a:hover { color: var(--text); }
+        @media (max-width: 600px) { .footer-inner { flex-direction: column; } }
     </style>
 </head>
 <body>
 
     <div class="site-logo">
-        <img src="assets/OaklandLabs.png" alt="Oakland Labs">
+        <a href="index.html" aria-label="Oakland Labs home">
+            <img src="assets/OaklandLabs.png" alt="Oakland Labs">
+        </a>
     </div>
 
     <main>
         <a href="index.html" class="back-link">← Back to Home</a>
 
         <h1>Privacy Policy</h1>
-        <p class="last-updated">Last Updated: January 2026</p>
+        <p class="last-updated">Last Updated: April 2026</p>
 
         <div class="content">
             <h2>1. Our Commitment to Your Data</h2>
-            <p>At Provenant, we believe your collection is your business. We are built for collectors, not advertisers, which is why we strictly never sell, rent, or share your data with third parties for marketing purposes. We collect collection data — such as item details and photos — which is stored locally on your device. For Premium subscribers, this data is optionally synced to our secure cloud to allow access across multiple devices.</p>
+            <p>At Provenant, we believe your collection is your business. We are built for collectors, not advertisers, which is why we strictly never sell, rent, or share your data with third parties for marketing purposes. We collect collection data — such as item details and photos — which can be stored locally on your device on synced to our Cloud servers. For Premium subscribers, this data is synced to our secure cloud to allow access across multiple devices.</p>
 
             <h2>2. Information Collection and Usage</h2>
-            <p>We collect your email address solely for account authentication and synchronization purposes. While subscription status and purchase history are managed via RevenueCat, we do not store your credit card or payment details. We also collect anonymized crash reports and basic diagnostics to help us troubleshoot bugs and improve app performance; this data is never tied to your specific identity or collection items. We use this information to maintain your sync services, manage group leaderboards, and respond to your direct support requests.</p>
+            <p>We collect your email address solely for account authentication and synchronization purposes. While subscription status and purchase history are managed via RevenueCat, we do not store your credit card or payment details. We also collect anonymized crash reports and basic diagnostics to help us troubleshoot bugs and improve app performance; this data is never tied to your specific identity or collection items.</p>
 
             <h2>3. Public Profiles and Data Control</h2>
             <p>Public profiles and group leaderboards are strictly opt-in. You maintain granular control over which items appear publicly, and group leaderboards primarily show aggregated statistics rather than individual item details.</p>
             <p>You also have total control over your data lifecycle. You can wipe your local collection at any time through the app settings or choose to permanently delete your account and all associated cloud data. Once an account is deleted, the data is erased and cannot be recovered.</p>
+
+            <h2>4. Your Privacy Rights (CCPA &amp; GDPR)</h2>
+            <p>California residents have the right to know what personal data we collect, request deletion of that data, and opt out of any sale of personal information. We do not sell personal information or data to anyone.</p>
+            <p>EU and UK residents have rights under GDPR including the right to access, correct, restrict processing of, and erase personal data we hold. To exercise any of these rights, contact us at <a href="mailto:support@oaklandlabs.app">support@oaklandlabs.app</a>. We will respond within 30 days.</p>
+
+            <h2>5. Data Retention and Security</h2>
+            <p>We retain your account data for as long as your account remains active, or unless you request data or account deletion. Upon account deletion, all cloud-stored data is permanently deleted within 30 days. We use industry-standard encryption in transit (TLS) and at rest to protect your information. We do not retain payment card details — all billing is handled exclusively by Apple App Store and Google Play.</p>
             <p>For any privacy inquiries, please contact us at <a href="mailto:support@oaklandlabs.app">support@oaklandlabs.app</a> or call <a href="tel:+15093813920">(509) 381-3920</a>.</p>
         </div>
 
@@ -140,7 +169,15 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 Oakland Labs LLC. All rights reserved.</p>
+        <div class="footer-inner">
+            <p>&copy; 2026 Oakland Labs LLC. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="mailto:support@oaklandlabs.app">support@oaklandlabs.app</a>
+            </div>
+        </div>
     </footer>
 
 </body>

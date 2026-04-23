@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oakland Labs LLC | Mobile App Development</title>
+    <meta name="description" content="Oakland Labs LLC builds precise, thoughtful iOS and Android apps for collectors. Our first app, Provenant, is a digital management platform for sports memorabilia and autographs.">
+    <meta property="og:title" content="Oakland Labs LLC | Mobile App Development">
+    <meta property="og:description" content="iOS and Android apps built for collectors who care.">
+    <meta property="og:type" content="website">
     <link rel="icon" type="image/png" href="assets/OaklandLabs.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -180,7 +184,7 @@
             flex-direction: column;
             justify-content: center;
         }
-.app-card-content h2 {
+        .app-card-content h2 {
             font-size: 1.75rem;
             font-weight: 800;
             letter-spacing: -0.025em;
@@ -220,15 +224,33 @@
             border: 1px solid var(--border);
             border-radius: 10px;
             padding: 0.65rem 1rem;
-            text-decoration: none;
-            transition: background 0.2s, border-color 0.2s;
             max-width: 220px;
+            font-family: inherit;
+            cursor: default;
+            opacity: 0.6;
+            text-decoration: none;
         }
-        .store-btn:hover { background: #22262f; border-color: rgba(255,255,255,0.15); }
-        .store-btn-icon { font-size: 1.5rem; line-height: 1; }
+        .store-btn-icon {
+            display: flex;
+            align-items: center;
+            color: var(--text);
+            flex-shrink: 0;
+        }
         .store-btn-text { display: flex; flex-direction: column; }
         .store-btn-sub { font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
         .store-btn-name { font-size: 0.9rem; font-weight: 600; color: var(--text); }
+        .notify-cta {
+            margin-top: 1.25rem;
+            font-size: 0.8rem;
+            color: var(--muted);
+            line-height: 1.5;
+        }
+        .notify-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .notify-link:hover { text-decoration: underline; }
 
         .app-card-visual {
             background: linear-gradient(135deg, #0f1520 0%, #1a1f2e 50%, #0f1520 100%);
@@ -276,9 +298,11 @@
         }
         .feature-card:hover { border-color: rgba(255,255,255,0.14); }
         .feature-icon {
-            font-size: 1.75rem;
-            margin-bottom: 1rem;
             display: block;
+            width: 28px;
+            height: 28px;
+            margin-bottom: 1rem;
+            color: var(--accent);
         }
         .feature-card h3 {
             font-size: 1rem;
@@ -300,6 +324,57 @@
             margin: 0 auto 6rem;
             width: calc(100% - 3rem);
         }
+
+        /* ── ABOUT SECTION ── */
+        .about-section {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0 1.5rem 6rem;
+            width: 100%;
+        }
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 3rem;
+            margin-top: 3rem;
+        }
+        .about-text p {
+            font-size: 0.95rem;
+            color: var(--muted);
+            line-height: 1.8;
+            margin-bottom: 1rem;
+        }
+        .about-contact {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 14px;
+            padding: 2rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+        }
+        .about-contact h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        .about-contact > p {
+            font-size: 0.875rem;
+            color: var(--muted);
+            margin: 0;
+        }
+        .contact-item {
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.9rem;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+        .contact-item:hover { opacity: 0.8; }
+        .contact-item svg { flex-shrink: 0; }
 
         /* ── FOOTER ── */
         footer {
@@ -324,34 +399,28 @@
         .footer-brand img { height: 24px; width: auto; }
         .footer-brand-name { font-size: 0.875rem; font-weight: 600; color: var(--muted); }
         .footer-copy { font-size: 0.8rem; color: var(--muted); }
-        .footer-links { display: flex; gap: 1.25rem; }
+        .footer-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
         .footer-links a {
             color: var(--muted);
             text-decoration: none;
             font-size: 0.85rem;
             transition: color 0.2s;
-            cursor: pointer;
         }
         .footer-links a[href^="mailto"],
-        .footer-links a[href^="tel"] {
-            color: var(--accent);
-        }
+        .footer-links a[href^="tel"] { color: var(--accent); }
         .footer-links a:hover { color: var(--text); }
 
         /* ── RESPONSIVE ── */
         @media (max-width: 700px) {
-            nav { padding: 1rem 1.25rem; }
             .hero { padding: 4rem 1.25rem 3.5rem; }
             .app-card { grid-template-columns: 1fr; }
             .app-card-visual { min-height: 220px; }
-            .features-grid { grid-template-columns: 1fr; }
+            .features-grid { grid-template-columns: 1fr 1fr; }
+            .about-grid { grid-template-columns: 1fr; gap: 2rem; }
             .footer-inner { flex-direction: column; align-items: flex-start; }
         }
         @media (max-width: 500px) {
             .features-grid { grid-template-columns: 1fr; }
-        }
-        @media (min-width: 501px) and (max-width: 700px) {
-            .features-grid { grid-template-columns: 1fr 1fr; }
         }
     </style>
 </head>
@@ -366,7 +435,7 @@
         <p class="hero-sub">Oakland Labs builds precise, thoughtful mobile experiences for people serious about what they collect.</p>
         <div class="hero-actions">
             <a href="#provenant" class="btn-primary">Our App</a>
-            <a href="mailto:support@oaklandlabs.app" class="btn-secondary">Get in Touch</a>
+            <a href="#about" class="btn-secondary">Get in Touch</a>
         </div>
     </section>
 
@@ -382,21 +451,30 @@
                 </span>
                 <p>Track history, verify authentication, and manage your entire collection with precision — all in one place. Built for serious collectors who want full visibility into their portfolio.</p>
                 <div class="store-buttons">
-                    <a href="#" class="store-btn" aria-label="App Store (coming soon)">
-                        <span class="store-btn-icon"></span>
+                    <button type="button" disabled class="store-btn" aria-label="App Store — coming soon">
+                        <span class="store-btn-icon">
+                            <svg width="18" height="22" viewBox="0 0 18 22" fill="currentColor" aria-hidden="true">
+                                <path d="M14.94 11.55c-.02-2.63 2.15-3.9 2.25-3.96-1.23-1.79-3.13-2.03-3.8-2.06-1.62-.16-3.17.95-3.99.95-.82 0-2.07-.93-3.4-.9C4.2 5.61 2.5 6.62 1.57 8.19.04 10.99 1.17 15 2.62 17.2c.73 1.05 1.6 2.23 2.74 2.19 1.1-.05 1.52-.71 2.85-.71 1.33 0 1.71.71 2.86.68 1.19-.02 1.93-1.06 2.65-2.12.53-.74.94-1.5 1.22-2.28-2.43-.93-2.99-4.41-.99-5.41zM12.31 3.67c.76-.93 1.27-2.2 1.13-3.47-1.09.04-2.41.73-3.19 1.64-.7.8-1.32 2.1-1.15 3.33 1.21.09 2.46-.62 3.21-1.5z"/>
+                            </svg>
+                        </span>
                         <span class="store-btn-text">
                             <span class="store-btn-sub">Coming soon to the</span>
                             <span class="store-btn-name">App Store</span>
                         </span>
-                    </a>
-                    <a href="#" class="store-btn" aria-label="Google Play (coming soon)">
-                        <span class="store-btn-icon">▶</span>
+                    </button>
+                    <button type="button" disabled class="store-btn" aria-label="Google Play — coming soon">
+                        <span class="store-btn-icon">
+                            <svg width="18" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                                <polygon points="5 3 19 12 5 21 5 3"/>
+                            </svg>
+                        </span>
                         <span class="store-btn-text">
                             <span class="store-btn-sub">Coming soon to</span>
                             <span class="store-btn-name">Google Play</span>
                         </span>
-                    </a>
+                    </button>
                 </div>
+                <p class="notify-cta">Want to know when we launch? <a href="mailto:support@oaklandlabs.app?subject=Provenant%20Launch%20Notification" class="notify-link">Email us to join the list</a></p>
             </div>
             <div class="app-card-visual">
                 <img src="assets/Provenant.png" alt="Provenant" class="app-mockup-icon">
@@ -413,34 +491,85 @@
 
         <div class="features-grid">
             <div class="feature-card">
-                <span class="feature-icon">📋</span>
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
+                    <rect x="9" y="3" width="6" height="4" rx="2"/>
+                    <line x1="9" y1="12" x2="15" y2="12"/>
+                    <line x1="9" y1="16" x2="13" y2="16"/>
+                </svg>
                 <h3>Collection Tracking</h3>
                 <p>Catalog every piece with photos, purchase details, grades, and provenance — organized and searchable.</p>
             </div>
             <div class="feature-card">
-                <span class="feature-icon">🔏</span>
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <polyline points="9 12 11 14 15 10"/>
+                </svg>
                 <h3>Authentication Records</h3>
                 <p>Store COAs, PSA/BGS grades, and authentication details alongside each item for instant verification.</p>
             </div>
             <div class="feature-card">
-                <span class="feature-icon">📈</span>
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
+                    <polyline points="16 7 22 7 22 13"/>
+                </svg>
                 <h3>Portfolio Value</h3>
                 <p>Monitor the estimated value of your collection over time and understand what your pieces are worth.</p>
             </div>
             <div class="feature-card">
-                <span class="feature-icon">📖</span>
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <polyline points="12 8 12 12 14 14"/>
+                    <path d="M3.05 11a9 9 0 1 0 .5-4H1"/>
+                    <polyline points="1 2 1 7 6 7"/>
+                </svg>
                 <h3>Item History</h3>
                 <p>Record the full chain of ownership and story behind each piece — because provenance matters.</p>
             </div>
             <div class="feature-card">
-                <span class="feature-icon">📱</span>
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                    <line x1="12" y1="18" x2="12.01" y2="18"/>
+                </svg>
                 <h3>iOS &amp; Android</h3>
                 <p>A native experience on both platforms, built with performance and reliability from the ground up.</p>
             </div>
             <div class="feature-card">
-                <span class="feature-icon">🔒</span>
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                </svg>
                 <h3>Private &amp; Secure</h3>
                 <p>Your collection data is yours. We never sell or share your information with third parties.</p>
+            </div>
+        </div>
+    </section>
+
+    <hr class="divider">
+
+    <section id="about" class="about-section">
+        <p class="section-label">About Us</p>
+        <h2 class="section-title">Oakland Labs LLC</h2>
+        <div class="about-grid">
+            <div class="about-text">
+                <p>Oakland Labs LLC is an independent mobile software company based in the United States, founded to build precise, well-crafted apps for enthusiast communities. Our first product, Provenant, is purpose-built for sports memorabilia and autograph collectors.</p>
+                <p>We design for people who take their collections seriously — building native iOS and Android experiences that respect user privacy and put data ownership first. Your collection data is never sold or shared with advertisers.</p>
+            </div>
+            <div class="about-contact">
+                <h3>Get in Touch</h3>
+                <p>We read every message.</p>
+                <a href="mailto:support@oaklandlabs.app" class="contact-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                        <polyline points="22,6 12,13 2,6"/>
+                    </svg>
+                    support@oaklandlabs.app
+                </a>
+                <a href="tel:+15093813920" class="contact-item">
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.67 9.81 19.79 19.79 0 01.61 1.18 2 2 0 012.6 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.95-.95a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.5v2.42z"/>
+                    </svg>
+                    (509) 381-3920
+                </a>
             </div>
         </div>
     </section>

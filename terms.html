@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Terms of Service | Oakland Labs LLC</title>
+    <meta name="description" content="Terms of Service for Provenant by Oakland Labs LLC.">
     <link rel="icon" type="image/png" href="assets/OaklandLabs.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
@@ -34,8 +35,9 @@
             justify-content: center;
             padding: 2.5rem 1.5rem 0;
         }
+        .site-logo a { display: inline-flex; }
         .site-logo img {
-            height: 72px;
+            height: 100px;
             width: auto;
             object-fit: contain;
         }
@@ -106,15 +108,35 @@
             margin-top: auto;
             border-top: 1px solid var(--border);
             padding: 2rem;
-            text-align: center;
+        }
+        .footer-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
         }
         footer p { font-size: 0.8rem; color: var(--muted); }
+        .footer-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+        .footer-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: color 0.2s;
+        }
+        .footer-links a[href^="mailto"] { color: var(--accent); }
+        .footer-links a:hover { color: var(--text); }
+        @media (max-width: 600px) { .footer-inner { flex-direction: column; } }
     </style>
 </head>
 <body>
 
     <div class="site-logo">
-        <img src="assets/OaklandLabs.png" alt="Oakland Labs">
+        <a href="index.html" aria-label="Oakland Labs home">
+            <img src="assets/OaklandLabs.png" alt="Oakland Labs">
+        </a>
     </div>
 
     <main>
@@ -128,7 +150,7 @@
             <p>By downloading or utilizing Provenant, you are entering into a binding agreement with Oakland Labs LLC and agreeing to these Terms of Service. Provenant is designed as a personal collection management tool specifically for tracking autographs and sports memorabilia. Our service includes features such as local data storage, optional cloud synchronization, public profile customization, and competitive group leaderboards. Please note that while core features are available for free, certain advanced functionalities require a paid premium subscription.</p>
 
             <h2>2. Account Requirements and Billing</h2>
-            <p>To utilize cloud synchronization, you must create an account using a valid email address and be at least 13 years of age. You are solely responsible for maintaining the security of your credentials and for all activities that occur under your account.</p>
+            <p>To utilize cloud synchronization, you may create an account using a valid email address and be at least 13 years of age. You are solely responsible for maintaining the security of your credentials and for all activities that occur under your account.</p>
             <p>Our Free Tier is supported by advertisements, while the Premium Subscription removes ads and unlocks additional features. All subscriptions are processed through the Apple App Store or Google Play Store on a monthly or annual basis. You may cancel your subscription at any time via your device settings; however, we do not provide refunds for partial billing periods, and access to premium features will terminate at the end of your current billing cycle.</p>
 
             <h2>3. Content Ownership and Acceptable Use</h2>
@@ -145,7 +167,15 @@
     </main>
 
     <footer>
-        <p>&copy; 2026 Oakland Labs LLC. All rights reserved.</p>
+        <div class="footer-inner">
+            <p>&copy; 2026 Oakland Labs LLC. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="index.html">Home</a>
+                <a href="privacy.html">Privacy Policy</a>
+                <a href="terms.html">Terms of Service</a>
+                <a href="mailto:support@oaklandlabs.app">support@oaklandlabs.app</a>
+            </div>
+        </div>
     </footer>
 
 </body>

@@ -137,6 +137,70 @@
         }
         .btn-secondary:hover { background: #22262f; transform: translateY(-1px); }
 
+        /* ── WAITLIST FORM ── */
+        .waitlist-form {
+            display: flex;
+            gap: 0.5rem;
+            width: 100%;
+            max-width: 420px;
+            margin-bottom: 1rem;
+        }
+        .waitlist-input {
+            flex: 1;
+            background: var(--surface-2);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 0.7rem 1rem;
+            color: var(--text);
+            font-family: inherit;
+            font-size: 0.9rem;
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .waitlist-input::placeholder { color: var(--muted); }
+        .waitlist-input:focus { border-color: var(--accent); }
+        .waitlist-submit {
+            background: var(--accent);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            padding: 0.7rem 1.25rem;
+            font-family: inherit;
+            font-size: 0.9rem;
+            font-weight: 600;
+            cursor: pointer;
+            white-space: nowrap;
+            transition: background 0.2s, transform 0.15s;
+        }
+        .waitlist-submit:hover { background: #3a7de8; transform: translateY(-1px); }
+        .waitlist-submit:disabled { opacity: 0.6; cursor: not-allowed; transform: none; }
+        .waitlist-note {
+            font-size: 0.78rem;
+            color: var(--muted);
+            margin-bottom: 2rem;
+        }
+        .waitlist-success {
+            display: none;
+            align-items: center;
+            gap: 0.5rem;
+            background: rgba(79,142,247,0.1);
+            border: 1px solid rgba(79,142,247,0.25);
+            border-radius: 8px;
+            padding: 0.7rem 1.1rem;
+            color: var(--accent);
+            font-size: 0.9rem;
+            font-weight: 500;
+            max-width: 420px;
+            margin-bottom: 1rem;
+        }
+        .waitlist-error {
+            display: none;
+            font-size: 0.8rem;
+            color: #f87171;
+            margin-top: 0.4rem;
+            max-width: 420px;
+        }
+
         /* ── PROVENANT SECTION ── */
         .app-section {
             max-width: 1000px;
@@ -433,8 +497,18 @@
         <p class="hero-eyebrow">iOS &amp; Android Development</p>
         <h1>Apps built for<br><span>collectors who care.</span></h1>
         <p class="hero-sub">Oakland Labs builds precise, thoughtful mobile experiences for people serious about what they collect.</p>
+        <form id="waitlist-form" class="waitlist-form" action="https://formspree.io/f/YOUR_FORM_ID" method="POST" novalidate>
+            <input type="email" name="email" class="waitlist-input" placeholder="you@example.com" required autocomplete="email">
+            <button type="submit" class="waitlist-submit">Join Waitlist</button>
+        </form>
+        <p id="waitlist-error" class="waitlist-error"></p>
+        <div id="waitlist-success" class="waitlist-success">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+            You're on the list — we'll reach out when Provenant launches.
+        </div>
+        <p class="waitlist-note">No spam. Just a launch notification when we're ready.</p>
         <div class="hero-actions">
-            <a href="#provenant" class="btn-primary">Our App</a>
+            <a href="#provenant" class="btn-secondary">Learn More</a>
             <a href="#about" class="btn-secondary">Get in Touch</a>
         </div>
     </section>
@@ -474,7 +548,7 @@
                         </span>
                     </button>
                 </div>
-                <p class="notify-cta">Want to know when we launch? <a href="mailto:support@oaklandlabs.app?subject=Provenant%20Launch%20Notification" class="notify-link">Email us to join the list</a></p>
+                <p class="notify-cta">Want to know when we launch? <a href="#" onclick="document.querySelector('.waitlist-input').focus();return false;" class="notify-link">Join the waitlist above</a></p>
             </div>
             <div class="app-card-visual">
                 <img src="assets/Provenant.png" alt="Provenant" class="app-mockup-icon">
@@ -592,5 +666,41 @@
         </div>
     </footer>
 
+    <script>
+        const form = document.getElementById('waitlist-form');
+        const successEl = document.getElementById('waitlist-success');
+        const errorEl = document.getElementById('waitlist-error');
+
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const email = form.querySelector('input[type="email"]').value.trim();
+            if (!email) return;
+
+            const btn = form.querySelector('button[type="submit"]');
+            btn.disabled = true;
+            btn.textContent = 'Joining…';
+            errorEl.style.display = 'none';
+
+            try {
+                const res = await fetch(form.action, {
+                    method: 'POST',
+                    headers: { 'Accept': 'application/json', 'Content-Type': 'application/json' },
+                    body: JSON.stringify({ email }),
+                });
+                if (res.ok) {
+                    form.style.display = 'none';
+                    errorEl.style.display = 'none';
+                    successEl.style.display = 'flex';
+                } else {
+                    throw new Error();
+                }
+            } catch {
+                errorEl.textContent = 'Something went wrong — please try again or email us directly.';
+                errorEl.style.display = 'block';
+                btn.disabled = false;
+                btn.textContent = 'Join Waitlist';
+            }
+        });
+    </script>
 </body>
 </html>

@@ -1,0 +1,219 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Get Provenant | Oakland Labs</title>
+    <meta name="description" content="Download Provenant for iOS and Android — the collection management app for sports memorabilia and autographs.">
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/png" href="../assets/OaklandLabs.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #0a0c10;
+            --surface: #111318;
+            --border: rgba(255,255,255,0.08);
+            --text: #e2e8f0;
+            --muted: #8b95a5;
+            --accent: #4f8ef7;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .site-logo {
+            display: flex;
+            justify-content: center;
+            padding: 2.5rem 1.5rem 0;
+        }
+        .site-logo a { display: inline-flex; }
+        .site-logo img {
+            height: 100px;
+            width: auto;
+            object-fit: contain;
+        }
+
+        main {
+            flex: 1;
+            max-width: 560px;
+            margin: 0 auto;
+            padding: 3.5rem 1.5rem 5rem;
+            width: 100%;
+            text-align: center;
+        }
+
+        .app-icon {
+            width: 96px;
+            height: 96px;
+            border-radius: 22px;
+            object-fit: cover;
+            margin: 0 auto 1.75rem;
+            display: block;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.45);
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: #fff;
+            margin-bottom: 0.6rem;
+        }
+        .tagline {
+            font-size: 1rem;
+            color: var(--muted);
+            margin-bottom: 2.5rem;
+        }
+
+        .store-buttons {
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            align-items: center;
+        }
+        .store-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.85rem;
+            width: 100%;
+            max-width: 320px;
+            padding: 0.9rem 1.5rem;
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            color: var(--text);
+            text-decoration: none;
+            font-weight: 600;
+            transition: border-color 0.2s, transform 0.15s, background 0.2s;
+        }
+        .store-btn:hover {
+            border-color: rgba(79,142,247,0.5);
+            background: #161922;
+            transform: translateY(-1px);
+        }
+        .store-btn svg { flex-shrink: 0; }
+        .store-btn .label { text-align: left; line-height: 1.2; }
+        .store-btn .label small {
+            display: block;
+            font-size: 0.7rem;
+            font-weight: 500;
+            color: var(--muted);
+            letter-spacing: 0.02em;
+        }
+        .store-btn .label span {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #fff;
+        }
+
+        .redirect-note {
+            margin-top: 2rem;
+            font-size: 0.85rem;
+            color: var(--muted);
+        }
+        .redirect-note a { color: var(--accent); text-decoration: none; }
+        .redirect-note a:hover { text-decoration: underline; }
+
+        footer {
+            margin-top: auto;
+            border-top: 1px solid var(--border);
+            padding: 2rem;
+        }
+        .footer-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        footer p { font-size: 0.8rem; color: var(--muted); }
+        .footer-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+        .footer-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: color 0.2s;
+        }
+        .footer-links a[href^="mailto"] { color: var(--accent); }
+        .footer-links a:hover { color: var(--text); }
+        @media (max-width: 600px) { .footer-inner { flex-direction: column; } }
+    </style>
+</head>
+<body>
+
+    <div class="site-logo">
+        <a href="../index.html" aria-label="Oakland Labs home">
+            <img src="../assets/OaklandLabs.png" alt="Oakland Labs">
+        </a>
+    </div>
+
+    <main>
+        <img src="../assets/Provenant.png" alt="Provenant" class="app-icon">
+        <h1>Get Provenant</h1>
+        <p class="tagline">Track and showcase your sports memorabilia and autograph collection.</p>
+
+        <div class="store-buttons">
+            <a class="store-btn" id="ios-btn" href="https://apps.apple.com/app/provenant/id6743767012">
+                <svg width="24" height="24" viewBox="0 0 24 24" fill="#fff" aria-hidden="true"><path d="M16.365 1.43c0 1.14-.42 2.2-1.13 3.02-.83.96-2.19 1.7-3.32 1.61-.13-1.1.43-2.27 1.08-3.01.74-.84 2.06-1.5 3.18-1.62.07.33.19.66.19 1zM20.7 17.4c-.5 1.13-.74 1.64-1.39 2.64-.9 1.4-2.17 3.14-3.74 3.15-1.4.02-1.76-.91-3.65-.9-1.9.01-2.3.92-3.7.9-1.57-.01-2.77-1.58-3.67-2.97C2.04 16.4 1.78 12 3.32 9.65c1.06-1.62 2.73-2.57 4.3-2.57 1.6 0 2.6.91 3.93.91 1.28 0 2.06-.91 3.91-.91 1.4 0 2.88.76 3.94 2.07-3.46 1.9-2.9 6.84.3 8.25z"/></svg>
+                <span class="label"><small>Download on the</small><span>App Store</span></span>
+            </a>
+            <a class="store-btn" id="android-btn" href="https://play.google.com/store/apps/details?id=com.provenant.app">
+                <svg width="24" height="24" viewBox="0 0 24 24" aria-hidden="true"><path fill="#EA4335" d="M3.6 2.3 13 11.7 15.6 9 4.9 1.6a1.8 1.8 0 0 0-1.3.7z"/><path fill="#4285F4" d="M3.1 2.9A1.8 1.8 0 0 0 3 3.6v16.8c0 .25.05.48.13.69L12.6 12 3.1 2.9z"/><path fill="#FBBC04" d="m16.9 9.9-2.5 2.1 2.5 2.1 3.3-1.9c.8-.45.8-1.6 0-2.05L16.9 9.9z"/><path fill="#34A853" d="M3.6 21.7c.36.3.86.36 1.3.1L15.6 15 13 12.3 3.6 21.7z"/></svg>
+                <span class="label"><small>Get it on</small><span>Google Play</span></span>
+            </a>
+        </div>
+
+        <p class="redirect-note" id="redirect-note" hidden>
+            Taking you to your app store… <a href="#" id="manual-link">Tap here if it doesn't open.</a>
+        </p>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <p>&copy; 2026 Oakland Labs LLC. All rights reserved.</p>
+            <div class="footer-links">
+                <a href="../index.html">Home</a>
+                <a href="../privacy.html">Privacy Policy</a>
+                <a href="../terms.html">Terms of Service</a>
+                <a href="mailto:support@oaklandlabs.app">support@oaklandlabs.app</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            var APP_STORE = "https://apps.apple.com/app/provenant/id6743767012";
+            var PLAY_STORE = "https://play.google.com/store/apps/details?id=com.provenant.app";
+
+            var ua = navigator.userAgent || navigator.vendor || "";
+            var isIOS = /iPad|iPhone|iPod/.test(ua) ||
+                // iPadOS 13+ reports as Mac with touch support
+                (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+            var isAndroid = /Android/.test(ua);
+
+            var target = isIOS ? APP_STORE : (isAndroid ? PLAY_STORE : null);
+
+            if (target) {
+                var note = document.getElementById("redirect-note");
+                var manual = document.getElementById("manual-link");
+                if (note) note.hidden = false;
+                if (manual) manual.href = target;
+                window.location.replace(target);
+            }
+        })();
+    </script>
+
+</body>
+</html>

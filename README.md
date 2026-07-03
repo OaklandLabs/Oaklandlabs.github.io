@@ -1,3 +1,3 @@
-# Oaklandlabs.github.io
+# Oaklandlabs
 
 Oakland Labs Website

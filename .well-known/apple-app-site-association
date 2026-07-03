@@ -1,0 +1,16 @@
+{
+  "applinks": {
+    "apps": [],
+    "details": [
+      {
+        "appIDs": ["3MV66VKC53.com.provenant.app"],
+        "components": [
+          { "/": "/provenant/join", "comment": "Group invite links" },
+          { "/": "/provenant/join/*" },
+          { "/": "/provenant/profile", "comment": "Public profile links" },
+          { "/": "/provenant/profile/*" }
+        ]
+      }
+    ]
+  }
+}

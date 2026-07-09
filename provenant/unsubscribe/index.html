@@ -99,11 +99,20 @@
             max-width: 320px;
             padding: 0.95rem 1.5rem;
             border-radius: 12px;
+            border: none;
             text-decoration: none;
+            font-family: inherit;
             font-size: 1.05rem;
             font-weight: 700;
+            cursor: pointer;
             transition: border-color 0.2s, transform 0.15s, background 0.2s, opacity 0.2s;
         }
+        .btn:disabled { opacity: 0.6; cursor: default; }
+        .btn-primary {
+            background: var(--accent);
+            color: #fff;
+        }
+        .btn-primary:hover:not(:disabled) { opacity: 0.9; transform: translateY(-1px); }
         .btn-secondary {
             background: var(--surface);
             border: 1px solid var(--border);
@@ -158,6 +167,7 @@
         <div class="spinner" id="spinner"></div>
 
         <div class="actions">
+            <button class="btn btn-primary" id="undo" type="button" hidden>Undo — keep me subscribed</button>
             <a class="btn btn-secondary" href="../index.html">Back to Provenant</a>
         </div>
     </main>
@@ -186,6 +196,7 @@
             var headline = document.getElementById("headline");
             var tagline = document.getElementById("tagline");
             var spinner = document.getElementById("spinner");
+            var undoBtn = document.getElementById("undo");
 
             function show(title, body) {
                 headline.textContent = title;
@@ -206,15 +217,22 @@
                 return;
             }
 
-            fetch(FUNCTION_URL + "?token=" + encodeURIComponent(token), {
-                method: "POST",
-            })
+            // POST the given action to the edge function. action=resubscribe
+            // flips alerts back on; omitting it unsubscribes.
+            function post(action) {
+                var qs = "?token=" + encodeURIComponent(token);
+                if (action) qs += "&action=" + encodeURIComponent(action);
+                return fetch(FUNCTION_URL + qs, { method: "POST" });
+            }
+
+            post()
                 .then(function (resp) {
                     if (resp.ok) {
                         show(
                             "You're unsubscribed",
-                            "You won't receive any more wishlist alert emails. You can re-enable them anytime in the app under Settings → Notifications."
+                            "You won't receive any more wishlist alert emails. Changed your mind?"
                         );
+                        undoBtn.hidden = false;
                     } else {
                         show(
                             "Couldn't unsubscribe",
@@ -228,6 +246,32 @@
                         "We couldn't reach our servers. Please check your connection and try again, or email support@oaklandlabs.app and we'll remove you manually."
                     );
                 });
+
+            undoBtn.addEventListener("click", function () {
+                undoBtn.disabled = true;
+                undoBtn.textContent = "Re-subscribing…";
+                post("resubscribe")
+                    .then(function (resp) {
+                        if (resp.ok) {
+                            undoBtn.hidden = true;
+                            show(
+                                "You're subscribed again",
+                                "Wishlist alert emails are back on. You can change this anytime in the app under Settings → Notifications."
+                            );
+                        } else {
+                            undoBtn.disabled = false;
+                            undoBtn.textContent = "Undo — keep me subscribed";
+                            tagline.textContent =
+                                "Couldn't re-subscribe just now. Please try again, or turn alerts back on in the app under Settings → Notifications.";
+                        }
+                    })
+                    .catch(function () {
+                        undoBtn.disabled = false;
+                        undoBtn.textContent = "Undo — keep me subscribed";
+                        tagline.textContent =
+                            "We couldn't reach our servers. Please try again, or turn alerts back on in the app under Settings → Notifications.";
+                    });
+            });
         })();
     </script>
 

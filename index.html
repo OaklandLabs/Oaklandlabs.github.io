@@ -230,6 +230,15 @@
             opacity: 0.6;
             text-decoration: none;
         }
+        .store-btn:not([disabled]) {
+            cursor: pointer;
+            opacity: 1;
+            transition: border-color 0.15s ease, transform 0.15s ease;
+        }
+        .store-btn:not([disabled]):hover {
+            border-color: var(--accent);
+            transform: translateY(-1px);
+        }
         .store-btn-icon {
             display: flex;
             align-items: center;
@@ -447,7 +456,7 @@
         <div class="app-card">
             <div class="app-card-content">
                 <span class="coming-soon-badge">
-                    <span>●</span> Coming Soon
+                    <span>●</span> Available Now
                 </span>
                 <p>Track history, verify authentication, and manage your entire collection with precision — all in one place. Built for serious collectors who want full visibility into their portfolio.</p>
                 <div class="store-buttons">
@@ -462,22 +471,22 @@
                             <span class="store-btn-name">App Store</span>
                         </span>
                     </button>
-                    <button type="button" disabled class="store-btn" aria-label="Google Play — coming soon">
+                    <a href="https://play.google.com/store/apps/details?id=com.provenant.app&hl=en_US" target="_blank" rel="noopener" class="store-btn" aria-label="Get it on Google Play">
                         <span class="store-btn-icon">
                             <svg width="18" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                                 <polygon points="5 3 19 12 5 21 5 3"/>
                             </svg>
                         </span>
                         <span class="store-btn-text">
-                            <span class="store-btn-sub">Coming soon to</span>
+                            <span class="store-btn-sub">Get it on</span>
                             <span class="store-btn-name">Google Play</span>
                         </span>
-                    </button>
+                    </a>
                 </div>
-                <p class="notify-cta">Launching soon on the App Store and Google Play. Questions? <a href="#about" class="notify-link">Get in touch</a>.</p>
+                <p class="notify-cta">Now available on Google Play. Landing soon on the App Store. Questions? <a href="#about" class="notify-link">Get in touch</a>.</p>
             </div>
             <div class="app-card-visual">
-                <img src="assets/Provenant.png" alt="Provenant" class="app-mockup-icon">
+                <img src="assets/provenant-logo.png" alt="Provenant" class="app-mockup-icon">
             </div>
         </div>
     </section>

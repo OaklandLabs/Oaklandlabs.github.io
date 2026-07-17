@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Not Found | Oakland Labs LLC</title>
+    <meta name="description" content="The page you're looking for doesn't exist.">
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/png" href="/assets/OaklandLabs.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #0a0c10;
+            --surface: #111318;
+            --surface-2: #1a1d24;
+            --border: rgba(255,255,255,0.08);
+            --text: #e2e8f0;
+            --muted: #8b95a5;
+            --accent: #4f8ef7;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        .footer-brand {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        .footer-brand img { height: 24px; width: auto; }
+        .footer-brand-name { font-size: 0.875rem; font-weight: 600; color: var(--muted); }
+        .footer-copy { font-size: 0.8rem; color: var(--muted); margin-top: 0.4rem; }
+
+        main {
+            flex: 1;
+            max-width: 560px;
+            margin: 0 auto;
+            padding: 4.5rem 1.5rem 5rem;
+            width: 100%;
+            text-align: center;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .code {
+            font-size: clamp(4rem, 14vw, 7rem);
+            font-weight: 800;
+            letter-spacing: -0.04em;
+            line-height: 1;
+            background: linear-gradient(135deg, #4f8ef7, #a78bfa);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            margin-bottom: 1rem;
+        }
+        h1 {
+            font-size: 1.5rem;
+            font-weight: 800;
+            letter-spacing: -0.02em;
+            color: #fff;
+            margin-bottom: 0.6rem;
+        }
+        p {
+            font-size: 1rem;
+            color: var(--muted);
+            margin-bottom: 2rem;
+            max-width: 380px;
+        }
+
+        .btn-primary {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            background: var(--accent);
+            color: #fff;
+            padding: 0.8rem 1.6rem;
+            border-radius: 8px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            text-decoration: none;
+            transition: background 0.2s, transform 0.15s;
+        }
+        .btn-primary:hover { background: #3a7de8; transform: translateY(-1px); }
+
+        footer {
+            margin-top: auto;
+            border-top: 1px solid var(--border);
+            padding: 2rem;
+        }
+        .footer-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        footer p { font-size: 0.8rem; color: var(--muted); margin: 0; }
+        .footer-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+        .footer-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: color 0.2s;
+        }
+        .footer-links a[href^="mailto"] { color: var(--accent); }
+        .footer-links a:hover { color: var(--text); }
+        @media (max-width: 600px) { .footer-inner { flex-direction: column; } }
+    </style>
+</head>
+<body>
+
+    <main>
+        <div class="code">404</div>
+        <h1>Page not found</h1>
+        <p>The page you're looking for doesn't exist or may have moved.</p>
+        <a href="/" class="btn-primary">← Back to Home</a>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div>
+                <div class="footer-brand">
+                    <img src="/assets/OaklandLabs.png" alt="Oakland Labs">
+                    <span class="footer-brand-name">Oakland Labs LLC</span>
+                </div>
+                <p class="footer-copy">&copy; 2026 Oakland Labs LLC. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <a href="/">Home</a>
+                <a href="/privacy.html">Privacy Policy</a>
+                <a href="/terms.html">Terms of Service</a>
+                <a href="mailto:support@oaklandlabs.app">support@oaklandlabs.app</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cloudflare Web Analytics — cookieless, privacy-first, no personal data. -->
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "5a72f3d34243419f937f324ec33ef19e"}'></script>
+</body>
+</html>

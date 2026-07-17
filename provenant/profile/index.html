@@ -31,17 +31,14 @@
             flex-direction: column;
         }
 
-        .site-logo {
+        .footer-brand {
             display: flex;
-            justify-content: center;
-            padding: 2.5rem 1.5rem 0;
+            align-items: center;
+            gap: 0.5rem;
         }
-        .site-logo a { display: inline-flex; }
-        .site-logo img {
-            height: 100px;
-            width: auto;
-            object-fit: contain;
-        }
+        .footer-brand img { height: 24px; width: auto; }
+        .footer-brand-name { font-size: 0.875rem; font-weight: 600; color: var(--muted); }
+        .footer-copy { font-size: 0.8rem; color: var(--muted); margin-top: 0.4rem; }
 
         main {
             flex: 1;
@@ -155,12 +152,6 @@
 </head>
 <body>
 
-    <div class="site-logo">
-        <a href="../../index.html" aria-label="Oakland Labs home">
-            <img src="../../assets/OaklandLabs.png" alt="Oakland Labs">
-        </a>
-    </div>
-
     <main>
         <img src="../../assets/Provenant.png" alt="Provenant" class="app-icon">
         <h1 id="headline">Check out this collection!</h1>
@@ -178,7 +169,13 @@
 
     <footer>
         <div class="footer-inner">
-            <p>&copy; 2026 Oakland Labs LLC. All rights reserved.</p>
+            <div>
+                <div class="footer-brand">
+                    <img src="../../assets/OaklandLabs.png" alt="Oakland Labs">
+                    <span class="footer-brand-name">Oakland Labs LLC</span>
+                </div>
+                <p class="footer-copy">&copy; 2026 Oakland Labs LLC. All rights reserved.</p>
+            </div>
             <div class="footer-links">
                 <a href="../../index.html">Home</a>
                 <a href="../../privacy.html">Privacy Policy</a>

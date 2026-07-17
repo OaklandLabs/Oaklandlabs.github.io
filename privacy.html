@@ -30,17 +30,14 @@
             flex-direction: column;
         }
 
-        .site-logo {
+        .footer-brand {
             display: flex;
-            justify-content: center;
-            padding: 2.5rem 1.5rem 0;
+            align-items: center;
+            gap: 0.5rem;
         }
-        .site-logo a { display: inline-flex; }
-        .site-logo img {
-            height: 100px;
-            width: auto;
-            object-fit: contain;
-        }
+        .footer-brand img { height: 24px; width: auto; }
+        .footer-brand-name { font-size: 0.875rem; font-weight: 600; color: var(--muted); }
+        .footer-copy { font-size: 0.8rem; color: var(--muted); margin-top: 0.4rem; }
 
         main {
             flex: 1;
@@ -133,12 +130,6 @@
 </head>
 <body>
 
-    <div class="site-logo">
-        <a href="index.html" aria-label="Oakland Labs home">
-            <img src="assets/OaklandLabs.png" alt="Oakland Labs">
-        </a>
-    </div>
-
     <main>
         <a href="index.html" class="back-link">← Back to Home</a>
 
@@ -150,7 +141,7 @@
             <p>At Provenant, we believe your collection is your business. We are built for collectors, not advertisers, which is why we strictly never sell, rent, or share your data with third parties for marketing purposes. We collect collection data — such as item details and photos — which can be stored locally on your device on synced to our Cloud servers. For Premium subscribers, this data is synced to our secure cloud to allow access across multiple devices.</p>
 
             <h2>2. Information Collection and Usage</h2>
-            <p>We collect your email address solely for account authentication and synchronization purposes. While subscription status and purchase history are managed via RevenueCat, we do not store your credit card or payment details. We also collect anonymized crash reports and basic diagnostics to help us troubleshoot bugs and improve app performance; this data is never tied to your specific identity or collection items.</p>
+            <p>We collect your email address solely for account authentication and synchronization purposes. While subscription status and purchase history are managed via RevenueCat, we do not store your credit card or payment details. We also collect anonymized crash reports and basic diagnostics to help us troubleshoot bugs and improve app performance; this data is never tied to your specific identity or collection items. Our website uses aggregate, cookieless analytics to understand overall traffic — this sets no cookies and collects no personally identifiable information.</p>
 
             <h2>3. Public Profiles and Data Control</h2>
             <p>Public profiles and group leaderboards are strictly opt-in. You maintain granular control over which items appear publicly, and group leaderboards primarily show aggregated statistics rather than individual item details.</p>
@@ -170,7 +161,13 @@
 
     <footer>
         <div class="footer-inner">
-            <p>&copy; 2026 Oakland Labs LLC. All rights reserved.</p>
+            <div>
+                <div class="footer-brand">
+                    <img src="assets/OaklandLabs.png" alt="Oakland Labs">
+                    <span class="footer-brand-name">Oakland Labs LLC</span>
+                </div>
+                <p class="footer-copy">&copy; 2026 Oakland Labs LLC. All rights reserved.</p>
+            </div>
             <div class="footer-links">
                 <a href="index.html">Home</a>
                 <a href="privacy.html">Privacy Policy</a>
@@ -181,5 +178,7 @@
         </div>
     </footer>
 
+    <!-- Cloudflare Web Analytics — cookieless, privacy-first, no personal data. -->
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "5a72f3d34243419f937f324ec33ef19e"}'></script>
 </body>
 </html>

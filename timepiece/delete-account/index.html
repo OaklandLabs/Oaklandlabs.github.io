@@ -1,0 +1,408 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Delete Account or Data | Timepiece Tracker</title>
+    <meta name="description" content="How to delete your Timepiece Tracker account or cloud data, and exactly what is erased.">
+    <link rel="icon" type="image/png" href="../../assets/OaklandLabs.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #0a0c10;
+            --surface: #111318;
+            --border: rgba(255,255,255,0.08);
+            --text: #e2e8f0;
+            --muted: #8b95a5;
+            --accent: #f0b429;
+            --link: #4f8ef7;
+            --danger: #ef4444;
+            --danger-bg: rgba(239,68,68,0.08);
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem 5rem;
+            width: 100%;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--link);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 2.5rem;
+            transition: opacity 0.2s;
+        }
+        .back-link:hover { opacity: 0.8; }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+        .last-updated {
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin-bottom: 3rem;
+        }
+
+        .section {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 2rem;
+            margin-bottom: 2rem;
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-bottom: 1.25rem;
+            flex-wrap: wrap;
+        }
+        .badge {
+            display: inline-block;
+            font-size: 0.7rem;
+            font-weight: 700;
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            padding: 0.25rem 0.6rem;
+            border-radius: 999px;
+        }
+        .badge-danger {
+            background: var(--danger-bg);
+            color: var(--danger);
+            border: 1px solid rgba(239,68,68,0.2);
+        }
+        .badge-warning {
+            background: rgba(251,191,36,0.08);
+            color: #fbbf24;
+            border: 1px solid rgba(251,191,36,0.2);
+        }
+        .section h2 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            color: #fff;
+        }
+        .section p {
+            font-size: 0.95rem;
+            color: var(--muted);
+            line-height: 1.75;
+            margin-bottom: 1rem;
+        }
+        .section p:last-child { margin-bottom: 0; }
+        .section a { color: var(--link); text-decoration: none; }
+        .section a:hover { text-decoration: underline; }
+
+        .steps {
+            list-style: none;
+            counter-reset: steps;
+            margin: 1rem 0;
+        }
+        .steps li {
+            counter-increment: steps;
+            display: flex;
+            align-items: flex-start;
+            gap: 1rem;
+            padding: 0.6rem 0;
+            font-size: 0.95rem;
+            color: var(--text);
+            border-bottom: 1px solid var(--border);
+        }
+        .steps li:last-child { border-bottom: none; }
+        .steps li::before {
+            content: counter(steps);
+            min-width: 1.6rem;
+            height: 1.6rem;
+            background: rgba(240,180,41,0.12);
+            color: var(--accent);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.75rem;
+            font-weight: 700;
+            flex-shrink: 0;
+        }
+
+        .table-scroll { overflow-x: auto; }
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0;
+            font-size: 0.9rem;
+        }
+        .data-table th {
+            text-align: left;
+            font-weight: 600;
+            color: var(--muted);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 0.5rem 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .data-table td {
+            padding: 0.65rem 0.75rem;
+            color: var(--text);
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+        .data-table tr:last-child td { border-bottom: none; }
+        .data-table .deleted { color: var(--danger); }
+        .data-table .kept { color: #4ade80; }
+
+        .callout {
+            background: rgba(240,180,41,0.06);
+            border: 1px solid rgba(240,180,41,0.18);
+            border-radius: 8px;
+            padding: 1rem 1.25rem;
+            margin-top: 1.25rem;
+            font-size: 0.9rem;
+            color: var(--muted);
+        }
+        .callout a { color: var(--link); text-decoration: none; }
+        .callout a:hover { text-decoration: underline; }
+
+        footer {
+            margin-top: auto;
+            border-top: 1px solid var(--border);
+            padding: 2rem;
+        }
+        .footer-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .footer-brand { display: flex; align-items: center; gap: 0.5rem; }
+        .footer-brand img { height: 24px; width: auto; }
+        .footer-brand-name { font-size: 0.875rem; font-weight: 600; color: var(--muted); }
+        .footer-copy { font-size: 0.8rem; color: var(--muted); margin-top: 0.4rem; }
+        footer p { font-size: 0.8rem; color: var(--muted); }
+        .footer-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+        .footer-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: color 0.2s;
+        }
+        .footer-links a[href^="mailto"] { color: var(--link); }
+        .footer-links a:hover { color: var(--text); }
+        @media (max-width: 600px) { .footer-inner { flex-direction: column; } }
+    </style>
+</head>
+<body>
+
+    <main>
+        <a href="../index.html" class="back-link">← Back to Timepiece Tracker</a>
+
+        <h1>Delete Account or Data</h1>
+        <p class="last-updated">Timepiece Tracker by Oakland Labs &mdash; Last Updated: July 2026</p>
+
+        <!-- DELETE ACCOUNT -->
+        <div class="section">
+            <div class="section-header">
+                <span class="badge badge-danger">Permanent</span>
+                <h2>Delete Your Account</h2>
+            </div>
+
+            <p>Deleting your account permanently removes your Timepiece Tracker account and every piece of data we hold in the cloud for it. This cannot be undone.</p>
+
+            <p><strong style="color:#fff;">How to delete your account in the app:</strong></p>
+            <ol class="steps">
+                <li>Open the <strong>Timepiece Tracker</strong> app on your device.</li>
+                <li>Tap the <strong>Settings</strong> tab (gear icon).</li>
+                <li>Scroll to the <strong>Account</strong> section and tap <strong>Manage account</strong>.</li>
+                <li>Tap <strong>Delete Account</strong>.</li>
+                <li>Confirm the deletion when prompted.</li>
+            </ol>
+
+            <p style="margin-top:1.25rem;"><strong style="color:#fff;">What is deleted:</strong></p>
+            <div class="table-scroll">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Outcome</th>
+                        <th>Retention</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Your account &amp; email address</td>
+                        <td class="deleted">Permanently deleted</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td>Synced watches &amp; specs</td>
+                        <td class="deleted">Permanently deleted</td>
+                        <td>Purged from backups within 30 days</td>
+                    </tr>
+                    <tr>
+                        <td>Watch photos in the cloud</td>
+                        <td class="deleted">Permanently deleted</td>
+                        <td>Purged from backups within 30 days</td>
+                    </tr>
+                    <tr>
+                        <td>Wishlist items &amp; alert settings</td>
+                        <td class="deleted">Permanently deleted</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td>Profile, display name, username, avatar</td>
+                        <td class="deleted">Permanently deleted</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td>Group memberships</td>
+                        <td class="deleted">Removed. Groups you created are deleted unless another owner remains</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td>Push notification token</td>
+                        <td class="deleted">Permanently deleted &mdash; alerts stop immediately</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td>Local data on your device</td>
+                        <td class="kept">Kept on your device</td>
+                        <td>Until you uninstall the app</td>
+                    </tr>
+                    <tr>
+                        <td>Subscription / billing history</td>
+                        <td class="kept">Managed by Apple / Google &mdash; not deleted by us</td>
+                        <td>Per Apple / Google policy</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+
+            <p>Deleting your account does <strong>not</strong> cancel a subscription. Cancel it separately in your device's subscription settings (iOS: Settings → your name → Subscriptions; Android: Google Play → Payments &amp; subscriptions).</p>
+            <p>To also remove the copy stored on your device, uninstall the app after deleting your account.</p>
+
+            <div class="callout">
+                Can't access the app? Email <a href="mailto:support@oaklandlabs.app">support@oaklandlabs.app</a> from your account's email address and we will delete your account manually within 30 days.
+            </div>
+        </div>
+
+        <!-- DELETE DATA ONLY -->
+        <div class="section">
+            <div class="section-header">
+                <span class="badge badge-warning">Keeps Account</span>
+                <h2>Delete Your Cloud Data (Without Deleting Your Account)</h2>
+            </div>
+
+            <p>You can erase your cloud-stored collection while keeping your account, so you can keep signing in, start fresh, or simply stop syncing.</p>
+
+            <p><strong style="color:#fff;">How to delete your cloud data in the app:</strong></p>
+            <ol class="steps">
+                <li>Open the <strong>Timepiece Tracker</strong> app on your device.</li>
+                <li>Tap the <strong>Settings</strong> tab (gear icon).</li>
+                <li>In the <strong>Account</strong> section, tap <strong>Manage account</strong>.</li>
+                <li>Tap <strong>Delete Cloud Data</strong>.</li>
+                <li>Confirm the deletion when prompted.</li>
+            </ol>
+
+            <p style="margin-top:1.25rem;"><strong style="color:#fff;">What is deleted vs. kept:</strong></p>
+            <div class="table-scroll">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Outcome</th>
+                        <th>Retention</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Synced watches &amp; specs (cloud)</td>
+                        <td class="deleted">Permanently deleted from cloud</td>
+                        <td>Purged from backups within 30 days</td>
+                    </tr>
+                    <tr>
+                        <td>Wishlist items (cloud)</td>
+                        <td class="deleted">Permanently deleted from cloud</td>
+                        <td>None</td>
+                    </tr>
+                    <tr>
+                        <td>Your account &amp; email address</td>
+                        <td class="kept">Kept &mdash; account remains active</td>
+                        <td>Until you delete your account</td>
+                    </tr>
+                    <tr>
+                        <td>Profile &amp; group memberships</td>
+                        <td class="kept">Kept</td>
+                        <td>Until you delete your account or leave the group</td>
+                    </tr>
+                    <tr>
+                        <td>Local data on your device</td>
+                        <td class="kept">Kept on your device</td>
+                        <td>Until you uninstall the app</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+
+            <div class="callout">
+                Note: with cloud sync still enabled, the collection on your device will upload again on the next sync. Turn sync off first under <strong>Settings → Account → Cloud sync</strong> if you want the cloud to stay empty.
+            </div>
+        </div>
+
+        <!-- EMAILS -->
+        <div class="section">
+            <div class="section-header">
+                <span class="badge badge-warning">Emails Only</span>
+                <h2>Just Stop the Emails</h2>
+            </div>
+            <p>To stop wishlist digest emails without touching your data, turn off <strong>Email digest</strong> under <strong>Settings → Notifications</strong>, or use the unsubscribe link at the bottom of any digest. Both take effect immediately.</p>
+        </div>
+
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div>
+                <div class="footer-brand">
+                    <img src="../../assets/OaklandLabs.png" alt="Oakland Labs">
+                    <span class="footer-brand-name">Oakland Labs LLC</span>
+                </div>
+                <p class="footer-copy">&copy; 2026 Oakland Labs LLC. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <a href="../index.html">Timepiece Tracker</a>
+                <a href="../privacy/">Privacy Policy</a>
+                <a href="../terms/">Terms of Service</a>
+                <a href="mailto:support@oaklandlabs.app">support@oaklandlabs.app</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cloudflare Web Analytics — cookieless, privacy-first, no personal data. -->
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "5a72f3d34243419f937f324ec33ef19e"}'></script>
+</body>
+</html>

@@ -4,9 +4,9 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Oakland Labs LLC | Mobile App Development</title>
-    <meta name="description" content="Oakland Labs LLC builds precise, thoughtful iOS and Android apps for collectors. Our first app, Provenant, is a digital management platform for sports memorabilia and autographs.">
+    <meta name="description" content="Oakland Labs LLC builds precise, thoughtful iOS and Android apps for collectors. Provenant is a digital management platform for sports memorabilia and autographs; Timepiece Tracker, a watch-collection tracker, is coming soon.">
     <meta property="og:title" content="Oakland Labs LLC | Mobile App Development">
-    <meta property="og:description" content="iOS and Android apps built for collectors who care.">
+    <meta property="og:description" content="iOS and Android apps built for collectors who care. Provenant is available now; Timepiece Tracker is coming soon.">
     <meta property="og:type" content="website">
     <link rel="icon" type="image/png" href="assets/OaklandLabs.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -285,6 +285,12 @@
             z-index: 1;
             filter: drop-shadow(0 20px 48px rgba(240,180,41,0.25));
         }
+        /* App icons (as opposed to wordmarks) need the iOS squircle rounding. */
+        .app-mockup-icon.is-icon {
+            width: 44%;
+            max-width: 180px;
+            border-radius: 22%;
+        }
 
         /* ── FEATURES GRID ── */
         .features-section {
@@ -443,13 +449,13 @@
         <h1>Apps built for<br><span>collectors who care.</span></h1>
         <p class="hero-sub">Oakland Labs builds precise, thoughtful mobile experiences for people serious about what they collect.</p>
         <div class="hero-actions">
-            <a href="#provenant" class="btn-secondary">Learn More</a>
+            <a href="#provenant" class="btn-secondary">Our Apps</a>
             <a href="#about" class="btn-secondary">Get in Touch</a>
         </div>
     </section>
 
     <section id="provenant" class="app-section">
-        <p class="section-label">Our App</p>
+        <p class="section-label">Available Now</p>
         <h2 class="section-title">Introducing Provenant</h2>
         <p class="section-sub">The premier digital management platform for high-value sports memorabilia and collectibles.</p>
 
@@ -491,10 +497,42 @@
         </div>
     </section>
 
+    <section id="timepiece" class="app-section">
+        <p class="section-label">Coming Soon</p>
+        <h2 class="section-title">Timepiece Tracker</h2>
+        <p class="section-sub">Know your collection. A watch-collection tracker for collectors who wear what they own.</p>
+
+        <div class="app-card">
+            <div class="app-card-content">
+                <span class="coming-soon-badge">
+                    <span>●</span> Coming Soon
+                </span>
+                <p>Every watch's specs, photos, and value in one place — plus service reminders, accuracy tracking, a one-tap wear log with cost-per-wear, and daily eBay alerts for the grails on your wishlist.</p>
+                <div class="store-buttons">
+                    <div class="store-btn" aria-label="Coming soon to the App Store">
+                        <span class="store-btn-icon">
+                            <svg width="18" height="22" viewBox="0 0 18 22" fill="currentColor" aria-hidden="true">
+                                <path d="M14.94 11.55c-.02-2.63 2.15-3.9 2.25-3.96-1.23-1.79-3.13-2.03-3.8-2.06-1.62-.16-3.17.95-3.99.95-.82 0-2.07-.93-3.4-.9C4.2 5.61 2.5 6.62 1.57 8.19.04 10.99 1.17 15 2.62 17.2c.73 1.05 1.6 2.23 2.74 2.19 1.1-.05 1.52-.71 2.85-.71 1.33 0 1.71.71 2.86.68 1.19-.02 1.93-1.06 2.65-2.12.53-.74.94-1.5 1.22-2.28-2.43-.93-2.99-4.41-.99-5.41zM12.31 3.67c.76-.93 1.27-2.2 1.13-3.47-1.09.04-2.41.73-3.19 1.64-.7.8-1.32 2.1-1.15 3.33 1.21.09 2.46-.62 3.21-1.5z"/>
+                            </svg>
+                        </span>
+                        <span class="store-btn-text">
+                            <span class="store-btn-sub">Coming soon to the</span>
+                            <span class="store-btn-name">App Store</span>
+                        </span>
+                    </div>
+                </div>
+                <p class="notify-cta">Launching on iOS first; Android to follow. <a href="timepiece/" class="notify-link">Learn more →</a></p>
+            </div>
+            <div class="app-card-visual">
+                <img src="assets/timepiece.png" alt="Timepiece Tracker" class="app-mockup-icon is-icon">
+            </div>
+        </div>
+    </section>
+
     <hr class="divider">
 
     <section class="features-section">
-        <p class="section-label">Features</p>
+        <p class="section-label">Provenant Features</p>
         <h2 class="section-title">Everything your collection needs</h2>
         <p class="section-sub">Purpose-built tools for memorabilia collectors, from weekend hobbyists to serious investors.</p>
 
@@ -560,7 +598,7 @@
         <h2 class="section-title">Oakland Labs LLC</h2>
         <div class="about-grid">
             <div class="about-text">
-                <p>Oakland Labs LLC is an independent mobile software company based in the United States, founded to build precise, well-crafted apps for enthusiast communities. Our first product, Provenant, is purpose-built for sports memorabilia and autograph collectors.</p>
+                <p>Oakland Labs LLC is an independent mobile software company based in the United States, founded to build precise, well-crafted apps for enthusiast communities. Our first product, Provenant, is purpose-built for sports memorabilia and autograph collectors. <a href="timepiece/" class="notify-link">Timepiece Tracker</a>, for watch collectors, is coming soon.</p>
                 <p>We design for people who take their collections seriously — building native iOS and Android experiences that respect user privacy and put data ownership first. Your collection data is never sold or shared with advertisers.</p>
             </div>
             <div class="about-contact">

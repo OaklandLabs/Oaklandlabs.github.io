@@ -1,0 +1,304 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy | Binderly</title>
+    <meta name="description" content="Privacy Policy for Binderly - Card Collection by Oakland Labs LLC. What we collect, why, and how to control or delete your data.">
+    <link rel="icon" type="image/png" href="../../assets/OaklandLabs.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #0a0c10;
+            --surface: #111318;
+            --border: rgba(255,255,255,0.08);
+            --text: #e2e8f0;
+            --muted: #8b95a5;
+            --accent: #f0b429;
+            --link: #4f8ef7;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem 5rem;
+            width: 100%;
+        }
+
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--link);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-bottom: 2.5rem;
+            transition: opacity 0.2s;
+        }
+        .back-link:hover { opacity: 0.8; }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+        .last-updated {
+            font-size: 0.85rem;
+            color: var(--muted);
+            margin-bottom: 3rem;
+        }
+
+        .content h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+            margin: 2.5rem 0 0.75rem;
+        }
+        .content p {
+            font-size: 0.95rem;
+            color: var(--muted);
+            line-height: 1.75;
+            margin-bottom: 1rem;
+        }
+        .content ul {
+            margin: 0 0 1rem 1.1rem;
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.75;
+        }
+        .content li { margin-bottom: 0.4rem; }
+        .content strong { color: var(--text); }
+        .content a { color: var(--link); text-decoration: none; }
+        .content a:hover { text-decoration: underline; }
+
+        .data-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 1rem 0 1.5rem;
+            font-size: 0.9rem;
+        }
+        .data-table th {
+            text-align: left;
+            font-weight: 600;
+            color: var(--muted);
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+            padding: 0.5rem 0.75rem;
+            border-bottom: 1px solid var(--border);
+        }
+        .data-table td {
+            padding: 0.65rem 0.75rem;
+            color: var(--text);
+            border-bottom: 1px solid var(--border);
+            vertical-align: top;
+        }
+        .data-table tr:last-child td { border-bottom: none; }
+
+        .table-scroll { overflow-x: auto; }
+
+        .sibling-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--link);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            margin-top: 3rem;
+            transition: opacity 0.2s;
+        }
+        .sibling-link:hover { opacity: 0.8; }
+
+        footer {
+            margin-top: auto;
+            border-top: 1px solid var(--border);
+            padding: 2rem;
+        }
+        .footer-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .footer-brand { display: flex; align-items: center; gap: 0.5rem; }
+        .footer-brand img { height: 24px; width: auto; }
+        .footer-brand-name { font-size: 0.875rem; font-weight: 600; color: var(--muted); }
+        .footer-copy { font-size: 0.8rem; color: var(--muted); margin-top: 0.4rem; }
+        footer p { font-size: 0.8rem; color: var(--muted); }
+        .footer-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+        .footer-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: color 0.2s;
+        }
+        .footer-links a[href^="mailto"] { color: var(--link); }
+        .footer-links a:hover { color: var(--text); }
+        @media (max-width: 600px) { .footer-inner { flex-direction: column; } }
+    </style>
+</head>
+<body>
+
+    <main>
+        <a href="../index.html" class="back-link">← Back to Binderly</a>
+
+        <h1>Privacy Policy</h1>
+        <p class="last-updated">Binderly - Card Collection by Oakland Labs LLC &mdash; Last Updated: July 2026</p>
+
+        <div class="content">
+            <h2>1. The short version</h2>
+            <p>Binderly is a trading card collection tracker. Your collection is yours: we never sell, rent, or trade your personal data, and we never share your collection with advertisers. The app works fully <strong>signed out</strong> — if you never create an account, your cards, photos, decks, and wishlist stay on your device and are never uploaded to us. Card scanning happens entirely on your device; scanned images are never sent to us or to any third party.</p>
+
+            <h2>2. What we collect</h2>
+            <div class="table-scroll">
+            <table class="data-table">
+                <thead>
+                    <tr>
+                        <th>Data</th>
+                        <th>Why</th>
+                        <th>When</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Email address</td>
+                        <td>Account sign-in, password reset, and wishlist alert emails</td>
+                        <td>Only if you create an account</td>
+                    </tr>
+                    <tr>
+                        <td>Collection data (cards, decks, wishlist, purchase prices, grading notes, badges, XP)</td>
+                        <td>The core function of the app</td>
+                        <td>On your device always; in our cloud only with sync enabled</td>
+                    </tr>
+                    <tr>
+                        <td>Card and collection photos</td>
+                        <td>Photos you attach to cards in your collection</td>
+                        <td>On your device always; in our cloud only with sync enabled</td>
+                    </tr>
+                    <tr>
+                        <td>Card scans (camera frames)</td>
+                        <td>On-device text and image recognition to identify a card as you scan it</td>
+                        <td>Only while scanning; processed on-device and never uploaded</td>
+                    </tr>
+                    <tr>
+                        <td>PSA certification numbers you look up</td>
+                        <td>Retrieving grading details from PSA's public cert database</td>
+                        <td>Only if you use the grading advisor's cert lookup</td>
+                    </tr>
+                    <tr>
+                        <td>Display name, username, avatar</td>
+                        <td>Public profiles and group leaderboards</td>
+                        <td>Only if you opt in to a public profile or join a group</td>
+                    </tr>
+                    <tr>
+                        <td>Push notification token</td>
+                        <td>Delivering wishlist deal alerts</td>
+                        <td>Only if you grant notification permission</td>
+                    </tr>
+                    <tr>
+                        <td>Crash reports and diagnostics</td>
+                        <td>Finding and fixing bugs</td>
+                        <td>Always (not tied to your collection contents)</td>
+                    </tr>
+                    <tr>
+                        <td>Product analytics events (screens viewed, features used)</td>
+                        <td>Understanding which features are worth building on</td>
+                        <td>Always (aggregate; never your item details)</td>
+                    </tr>
+                    <tr>
+                        <td>Subscription status</td>
+                        <td>Unlocking premium features</td>
+                        <td>Only if you purchase</td>
+                    </tr>
+                </tbody>
+            </table>
+            </div>
+            <p>We never collect payment card details. All billing runs through the Apple App Store or Google Play, and we only ever see whether a subscription is active.</p>
+
+            <h2>3. Service providers</h2>
+            <p>We use a small number of processors, each limited to the purpose listed:</p>
+            <ul>
+                <li><strong>Supabase</strong> — authentication, cloud sync database, and photo storage.</li>
+                <li><strong>TCGdex</strong> — the card catalog. Your search terms (card or set names) are sent to TCGdex's public API to look up card data and images; no account information is included.</li>
+                <li><strong>PSA</strong> — certification lookups. A cert number you enter is sent to PSA's API to retrieve public grading details for that card.</li>
+                <li><strong>RevenueCat</strong> — subscription entitlement management (status only, no card data).</li>
+                <li><strong>Google AdMob</strong> — advertising in the free tier. See section 5.</li>
+                <li><strong>Sentry</strong> — crash and error reporting.</li>
+                <li><strong>PostHog</strong> — product analytics.</li>
+                <li><strong>Resend</strong> — sending wishlist digest emails.</li>
+                <li><strong>Expo push notification service</strong> — delivering push alerts.</li>
+                <li><strong>eBay</strong> — when you search or view listings from your wishlist, or when the grading advisor estimates a value, that query is sent to eBay's public API. We participate in the eBay Partner Network, so listing links carry an affiliate tag and we may earn a commission on a resulting purchase at no additional cost to you.</li>
+            </ul>
+
+            <h2>4. Card scanning</h2>
+            <p>Binderly's scan-to-add feature uses on-device machine learning (text and image recognition) to identify a card from your camera. Camera frames are analyzed locally on your device and are <strong>never uploaded, stored, or sent to us or any third party</strong>. Only the resulting card match — which you can review and correct — becomes part of your collection data.</p>
+
+            <h2>5. Cloud sync, public profiles, and groups</h2>
+            <p>Cloud sync is a premium feature and is <strong>opt-in</strong>. Until you turn it on, nothing about your collection leaves your device. When it's on, your cards, decks, wishlist, and photos are stored in our Supabase project so they can appear on your other devices. Rows are protected by row-level security — only your account can read them.</p>
+            <p>Public profiles and group leaderboards are also opt-in, and you choose which cards appear publicly. Leaderboards are built from aggregate statistics rather than your full item details.</p>
+
+            <h2>6. Advertising and tracking</h2>
+            <p>The free tier shows banner ads served by Google AdMob; a premium subscription removes them. On iOS, we ask for App Tracking Transparency permission before any personalized advertising identifier is used. If you decline, ads still appear but are non-personalized. In regions covered by GDPR, we present Google's consent flow and honor the choice you make there. We do not give advertisers your email address or any part of your collection.</p>
+
+            <h2>7. Emails and notifications</h2>
+            <p>If you enable wishlist alerts, we send a digest of new eBay listings matching your wishlist, by push notification, email, or both. Every digest email carries a one-click unsubscribe link and header, and you can turn alerts off at any time in the app's notification settings. We do not send marketing email.</p>
+
+            <h2>8. Your rights and controls</h2>
+            <p>In the app you can export your collection, delete your cloud data while keeping your account, or permanently delete your account and everything in it. For instructions or to request deletion directly, email <a href="mailto:support@oaklandlabs.app">support@oaklandlabs.app</a>.</p>
+            <p>California residents have the right to know what personal information we collect, to request its deletion, and to opt out of its sale — we do not sell personal information to anyone. EU and UK residents have rights under GDPR to access, correct, restrict the processing of, port, and erase their personal data. To exercise any of these rights, email <a href="mailto:support@oaklandlabs.app">support@oaklandlabs.app</a>; we respond within 30 days.</p>
+
+            <h2>9. Retention and security</h2>
+            <p>We keep account data for as long as your account is active. When you delete your account, cloud-stored data is erased immediately and removed from backups within 30 days; deletion cannot be undone. Data is encrypted in transit (TLS) and at rest.</p>
+
+            <h2>10. Children</h2>
+            <p>Binderly is not directed at children. You must be at least 13 years old to create an account. If you believe a child has provided us personal information, contact us and we will delete it.</p>
+
+            <h2>11. Changes and contact</h2>
+            <p>If we make a material change to this policy we will update the date above and, for significant changes, notify you in the app. Questions? Email <a href="mailto:support@oaklandlabs.app">support@oaklandlabs.app</a> or call <a href="tel:+15093813920">(509) 381-3920</a>.</p>
+        </div>
+
+        <a href="../terms/" class="sibling-link">Read our Terms of Service →</a>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div>
+                <div class="footer-brand">
+                    <img src="../../assets/OaklandLabs.png" alt="Oakland Labs">
+                    <span class="footer-brand-name">Oakland Labs LLC</span>
+                </div>
+                <p class="footer-copy">&copy; 2026 Oakland Labs LLC. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <a href="../index.html">Binderly</a>
+                <a href="../terms/">Terms of Service</a>
+                <a href="mailto:support@oaklandlabs.app">support@oaklandlabs.app</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cloudflare Web Analytics — cookieless, privacy-first, no personal data. -->
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "5a72f3d34243419f937f324ec33ef19e"}'></script>
+</body>
+</html>

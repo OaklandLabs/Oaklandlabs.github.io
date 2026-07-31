@@ -49,6 +49,19 @@
             text-align: center;
         }
 
+        .home-link {
+            display: flex;
+            width: fit-content;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            margin: 0 auto 1.75rem;
+        }
+        .home-link:hover { opacity: 0.8; }
+
         .app-icon {
             width: 96px;
             height: 96px;
@@ -151,6 +164,7 @@
 <body>
 
     <main>
+        <a href="../../index.html" class="home-link">← Home</a>
         <img src="../../assets/provenant-logo.png" alt="Provenant" class="app-icon">
         <h1 id="headline">Unsubscribing…</h1>
         <p class="tagline" id="tagline">One moment while we update your email preferences.</p>
@@ -173,7 +187,6 @@
                 <p class="footer-copy">&copy; 2026 Oakland Labs LLC. All rights reserved.</p>
             </div>
             <div class="footer-links">
-                <a href="../../index.html">Home</a>
                 <a href="../../privacy.html">Privacy Policy</a>
                 <a href="../../terms.html">Terms of Service</a>
                 <a href="mailto:support@oaklandlabs.app">support@oaklandlabs.app</a>

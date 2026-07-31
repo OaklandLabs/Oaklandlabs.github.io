@@ -3,12 +3,12 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Timepiece Tracker | Oakland Labs LLC</title>
-    <meta name="description" content="Timepiece Tracker is a watch-collection tracker for iOS — specs, photos, value, service history, accuracy, wear stats, and eBay grail alerts. Coming soon.">
-    <meta property="og:title" content="Timepiece Tracker | Know your collection.">
-    <meta property="og:description" content="A watch-collection tracker for collectors. Coming soon to the App Store.">
+    <title>Provenant | Oakland Labs LLC</title>
+    <meta name="description" content="Provenant is the collection management app for sports memorabilia and autographs — track history, verify authentication, and manage your portfolio. Available now on iOS and Android.">
+    <meta property="og:title" content="Provenant | Know what you own.">
+    <meta property="og:description" content="The premier digital management platform for high-value sports memorabilia and collectibles. Available now on the App Store and Google Play.">
     <meta property="og:type" content="website">
-    <link rel="icon" type="image/png" href="../assets/OaklandLabs.png">
+    <link rel="icon" type="image/png" href="../../assets/OaklandLabs.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
     <style>
@@ -21,8 +21,8 @@
             --border: rgba(255,255,255,0.08);
             --text: #e2e8f0;
             --muted: #8b95a5;
-            --accent: #f0b429;
-            --accent-glow: rgba(240,180,41,0.12);
+            --accent: #4f8ef7;
+            --accent-glow: rgba(79,142,247,0.12);
             --link: #4f8ef7;
         }
 
@@ -54,7 +54,7 @@
             transform: translateX(-50%);
             width: 700px;
             height: 700px;
-            background: radial-gradient(circle, rgba(240,180,41,0.09) 0%, transparent 70%);
+            background: radial-gradient(circle, rgba(79,142,247,0.09) 0%, transparent 70%);
             pointer-events: none;
         }
         .home-link {
@@ -83,12 +83,12 @@
             position: relative;
             z-index: 1;
         }
-        .coming-soon-badge {
+        .available-badge {
             display: inline-flex;
             align-items: center;
             gap: 0.4rem;
             background: var(--accent-glow);
-            border: 1px solid rgba(240,180,41,0.25);
+            border: 1px solid rgba(79,142,247,0.25);
             color: var(--accent);
             font-size: 0.8rem;
             font-weight: 600;
@@ -126,6 +126,15 @@
         .hero-note a { color: var(--link); text-decoration: none; font-weight: 500; }
         .hero-note a:hover { text-decoration: underline; }
 
+        .store-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 0.75rem;
+            margin-bottom: 1.5rem;
+            position: relative;
+            z-index: 1;
+        }
         .store-btn {
             display: inline-flex;
             align-items: center;
@@ -134,12 +143,10 @@
             border: 1px solid var(--border);
             border-radius: 10px;
             padding: 0.65rem 1.1rem;
-            opacity: 0.6;
-            cursor: default;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1;
+            text-decoration: none;
+            transition: border-color 0.15s ease, transform 0.15s ease;
         }
+        .store-btn:hover { border-color: var(--accent); transform: translateY(-1px); }
         .store-btn-icon { display: flex; align-items: center; color: var(--text); flex-shrink: 0; }
         .store-btn-text { display: flex; flex-direction: column; text-align: left; }
         .store-btn-sub { font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
@@ -224,7 +231,7 @@
         }
         .support-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
+            grid-template-columns: repeat(2, 1fr);
             gap: 1rem;
             margin-top: 2.5rem;
         }
@@ -237,7 +244,7 @@
             display: block;
             transition: border-color 0.2s, transform 0.15s;
         }
-        .support-card:hover { border-color: rgba(240,180,41,0.4); transform: translateY(-1px); }
+        .support-card:hover { border-color: rgba(79,142,247,0.4); transform: translateY(-1px); }
         .support-card h3 { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 0.35rem; }
         .support-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
 
@@ -271,7 +278,7 @@
         .footer-links a:hover { color: var(--text); }
 
         @media (max-width: 700px) {
-            .features-grid, .support-grid { grid-template-columns: 1fr 1fr; }
+            .features-grid { grid-template-columns: 1fr 1fr; }
             .footer-inner { flex-direction: column; align-items: flex-start; }
         }
         @media (max-width: 500px) {
@@ -282,41 +289,61 @@
 <body>
 
     <section class="hero">
-        <a href="../index.html" class="home-link">← Home</a>
-        <img src="../assets/timepiece.png" alt="Timepiece Tracker" class="app-icon">
-        <span class="coming-soon-badge"><span>●</span> Coming Soon to iOS</span>
-        <h1>Timepiece Tracker</h1>
-        <p class="hero-sub">Know your collection. Every watch's specs, photos, value, service history, accuracy, and wear — in one place.</p>
+        <a href="../../index.html" class="home-link">← Home</a>
+        <img src="../../assets/provenant-logo.png" alt="Provenant" class="app-icon">
+        <span class="available-badge"><span>●</span> Available Now on iOS &amp; Android</span>
+        <h1>Provenant</h1>
+        <p class="hero-sub">Know what you own. Track history, verify authentication, and manage your entire sports memorabilia and autograph collection with precision — all in one place.</p>
 
-        <div class="store-btn" aria-label="Coming soon to the App Store">
-            <span class="store-btn-icon">
-                <svg width="18" height="22" viewBox="0 0 18 22" fill="currentColor" aria-hidden="true">
-                    <path d="M14.94 11.55c-.02-2.63 2.15-3.9 2.25-3.96-1.23-1.79-3.13-2.03-3.8-2.06-1.62-.16-3.17.95-3.99.95-.82 0-2.07-.93-3.4-.9C4.2 5.61 2.5 6.62 1.57 8.19.04 10.99 1.17 15 2.62 17.2c.73 1.05 1.6 2.23 2.74 2.19 1.1-.05 1.52-.71 2.85-.71 1.33 0 1.71.71 2.86.68 1.19-.02 1.93-1.06 2.65-2.12.53-.74.94-1.5 1.22-2.28-2.43-.93-2.99-4.41-.99-5.41zM12.31 3.67c.76-.93 1.27-2.2 1.13-3.47-1.09.04-2.41.73-3.19 1.64-.7.8-1.32 2.1-1.15 3.33 1.21.09 2.46-.62 3.21-1.5z"/>
-                </svg>
-            </span>
-            <span class="store-btn-text">
-                <span class="store-btn-sub">Coming soon to the</span>
-                <span class="store-btn-name">App Store</span>
-            </span>
+        <div class="store-buttons">
+            <a class="store-btn" href="https://apps.apple.com/us/app/provenant/id6766748210" target="_blank" rel="noopener" aria-label="Download on the App Store">
+                <span class="store-btn-icon">
+                    <svg width="18" height="22" viewBox="0 0 18 22" fill="currentColor" aria-hidden="true">
+                        <path d="M14.94 11.55c-.02-2.63 2.15-3.9 2.25-3.96-1.23-1.79-3.13-2.03-3.8-2.06-1.62-.16-3.17.95-3.99.95-.82 0-2.07-.93-3.4-.9C4.2 5.61 2.5 6.62 1.57 8.19.04 10.99 1.17 15 2.62 17.2c.73 1.05 1.6 2.23 2.74 2.19 1.1-.05 1.52-.71 2.85-.71 1.33 0 1.71.71 2.86.68 1.19-.02 1.93-1.06 2.65-2.12.53-.74.94-1.5 1.22-2.28-2.43-.93-2.99-4.41-.99-5.41zM12.31 3.67c.76-.93 1.27-2.2 1.13-3.47-1.09.04-2.41.73-3.19 1.64-.7.8-1.32 2.1-1.15 3.33 1.21.09 2.46-.62 3.21-1.5z"/>
+                    </svg>
+                </span>
+                <span class="store-btn-text">
+                    <span class="store-btn-sub">Download on the</span>
+                    <span class="store-btn-name">App Store</span>
+                </span>
+            </a>
+            <a class="store-btn" href="https://play.google.com/store/apps/details?id=com.provenant.app&hl=en_US" target="_blank" rel="noopener" aria-label="Get it on Google Play">
+                <span class="store-btn-icon">
+                    <svg width="18" height="20" viewBox="0 0 24 24" aria-hidden="true"><path fill="#EA4335" d="M3.6 2.3 13 11.7 15.6 9 4.9 1.6a1.8 1.8 0 0 0-1.3.7z"/><path fill="#4285F4" d="M3.1 2.9A1.8 1.8 0 0 0 3 3.6v16.8c0 .25.05.48.13.69L12.6 12 3.1 2.9z"/><path fill="#FBBC04" d="m16.9 9.9-2.5 2.1 2.5 2.1 3.3-1.9c.8-.45.8-1.6 0-2.05L16.9 9.9z"/><path fill="#34A853" d="M3.6 21.7c.36.3.86.36 1.3.1L15.6 15 13 12.3 3.6 21.7z"/></svg>
+                </span>
+                <span class="store-btn-text">
+                    <span class="store-btn-sub">Get it on</span>
+                    <span class="store-btn-name">Google Play</span>
+                </span>
+            </a>
         </div>
 
-        <p class="hero-note">iOS first; Android is planned. Want to hear when it ships? Email <a href="mailto:support@oaklandlabs.app">support@oaklandlabs.app</a>.</p>
+        <p class="hero-note">Questions or feedback? Email <a href="mailto:support@oaklandlabs.app">support@oaklandlabs.app</a>.</p>
     </section>
 
     <section class="features-section">
         <p class="section-label">Features</p>
-        <h2 class="section-title">Built for watch collectors</h2>
-        <p class="section-sub">From a first automatic to a case full of grails — track what you own, what you wear, and what you're hunting.</p>
+        <h2 class="section-title">Everything your collection needs</h2>
+        <p class="section-sub">Purpose-built tools for memorabilia collectors, from weekend hobbyists to serious investors.</p>
 
         <div class="features-grid">
             <div class="feature-card">
                 <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <circle cx="12" cy="12" r="8"/>
-                    <polyline points="12 8 12 12 14.5 13.5"/>
-                    <path d="M9 4V2h6v2"/>
+                    <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
+                    <rect x="9" y="3" width="6" height="4" rx="2"/>
+                    <line x1="9" y1="12" x2="15" y2="12"/>
+                    <line x1="9" y1="16" x2="13" y2="16"/>
                 </svg>
-                <h3>Full Spec Sheets</h3>
-                <p>Brand, reference, movement, case and lug size, crystal, water resistance, and a photo gallery for every watch.</p>
+                <h3>Collection Tracking</h3>
+                <p>Catalog every piece with photos, purchase details, grades, and provenance — organized and searchable.</p>
+            </div>
+            <div class="feature-card">
+                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
+                    <polyline points="9 12 11 14 15 10"/>
+                </svg>
+                <h3>Authentication Records</h3>
+                <p>Store COAs, PSA/BGS grades, and authentication details alongside each item for instant verification.</p>
             </div>
             <div class="feature-card">
                 <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
@@ -324,39 +351,32 @@
                     <polyline points="16 7 22 7 22 13"/>
                 </svg>
                 <h3>Portfolio Value</h3>
-                <p>Track purchase price against current estimates, watch your collection's value over time, and see your top holdings.</p>
+                <p>Monitor the estimated value of your collection over time and understand what your pieces are worth.</p>
             </div>
             <div class="feature-card">
                 <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M14.7 6.3a1 1 0 000 1.4l1.6 1.6a1 1 0 001.4 0l3.77-3.77a6 6 0 01-7.94 7.94l-6.91 6.91a2.12 2.12 0 01-3-3l6.91-6.91a6 6 0 017.94-7.94l-3.76 3.76z"/>
+                    <polyline points="12 8 12 12 14 14"/>
+                    <path d="M3.05 11a9 9 0 1 0 .5-4H1"/>
+                    <polyline points="1 2 1 7 6 7"/>
                 </svg>
-                <h3>Service &amp; Accuracy</h3>
-                <p>Log services and set reminders before the next one is due. Record timing checks and see accuracy drift as a trend.</p>
+                <h3>Item History</h3>
+                <p>Record the full chain of ownership and story behind each piece — because provenance matters.</p>
             </div>
             <div class="feature-card">
                 <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <rect x="3" y="4" width="18" height="18" rx="2"/>
-                    <line x1="16" y1="2" x2="16" y2="6"/>
-                    <line x1="8" y1="2" x2="8" y2="6"/>
-                    <line x1="3" y1="10" x2="21" y2="10"/>
+                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
+                    <line x1="12" y1="18" x2="12.01" y2="18"/>
                 </svg>
-                <h3>Wear Tracking</h3>
-                <p>One tap logs the day's watch. Streaks, a wear heat strip, cost-per-wear, and which pieces are overdue for rotation.</p>
-            </div>
-            <div class="feature-card">
-                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M20.84 4.61a5.5 5.5 0 00-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 00-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 000-7.78z"/>
-                </svg>
-                <h3>Grail Wishlist &amp; Alerts</h3>
-                <p>Keep a wishlist of the watches you're hunting and get a daily digest of new eBay listings that match — by push and email.</p>
+                <h3>iOS &amp; Android</h3>
+                <p>A native experience on both platforms, built with performance and reliability from the ground up.</p>
             </div>
             <div class="feature-card">
                 <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
                     <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
                     <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
                 </svg>
-                <h3>Yours, Offline First</h3>
-                <p>Your collection lives on your device and works signed-out. Optional cloud sync, public profiles, and groups are opt-in.</p>
+                <h3>Private &amp; Secure</h3>
+                <p>Your collection data is yours. We never sell or share your information with third parties.</p>
             </div>
         </div>
     </section>
@@ -368,17 +388,13 @@
         <h2 class="section-title">Help &amp; policies</h2>
 
         <div class="support-grid">
-            <a class="support-card" href="privacy/">
+            <a class="support-card" href="../../privacy.html">
                 <h3>Privacy Policy →</h3>
-                <p>What Timepiece Tracker collects, why, and how to exercise your CCPA/GDPR rights.</p>
+                <p>What Provenant collects, why, and how to exercise your CCPA/GDPR rights.</p>
             </a>
-            <a class="support-card" href="terms/">
+            <a class="support-card" href="../../terms.html">
                 <h3>Terms of Service →</h3>
                 <p>The agreement covering accounts, subscriptions, and acceptable use.</p>
-            </a>
-            <a class="support-card" href="delete-account/">
-                <h3>Delete Account or Data →</h3>
-                <p>Step-by-step instructions, plus exactly what gets erased and what is kept.</p>
             </a>
         </div>
     </section>
@@ -387,15 +403,14 @@
         <div class="footer-inner">
             <div>
                 <div class="footer-brand">
-                    <img src="../assets/OaklandLabs.png" alt="Oakland Labs">
+                    <img src="../../assets/OaklandLabs.png" alt="Oakland Labs">
                     <span class="footer-brand-name">Oakland Labs LLC</span>
                 </div>
                 <p class="footer-copy">&copy; 2026 Oakland Labs LLC. All rights reserved.</p>
             </div>
             <div class="footer-links">
-                <a href="privacy/">Privacy Policy</a>
-                <a href="terms/">Terms of Service</a>
-                <a href="delete-account/">Delete Account</a>
+                <a href="../../privacy.html">Privacy Policy</a>
+                <a href="../../terms.html">Terms of Service</a>
                 <a href="mailto:support@oaklandlabs.app">support@oaklandlabs.app</a>
             </div>
         </div>

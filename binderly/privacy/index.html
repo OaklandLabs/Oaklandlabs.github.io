@@ -39,6 +39,12 @@
             width: 100%;
         }
 
+        .back-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
         .back-link {
             display: inline-flex;
             align-items: center;
@@ -47,7 +53,6 @@
             text-decoration: none;
             font-size: 0.875rem;
             font-weight: 500;
-            margin-bottom: 2.5rem;
             transition: opacity 0.2s;
         }
         .back-link:hover { opacity: 0.8; }
@@ -161,7 +166,10 @@
 <body>
 
     <main>
-        <a href="../index.html" class="back-link">← Back to Binderly - Card Collection</a>
+        <div class="back-links">
+            <a href="../../index.html" class="back-link">← Home</a>
+            <a href="../index.html" class="back-link">← Back to Binderly - Card Collection</a>
+        </div>
 
         <h1>Privacy Policy</h1>
         <p class="last-updated">Binderly - Card Collection by Oakland Labs LLC &mdash; Last Updated: July 2026</p>

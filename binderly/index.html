@@ -57,6 +57,21 @@
             background: radial-gradient(circle, rgba(240,180,41,0.09) 0%, transparent 70%);
             pointer-events: none;
         }
+        .home-link {
+            position: absolute;
+            top: 1.5rem;
+            left: 1.5rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--link);
+            text-decoration: none;
+            font-size: 0.85rem;
+            font-weight: 500;
+            z-index: 2;
+        }
+        .home-link:hover { opacity: 0.8; }
+
         .app-icon {
             width: 116px;
             height: 116px;
@@ -269,6 +284,7 @@
 <body>
 
     <section class="hero">
+        <a href="../index.html" class="home-link">← Home</a>
         <img src="../assets/OaklandLabs.png" alt="Binderly - Card Collection" class="app-icon">
         <span class="coming-soon-badge"><span>●</span> Coming Soon to iOS &amp; Android</span>
         <h1>Binderly - Card Collection</h1>
@@ -373,7 +389,6 @@
                 <p class="footer-copy">Compatible with the Pokémon TCG. Not affiliated with or endorsed by Nintendo, Creatures Inc., Game Freak Inc., or The Pokémon Company.</p>
             </div>
             <div class="footer-links">
-                <a href="../index.html">Home</a>
                 <a href="privacy/">Privacy Policy</a>
                 <a href="terms/">Terms of Service</a>
                 <a href="mailto:support@oaklandlabs.app">support@oaklandlabs.app</a>

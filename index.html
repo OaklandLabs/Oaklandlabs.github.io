@@ -25,6 +25,8 @@
             --accent-glow: rgba(79,142,247,0.15);
             --gold: #f0b429;
             --gold-glow: rgba(240,180,41,0.12);
+            --green: #2ecc71;
+            --green-glow: rgba(46,204,113,0.12);
         }
 
         body {
@@ -210,6 +212,11 @@
             border-radius: 20px;
             margin-bottom: 1.5rem;
             width: fit-content;
+        }
+        .coming-soon-badge.is-available {
+            background: var(--green-glow);
+            border-color: rgba(46,204,113,0.25);
+            color: var(--green);
         }
         .store-buttons {
             display: flex;
@@ -461,7 +468,7 @@
 
         <div class="app-card">
             <div class="app-card-content">
-                <span class="coming-soon-badge">
+                <span class="coming-soon-badge is-available">
                     <span>●</span> Available Now
                 </span>
                 <p>Track history, verify authentication, and manage your entire collection with precision — all in one place. Built for serious collectors who want full visibility into their portfolio.</p>
@@ -489,7 +496,7 @@
                         </span>
                     </a>
                 </div>
-                <p class="notify-cta">Now available on the App Store and Google Play. Questions? <a href="#about" class="notify-link">Get in touch</a>.</p>
+                <p class="notify-cta">Now available on the App Store and Google Play. <a href="provenant/about/" class="notify-link">Learn more →</a></p>
             </div>
             <div class="app-card-visual">
                 <img src="assets/provenant-logo.png" alt="Provenant" class="app-mockup-icon is-icon">
@@ -631,7 +638,7 @@
         <h2 class="section-title">Oakland Labs LLC</h2>
         <div class="about-grid">
             <div class="about-text">
-                <p>Oakland Labs LLC is an independent mobile software company based in the United States, founded to build precise, well-crafted apps for enthusiast communities. Our first product, Provenant, is purpose-built for sports memorabilia and autograph collectors. <a href="timepiece/" class="notify-link">Timepiece Tracker</a>, for watch collectors, and <a href="binderly/" class="notify-link">Binderly - Card Collection</a>, for Pokémon TCG collectors, are both coming soon.</p>
+                <p>Oakland Labs LLC is an independent mobile software company based in the United States, founded to build precise, well-crafted apps for enthusiast communities. Our first product, <a href="provenant/about/" class="notify-link">Provenant</a>, is purpose-built for sports memorabilia and autograph collectors. <a href="timepiece/" class="notify-link">Timepiece Tracker</a>, for watch collectors, and <a href="binderly/" class="notify-link">Binderly - Card Collection</a>, for Pokémon TCG collectors, are both coming soon.</p>
                 <p>We design for people who take their collections seriously — building native iOS and Android experiences that respect user privacy and put data ownership first. Your collection data is never sold or shared with advertisers.</p>
             </div>
             <div class="about-contact">

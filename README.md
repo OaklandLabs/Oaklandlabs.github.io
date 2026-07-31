@@ -70,6 +70,7 @@ Edit the files, push to `main`, and GitHub Pages redeploys automatically.
 | `delete-account.html` | Account/data deletion instructions — **required for Google Play** compliance. |
 | `404.html` | Branded not-found page. GitHub Pages auto-serves it on unknown paths. |
 | `provenant/index.html` | "Get Provenant" — sniffs the user agent and redirects to the App Store (iOS) or Google Play (Android); shows both buttons on desktop. |
+| `provenant/about/index.html` | Provenant marketing landing page — available-now badge, feature grid, links to its legal pages. |
 | `provenant/join/index.html` | Group-invite landing. Reads a 6-char `?code=`, opens `provenant://groups/join?code=…`, falls back to download. |
 | `provenant/profile/index.html` | Public-profile landing. Reads `?u=<username>`, opens `provenant://profile/<username>`, falls back to download. |
 | `provenant/unsubscribe/index.html` | One-click email unsubscribe. POSTs the signed `?token=` to a Supabase edge function; supports re-subscribe. |

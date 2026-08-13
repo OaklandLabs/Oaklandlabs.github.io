@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support | Timepiece Tracker</title>
+    <meta name="description" content="Get help with Timepiece Tracker: contact support, common questions, and links to account and policy pages.">
+    <link rel="icon" type="image/png" href="../../assets/OaklandLabs.png">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+        :root {
+            --bg: #0a0c10;
+            --surface: #111318;
+            --border: rgba(255,255,255,0.08);
+            --text: #e2e8f0;
+            --muted: #8b95a5;
+            --accent: #f0b429;
+            --link: #4f8ef7;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            background-color: var(--bg);
+            color: var(--text);
+            line-height: 1.6;
+            min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+        }
+
+        main {
+            flex: 1;
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 4rem 1.5rem 5rem;
+            width: 100%;
+        }
+
+        .back-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.25rem;
+            margin-bottom: 2.5rem;
+        }
+        .back-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--link);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+        .back-link:hover { opacity: 0.8; }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 800;
+            letter-spacing: -0.03em;
+            color: #fff;
+            margin-bottom: 0.5rem;
+        }
+        .subtitle {
+            font-size: 0.95rem;
+            color: var(--muted);
+            margin-bottom: 2.5rem;
+        }
+
+        .contact-card {
+            background: var(--surface);
+            border: 1px solid var(--border);
+            border-radius: 12px;
+            padding: 1.75rem;
+            margin-bottom: 2.5rem;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+            justify-content: space-between;
+            align-items: center;
+        }
+        .contact-card h2 {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: #fff;
+            margin-bottom: 0.35rem;
+        }
+        .contact-card p {
+            font-size: 0.875rem;
+            color: var(--muted);
+        }
+        .contact-btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            background: var(--accent);
+            color: #1a1300;
+            text-decoration: none;
+            font-weight: 700;
+            font-size: 0.9rem;
+            padding: 0.7rem 1.25rem;
+            border-radius: 8px;
+            transition: opacity 0.2s;
+            white-space: nowrap;
+        }
+        .contact-btn:hover { opacity: 0.85; }
+
+        .content h2 {
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: #fff;
+            margin: 2.5rem 0 0.75rem;
+        }
+        .content p {
+            font-size: 0.95rem;
+            color: var(--muted);
+            line-height: 1.75;
+            margin-bottom: 1rem;
+        }
+        .content ul, .content ol {
+            margin: 0 0 1rem 1.1rem;
+            color: var(--muted);
+            font-size: 0.95rem;
+            line-height: 1.75;
+        }
+        .content li { margin-bottom: 0.4rem; }
+        .content strong { color: var(--text); }
+        .content a { color: var(--link); text-decoration: none; }
+        .content a:hover { text-decoration: underline; }
+
+        .faq-item {
+            padding: 1.1rem 0;
+            border-bottom: 1px solid var(--border);
+        }
+        .faq-item:last-child { border-bottom: none; }
+        .faq-item h3 {
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: #fff;
+            margin-bottom: 0.4rem;
+        }
+        .faq-item p {
+            font-size: 0.9rem;
+            color: var(--muted);
+            line-height: 1.7;
+        }
+        .faq-item a { color: var(--link); text-decoration: none; }
+        .faq-item a:hover { text-decoration: underline; }
+
+        .policy-links {
+            display: flex;
+            gap: 1.25rem;
+            flex-wrap: wrap;
+            margin-top: 3rem;
+        }
+        .sibling-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            color: var(--link);
+            text-decoration: none;
+            font-size: 0.875rem;
+            font-weight: 500;
+            transition: opacity 0.2s;
+        }
+        .sibling-link:hover { opacity: 0.8; }
+
+        footer {
+            margin-top: auto;
+            border-top: 1px solid var(--border);
+            padding: 2rem;
+        }
+        .footer-inner {
+            max-width: 720px;
+            margin: 0 auto;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+        .footer-brand { display: flex; align-items: center; gap: 0.5rem; }
+        .footer-brand img { height: 24px; width: auto; }
+        .footer-brand-name { font-size: 0.875rem; font-weight: 600; color: var(--muted); }
+        .footer-copy { font-size: 0.8rem; color: var(--muted); margin-top: 0.4rem; }
+        footer p { font-size: 0.8rem; color: var(--muted); }
+        .footer-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
+        .footer-links a {
+            color: var(--muted);
+            text-decoration: none;
+            font-size: 0.8rem;
+            transition: color 0.2s;
+        }
+        .footer-links a[href^="mailto"] { color: var(--link); }
+        .footer-links a:hover { color: var(--text); }
+        @media (max-width: 600px) { .footer-inner { flex-direction: column; } .contact-card { flex-direction: column; align-items: flex-start; } }
+    </style>
+</head>
+<body>
+
+    <main>
+        <div class="back-links">
+            <a href="../../index.html" class="back-link">← Home</a>
+            <a href="../index.html" class="back-link">← Back to Timepiece Tracker</a>
+        </div>
+
+        <h1>Support</h1>
+        <p class="subtitle">Help with Timepiece Tracker by Oakland Labs LLC</p>
+
+        <div class="contact-card">
+            <div>
+                <h2>Need help?</h2>
+                <p>We typically reply within one business day.</p>
+            </div>
+            <a class="contact-btn" href="mailto:support@oaklandlabs.app">Email support@oaklandlabs.app</a>
+        </div>
+
+        <div class="content">
+            <p>You can also reach us in the app: open <strong>Settings</strong> (gear icon) and tap <strong>Report a problem</strong> to send us details directly, including diagnostic context that helps us troubleshoot faster.</p>
+
+            <h2>Frequently asked questions</h2>
+
+            <div class="faq-item">
+                <h3>How do I sync my collection across devices?</h3>
+                <p>Cloud sync is a premium feature. Turn it on under <strong>Settings → Account → Cloud sync</strong> once signed in, and your watches, wishlist, and photos will appear on any device you sign into.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How do I manage or cancel my subscription?</h3>
+                <p>Subscriptions are billed and managed through the App Store, not by us. On iOS, go to <strong>Settings → your name → Subscriptions</strong>; on Android, open <strong>Google Play → Payments &amp; subscriptions</strong>.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>I'm not receiving wishlist alerts.</h3>
+                <p>Check that alerts are enabled under <strong>Settings → Notifications</strong> and that push notifications are allowed for the app in your device's system settings. Email alerts can be missed if <strong>support@oaklandlabs.app</strong> is filtered — check spam and add it to your contacts.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How do I export my collection?</h3>
+                <p>From <strong>Settings → Data</strong>, you can export your collection as a CSV file or generate an insurance PDF.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>How do I delete my account or data?</h3>
+                <p>Step-by-step instructions are on our <a href="../delete-account/">Delete Account or Data</a> page, covering both full account deletion and cloud-data-only deletion.</p>
+            </div>
+
+            <div class="faq-item">
+                <h3>I found a bug or the app crashed.</h3>
+                <p>Use <strong>Settings → Report a problem</strong> in the app, or email us with your device model, OS version, and what you were doing when it happened.</p>
+            </div>
+        </div>
+
+        <div class="policy-links">
+            <a href="../privacy/" class="sibling-link">Privacy Policy →</a>
+            <a href="../terms/" class="sibling-link">Terms of Service →</a>
+            <a href="../delete-account/" class="sibling-link">Delete Account →</a>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-inner">
+            <div>
+                <div class="footer-brand">
+                    <img src="../../assets/OaklandLabs.png" alt="Oakland Labs">
+                    <span class="footer-brand-name">Oakland Labs LLC</span>
+                </div>
+                <p class="footer-copy">&copy; 2026 Oakland Labs LLC. All rights reserved.</p>
+            </div>
+            <div class="footer-links">
+                <a href="../index.html">Timepiece Tracker</a>
+                <a href="../privacy/">Privacy Policy</a>
+                <a href="../terms/">Terms of Service</a>
+                <a href="mailto:support@oaklandlabs.app">support@oaklandlabs.app</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Cloudflare Web Analytics — cookieless, privacy-first, no personal data. -->
+    <script defer src="https://static.cloudflareinsights.com/beacon.min.js" data-cf-beacon='{"token": "5a72f3d34243419f937f324ec33ef19e"}'></script>
+</body>
+</html>

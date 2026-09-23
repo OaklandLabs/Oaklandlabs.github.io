@@ -64,7 +64,7 @@ Edit the files, push to `main`, and GitHub Pages redeploys automatically.
 
 | Path | Purpose |
 |------|---------|
-| `index.html` | Marketing homepage — hero, Provenant overview (available now), Timepiece Tracker (coming soon), feature grid, about + contact. |
+| `index.html` | Marketing homepage — hero, Provenant overview (available now), Timepiece Tracker (available now on iOS), feature grid, about + contact. |
 | `privacy.html` | Privacy Policy (CCPA/GDPR). Required by App Store & Play. |
 | `terms.html` | Terms of Service. |
 | `delete-account.html` | Account/data deletion instructions — **required for Google Play** compliance. |
@@ -74,7 +74,7 @@ Edit the files, push to `main`, and GitHub Pages redeploys automatically.
 | `provenant/join/index.html` | Group-invite landing. Reads a 6-char `?code=`, opens `provenant://groups/join?code=…`, falls back to download. |
 | `provenant/profile/index.html` | Public-profile landing. Reads `?u=<username>`, opens `provenant://profile/<username>`, falls back to download. |
 | `provenant/unsubscribe/index.html` | One-click email unsubscribe. POSTs the signed `?token=` to a Supabase edge function; supports re-subscribe. |
-| `timepiece/index.html` | Timepiece Tracker landing page — coming-soon badge, feature grid, links to its legal pages. |
+| `timepiece/index.html` | Timepiece Tracker landing page — App Store link, feature grid, links to its legal pages. |
 | `timepiece/privacy/index.html` | Privacy Policy for Timepiece Tracker. Linked from in-app Settings and the paywall (`src/config/links.ts` → `PRIVACY_URL`). |
 | `timepiece/terms/index.html` | Terms of Service for Timepiece Tracker (`TERMS_URL`). |
 | `timepiece/delete-account/index.html` | Account/data deletion instructions for Timepiece Tracker — required for Google Play. |

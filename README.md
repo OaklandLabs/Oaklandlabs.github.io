@@ -5,7 +5,7 @@ Static marketing + compliance website for **Oakland Labs LLC** and its apps — 
 (a watch-collection tracker, coming soon). Hosted on **GitHub Pages** at the custom domain
 **[oaklandlabs.app](https://oaklandlabs.app)**.
 
-Each app owns a directory (`provenant/`, `timepiece/`) holding its own landing page, legal pages,
+Each app owns a directory (`provenant/`, `timepiece/`, `binderly/`, `housepour/`) holding its own landing page, legal pages,
 and deep-link/email landing pages. The root-level `privacy.html` / `terms.html` /
 `delete-account.html` predate that split and cover Provenant; the app-scoped copies under
 `timepiece/` are the ones the Timepiece Tracker app links to.
@@ -79,6 +79,10 @@ Edit the files, push to `main`, and GitHub Pages redeploys automatically.
 | `timepiece/terms/index.html` | Terms of Service for Timepiece Tracker (`TERMS_URL`). |
 | `timepiece/delete-account/index.html` | Account/data deletion instructions for Timepiece Tracker — required for Google Play. |
 | `timepiece/unsubscribe/index.html` | One-click unsubscribe for the Timepiece wishlist digest. Same flow as Provenant's, pointed at the Timepiece Supabase project. |
+| `housepour/index.html` | Housepour landing page (coming soon) — feature grid, links to its support and legal pages. |
+| `housepour/privacy/index.html` | Privacy Policy for Housepour. Linked from the app's Settings → About and the paywall (`src/config/links.ts` → `LINKS.privacy`). Housepour has no account or backend; the policy covers on-device data, RevenueCat and ML Kit. |
+| `housepour/terms/index.html` | Terms of Use for Housepour (`LINKS.terms`): the one-time Pro license, legal drinking age and responsible drinking. |
+| `housepour/support/index.html` | Support page and FAQ for Housepour (`LINKS.support`): restoring Pro, backups, moving to a new phone. |
 
 > Paths under `timepiece/` are directories with an `index.html`, so they resolve extensionless
 > (`/timepiece/privacy`) — that's the exact form the app and edge functions link to.

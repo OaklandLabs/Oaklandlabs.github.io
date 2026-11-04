@@ -1,0 +1,32 @@
+# Oakland Labs
+
+> Oakland Labs LLC is an independent mobile software company in the United States that builds iOS and Android apps for collectors and enthusiasts. Its apps are Provenant (sports memorabilia and autograph collection management), Timepiece Tracker (watch collection tracker), Housepour (home bar tracker), and Binderly - Card Collection (Pokémon TCG collection tracker, coming soon).
+
+Contact: support@oaklandlabs.app · (509) 381-3920 · https://oaklandlabs.app
+
+Oakland Labs designs for people who take their collections seriously, with a focus on privacy and data ownership: user collection data is never sold or shared with advertisers.
+
+## Apps
+
+- [Provenant](https://oaklandlabs.app/provenant/about/): The collection management app for high-value sports memorabilia and autographs. Catalog every piece with photos, purchase details, and grades; store COAs and PSA/BGS authentication records; record provenance and the chain of ownership; and monitor estimated portfolio value. Available now on iOS ([App Store](https://apps.apple.com/us/app/provenant/id6766748210)) and Android ([Google Play](https://play.google.com/store/apps/details?id=com.provenant.app)).
+- [Timepiece Tracker](https://oaklandlabs.app/timepiece/): A watch-collection tracker for collectors who wear what they own. Specs, photos, and value for every watch, service reminders, accuracy tracking, a one-tap wear log with cost-per-wear, and daily eBay alerts for wishlist "grail" watches. Cloud sync is a Premium feature. Available now on iOS ([App Store](https://apps.apple.com/us/app/timepiece-tracker/id6792404644)); Android to follow.
+- [Housepour](https://oaklandlabs.app/housepour/): A home bar tracker. Track the bottles you own with a drag-to-set fill level, see which cocktails you can make tonight, and find the one bottle that unlocks the most new drinks. No account; data stays on the device. Free with ads; Housepour Pro removes them. For adults of legal drinking age. Available now on iOS ([App Store](https://apps.apple.com/us/app/housepour-home-bar-tracker/id6815329687)); Android to follow.
+- [Binderly - Card Collection](https://oaklandlabs.app/binderly/): A Pokémon TCG collection tracker, coming soon to iOS and Android. Scan cards to add them, see what the collection is worth, build decks that pass legality checks, get grading ROI advice, and get eBay deal alerts for wishlist cards. Not affiliated with or endorsed by Nintendo, Creatures Inc., Game Freak Inc., or The Pokémon Company.
+
+## Support
+
+- [Timepiece Tracker support](https://oaklandlabs.app/timepiece/support/): Contact, FAQs on syncing, subscriptions, and alerts.
+- [Housepour support](https://oaklandlabs.app/housepour/support/): Restoring Housepour Pro, backups, and moving to a new phone.
+- [Delete a Provenant account](https://oaklandlabs.app/delete-account.html)
+- [Delete a Timepiece Tracker account](https://oaklandlabs.app/timepiece/delete-account/)
+
+## Legal
+
+- [Provenant / Oakland Labs privacy policy](https://oaklandlabs.app/privacy.html)
+- [Provenant / Oakland Labs terms of service](https://oaklandlabs.app/terms.html)
+- [Timepiece Tracker privacy policy](https://oaklandlabs.app/timepiece/privacy/)
+- [Timepiece Tracker terms of service](https://oaklandlabs.app/timepiece/terms/)
+- [Housepour privacy policy](https://oaklandlabs.app/housepour/privacy/)
+- [Housepour terms of use](https://oaklandlabs.app/housepour/terms/)
+- [Binderly privacy policy](https://oaklandlabs.app/binderly/privacy/)
+- [Binderly terms of service](https://oaklandlabs.app/binderly/terms/)

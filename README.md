@@ -1,14 +1,28 @@
 # Oakland Labs Website
 
 Static marketing + compliance website for **Oakland Labs LLC** and its apps — **Provenant**
-(a collection-management app for sports memorabilia and autographs) and **Timepiece Tracker**
-(a watch-collection tracker, coming soon). Hosted on **GitHub Pages** at the custom domain
+(a collection-management app for sports memorabilia and autographs), **Timepiece Tracker**
+(a watch-collection tracker), **Housepour** (a home bar tracker), and **Binderly - Card
+Collection** (a Pokémon TCG collection tracker, coming soon). Hosted on **GitHub Pages** at the custom domain
 **[oaklandlabs.app](https://oaklandlabs.app)**.
 
 Each app owns a directory (`provenant/`, `timepiece/`, `binderly/`, `housepour/`) holding its own landing page, legal pages,
 and deep-link/email landing pages. The root-level `privacy.html` / `terms.html` /
 `delete-account.html` predate that split and cover Provenant; the app-scoped copies under
 `timepiece/` are the ones the Timepiece Tracker app links to.
+
+## Search & AI discoverability
+
+- `robots.txt` allows everything except the email-unsubscribe pages, and explicitly welcomes
+  AI search/assistant crawlers (GPTBot, ClaudeBot, PerplexityBot, Google-Extended, …).
+- `llms.txt` is a plain-Markdown summary of the company and every app for LLMs. **Update it
+  whenever an app launches, changes platforms, or gets a new page.**
+- `sitemap.xml` lists every indexable page (canonical trailing-slash URLs) with `lastmod`.
+- Every indexable page carries a `<link rel="canonical">`, Open Graph + Twitter tags, and a
+  JSON-LD block (`Organization` / `WebSite` / `ItemList` on the homepage, `MobileApplication`
+  on each app landing page, `WebPage` on legal/support pages). Keep App Store links and
+  availability in the JSON-LD in sync with the visible copy. Deep-link and unsubscribe pages
+  stay `noindex`.
 
 There is **no build step** — the site is hand-authored HTML/CSS (all styles are inlined per page).
 Edit the files, push to `main`, and GitHub Pages redeploys automatically.

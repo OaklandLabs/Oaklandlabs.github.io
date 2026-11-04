@@ -18,127 +18,12 @@
     <meta name="twitter:description" content="Privacy Policy for Provenant and Oakland Labs LLC. Learn how we handle your data.">
     <meta name="twitter:image" content="https://oaklandlabs.app/assets/provenant-logo.png">
     <link rel="icon" type="image/png" href="assets/OaklandLabs.png">
+    <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0d0f13" media="(prefers-color-scheme: dark)">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-        :root {
-            --bg: #0a0c10;
-            --surface: #111318;
-            --border: rgba(255,255,255,0.08);
-            --text: #e2e8f0;
-            --muted: #8b95a5;
-            --accent: #4f8ef7;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        .footer-brand {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .footer-brand img { height: 24px; width: auto; }
-        .footer-brand-name { font-size: 0.875rem; font-weight: 600; color: var(--muted); }
-        .footer-copy { font-size: 0.8rem; color: var(--muted); margin-top: 0.4rem; }
-
-        main {
-            flex: 1;
-            max-width: 720px;
-            margin: 0 auto;
-            padding: 4rem 1.5rem 5rem;
-            width: 100%;
-        }
-
-        .back-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            color: var(--accent);
-            text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 500;
-            margin-bottom: 2.5rem;
-            transition: opacity 0.2s;
-        }
-        .back-link:hover { opacity: 0.8; }
-
-        h1 {
-            font-size: 2rem;
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            color: #fff;
-            margin-bottom: 0.5rem;
-        }
-        .last-updated {
-            font-size: 0.85rem;
-            color: var(--muted);
-            margin-bottom: 3rem;
-        }
-
-        .content h2 {
-            font-size: 1.1rem;
-            font-weight: 700;
-            color: #fff;
-            margin: 2.5rem 0 0.75rem;
-        }
-        .content p {
-            font-size: 0.95rem;
-            color: var(--muted);
-            line-height: 1.75;
-            margin-bottom: 1rem;
-        }
-        .content a { color: var(--accent); text-decoration: none; }
-        .content a:hover { text-decoration: underline; }
-
-        .sibling-link {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            color: var(--accent);
-            text-decoration: none;
-            font-size: 0.875rem;
-            font-weight: 500;
-            margin-top: 3rem;
-            transition: opacity 0.2s;
-        }
-        .sibling-link:hover { opacity: 0.8; }
-
-        footer {
-            margin-top: auto;
-            border-top: 1px solid var(--border);
-            padding: 2rem;
-        }
-        .footer-inner {
-            max-width: 720px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        footer p { font-size: 0.8rem; color: var(--muted); }
-        .footer-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
-        .footer-links a {
-            color: var(--muted);
-            text-decoration: none;
-            font-size: 0.8rem;
-            transition: color 0.2s;
-        }
-        .footer-links a[href^="mailto"] { color: var(--accent); }
-        .footer-links a:hover { color: var(--text); }
-        @media (max-width: 600px) { .footer-inner { flex-direction: column; } }
-    </style>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/site.css">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -161,10 +46,23 @@
     }
     </script>
 </head>
-<body>
+<body class="page-doc">
+
+    <header class="site-header">
+        <div class="wrap header-inner">
+            <a href="/" class="brand">
+                <img src="assets/OaklandLabs.png" alt="" width="32" height="32">
+                Oakland Labs
+            </a>
+            <nav class="nav" aria-label="Main">
+                <a href="/#apps">Apps</a>
+                <a href="/#about">About</a>
+                <a href="/#contact" class="nav-cta">Contact</a>
+            </nav>
+        </div>
+    </header>
 
     <main>
-        <a href="index.html" class="back-link">← Back to Home</a>
 
         <h1>Privacy Policy</h1>
         <p class="last-updated">Last Updated: April 2026</p>
@@ -192,20 +90,38 @@
         <a href="terms.html" class="sibling-link">Read our Terms of Service →</a>
     </main>
 
-    <footer>
-        <div class="footer-inner">
-            <div>
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-grid">
                 <div class="footer-brand">
-                    <img src="assets/OaklandLabs.png" alt="Oakland Labs">
-                    <span class="footer-brand-name">Oakland Labs LLC</span>
+                    <a href="/" class="brand">
+                        <img src="assets/OaklandLabs.png" alt="" width="32" height="32">
+                        Oakland Labs
+                    </a>
+                    <p>Independent apps for collectors and enthusiasts.</p>
                 </div>
-                <p class="footer-copy">&copy; 2026 Oakland Labs LLC. All rights reserved.</p>
+                <div class="footer-col">
+                    <h4>Apps</h4>
+                    <a href="/provenant/about/">Provenant</a>
+                    <a href="/timepiece/">Timepiece Tracker</a>
+                    <a href="/housepour/">Housepour</a>
+                    <a href="/binderly/">Binderly</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="/#about">About</a>
+                    <a href="/#contact">Contact</a>
+                    <a href="https://www.linkedin.com/company/oaklandlabs/" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Provenant</h4>
+                    <a href="/privacy.html">Privacy Policy</a>
+                    <a href="/terms.html">Terms of Service</a>
+                    <a href="/delete-account.html">Delete Account</a>
+                </div>
             </div>
-            <div class="footer-links">
-                <a href="index.html">Home</a>
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms of Service</a>
-                <a href="delete-account.html">Delete Account</a>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Oakland Labs LLC. All rights reserved.</span>
                 <a href="mailto:support@oaklandlabs.app">support@oaklandlabs.app</a>
             </div>
         </div>

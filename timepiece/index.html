@@ -18,276 +18,12 @@
     <meta name="twitter:description" content="Timepiece Tracker is a watch-collection tracker for iOS — specs, photos, value, service history, accuracy, wear stats, and eBay grail alerts. Available now on the App Store.">
     <meta name="twitter:image" content="https://oaklandlabs.app/assets/timepiece.png">
     <link rel="icon" type="image/png" href="../assets/OaklandLabs.png">
+    <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0d0f13" media="(prefers-color-scheme: dark)">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
-    <style>
-        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
-        :root {
-            --bg: #0a0c10;
-            --surface: #111318;
-            --surface-2: #1a1d24;
-            --border: rgba(255,255,255,0.08);
-            --text: #e2e8f0;
-            --muted: #8b95a5;
-            --accent: #f0b429;
-            --accent-glow: rgba(240,180,41,0.12);
-            --link: #4f8ef7;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-        }
-
-        /* ── HERO ── */
-        .hero {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 5rem 1.5rem 4rem;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -140px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 700px;
-            height: 700px;
-            background: radial-gradient(circle, rgba(240,180,41,0.09) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        .home-link {
-            position: absolute;
-            top: 1.5rem;
-            left: 1.5rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            color: var(--link);
-            text-decoration: none;
-            font-size: 0.85rem;
-            font-weight: 500;
-            z-index: 2;
-        }
-        .home-link:hover { opacity: 0.8; }
-
-        .app-icon {
-            width: 116px;
-            height: 116px;
-            border-radius: 26px;
-            object-fit: cover;
-            display: block;
-            margin-bottom: 1.75rem;
-            box-shadow: 0 18px 50px rgba(0,0,0,0.5);
-            position: relative;
-            z-index: 1;
-        }
-        .coming-soon-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            background: var(--accent-glow);
-            border: 1px solid rgba(240,180,41,0.25);
-            color: var(--accent);
-            font-size: 0.8rem;
-            font-weight: 600;
-            padding: 0.35rem 0.85rem;
-            border-radius: 20px;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-        .hero h1 {
-            font-size: clamp(2.25rem, 6vw, 3.5rem);
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            color: #fff;
-            line-height: 1.1;
-            margin-bottom: 1rem;
-            position: relative;
-            z-index: 1;
-        }
-        .hero-sub {
-            font-size: 1.1rem;
-            color: var(--muted);
-            max-width: 520px;
-            margin-bottom: 2rem;
-            position: relative;
-            z-index: 1;
-        }
-        .hero-note {
-            font-size: 0.85rem;
-            color: var(--muted);
-            max-width: 460px;
-            position: relative;
-            z-index: 1;
-        }
-        .hero-note a { color: var(--link); text-decoration: none; font-weight: 500; }
-        .hero-note a:hover { text-decoration: underline; }
-
-        .store-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: var(--surface-2);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 0.65rem 1.1rem;
-            text-decoration: none;
-            transition: border-color 0.15s ease, transform 0.15s ease;
-            margin-bottom: 1.5rem;
-            position: relative;
-            z-index: 1;
-        }
-        .store-btn:hover { border-color: var(--accent); transform: translateY(-1px); }
-        .store-btn-icon { display: flex; align-items: center; color: var(--text); flex-shrink: 0; }
-        .store-btn-text { display: flex; flex-direction: column; text-align: left; }
-        .store-btn-sub { font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
-        .store-btn-name { font-size: 0.9rem; font-weight: 600; color: var(--text); }
-
-        /* ── FEATURES ── */
-        .features-section {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 1.5rem 5rem;
-            width: 100%;
-        }
-        .section-label {
-            text-align: center;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 0.75rem;
-        }
-        .section-title {
-            text-align: center;
-            font-size: clamp(1.6rem, 4vw, 2.25rem);
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            color: #fff;
-            margin-bottom: 1rem;
-        }
-        .section-sub {
-            text-align: center;
-            font-size: 1rem;
-            color: var(--muted);
-            max-width: 520px;
-            margin: 0 auto 3rem;
-        }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-        }
-        .feature-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 1.75rem;
-            transition: border-color 0.2s;
-        }
-        .feature-card:hover { border-color: rgba(255,255,255,0.14); }
-        .feature-icon {
-            display: block;
-            width: 28px;
-            height: 28px;
-            margin-bottom: 1rem;
-            color: var(--accent);
-        }
-        .feature-card h3 {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 0.5rem;
-        }
-        .feature-card p {
-            font-size: 0.875rem;
-            color: var(--muted);
-            line-height: 1.6;
-        }
-
-        /* ── LINKS ROW ── */
-        .divider {
-            border: none;
-            border-top: 1px solid var(--border);
-            max-width: 1000px;
-            margin: 0 auto 4rem;
-            width: calc(100% - 3rem);
-        }
-        .support-section {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 1.5rem 5rem;
-            width: 100%;
-        }
-        .support-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-            margin-top: 2.5rem;
-        }
-        .support-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 1.5rem;
-            text-decoration: none;
-            display: block;
-            transition: border-color 0.2s, transform 0.15s;
-        }
-        .support-card:hover { border-color: rgba(240,180,41,0.4); transform: translateY(-1px); }
-        .support-card h3 { font-size: 0.95rem; font-weight: 700; color: #fff; margin-bottom: 0.35rem; }
-        .support-card p { font-size: 0.85rem; color: var(--muted); line-height: 1.55; }
-
-        /* ── FOOTER ── */
-        footer {
-            margin-top: auto;
-            border-top: 1px solid var(--border);
-            padding: 2.5rem 2rem;
-        }
-        .footer-inner {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        .footer-brand { display: flex; align-items: center; gap: 0.5rem; }
-        .footer-brand img { height: 24px; width: auto; }
-        .footer-brand-name { font-size: 0.875rem; font-weight: 600; color: var(--muted); }
-        .footer-copy { font-size: 0.8rem; color: var(--muted); margin-top: 0.4rem; }
-        .footer-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
-        .footer-links a {
-            color: var(--muted);
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: color 0.2s;
-        }
-        .footer-links a[href^="mailto"] { color: var(--link); }
-        .footer-links a:hover { color: var(--text); }
-
-        @media (max-width: 700px) {
-            .features-grid, .support-grid { grid-template-columns: 1fr 1fr; }
-            .footer-inner { flex-direction: column; align-items: flex-start; }
-        }
-        @media (max-width: 500px) {
-            .features-grid, .support-grid { grid-template-columns: 1fr; }
-        }
-    </style>
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/site.css">
     <script type="application/ld+json">
     {
       "@context": "https://schema.org",
@@ -362,10 +98,23 @@
     }
     </script>
 </head>
-<body>
+<body class="page-app">
+
+    <header class="site-header">
+        <div class="wrap header-inner">
+            <a href="/" class="brand">
+                <img src="../assets/OaklandLabs.png" alt="" width="32" height="32">
+                Oakland Labs
+            </a>
+            <nav class="nav" aria-label="Main">
+                <a href="/#apps">Apps</a>
+                <a href="/#about">About</a>
+                <a href="/#contact" class="nav-cta">Contact</a>
+            </nav>
+        </div>
+    </header>
 
     <section class="hero">
-        <a href="../index.html" class="home-link">← Home</a>
         <img src="../assets/timepiece.png" alt="Timepiece Tracker" class="app-icon">
         <span class="coming-soon-badge"><span>●</span> Available Now on iOS</span>
         <h1>Timepiece Tracker</h1>
@@ -470,20 +219,39 @@
         </div>
     </section>
 
-    <footer>
-        <div class="footer-inner">
-            <div>
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-grid">
                 <div class="footer-brand">
-                    <img src="../assets/OaklandLabs.png" alt="Oakland Labs">
-                    <span class="footer-brand-name">Oakland Labs LLC</span>
+                    <a href="/" class="brand">
+                        <img src="../assets/OaklandLabs.png" alt="" width="32" height="32">
+                        Oakland Labs
+                    </a>
+                    <p>Independent apps for collectors and enthusiasts.</p>
                 </div>
-                <p class="footer-copy">&copy; 2026 Oakland Labs LLC. All rights reserved.</p>
+                <div class="footer-col">
+                    <h4>Apps</h4>
+                    <a href="/provenant/about/">Provenant</a>
+                    <a href="/timepiece/">Timepiece Tracker</a>
+                    <a href="/housepour/">Housepour</a>
+                    <a href="/binderly/">Binderly</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="/#about">About</a>
+                    <a href="/#contact">Contact</a>
+                    <a href="https://www.linkedin.com/company/oaklandlabs/" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Timepiece Tracker</h4>
+                    <a href="/timepiece/privacy/">Privacy Policy</a>
+                    <a href="/timepiece/terms/">Terms of Service</a>
+                    <a href="/timepiece/delete-account/">Delete Account</a>
+                    <a href="/timepiece/support/">Support</a>
+                </div>
             </div>
-            <div class="footer-links">
-                <a href="privacy/">Privacy Policy</a>
-                <a href="terms/">Terms of Service</a>
-                <a href="delete-account/">Delete Account</a>
-                <a href="support/">Support</a>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Oakland Labs LLC. All rights reserved.</span>
                 <a href="mailto:support@oaklandlabs.app">support@oaklandlabs.app</a>
             </div>
         </div>

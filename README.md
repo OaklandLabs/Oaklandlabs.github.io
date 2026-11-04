@@ -24,7 +24,24 @@ and deep-link/email landing pages. The root-level `privacy.html` / `terms.html` 
   availability in the JSON-LD in sync with the visible copy. Deep-link and unsubscribe pages
   stay `noindex`.
 
-There is **no build step** — the site is hand-authored HTML/CSS (all styles are inlined per page).
+There is **no build step** — the site is hand-authored HTML/CSS.
+
+## Styling
+
+All pages share one stylesheet, `assets/site.css`: design tokens (colors, fonts) with automatic
+dark mode, the sticky header, the footer, buttons, and per-page-type components. Each page sets
+a class on `<body>` that selects its layout:
+
+| Body class  | Pages                                                         |
+|-------------|---------------------------------------------------------------|
+| `page-home` | `index.html` (its own layout rules are inline in that file)   |
+| `page-app`  | App landing pages: `provenant/about/`, `timepiece/`, `housepour/`, `binderly/` |
+| `page-doc`  | Privacy, terms, support, and delete-account pages             |
+| `page-card` | Deep-link, unsubscribe, store-redirect, and 404 pages         |
+
+Every page has the same header and footer markup; the footer's last column links to the legal
+pages of the app the page belongs to. When adding a page, copy the header/footer from a sibling
+page of the same type. Fonts are Inter (text) and Instrument Serif (headings).
 Edit the files, push to `main`, and GitHub Pages redeploys automatically.
 
 ## Architecture

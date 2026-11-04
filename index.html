@@ -19,441 +19,263 @@
     <meta name="twitter:image" content="https://oaklandlabs.app/assets/OaklandLabs.png">
     <link rel="icon" type="image/png" href="assets/OaklandLabs.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0d0f13" media="(prefers-color-scheme: dark)">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
     <style>
         *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
         :root {
-            --bg: #0a0c10;
-            --surface: #111318;
-            --surface-2: #1a1d24;
-            --border: rgba(255,255,255,0.08);
-            --text: #e2e8f0;
-            --muted: #8b95a5;
-            --accent: #4f8ef7;
-            --accent-glow: rgba(79,142,247,0.15);
-            --gold: #f0b429;
-            --gold-glow: rgba(240,180,41,0.12);
-            --green: #2ecc71;
-            --green-glow: rgba(46,204,113,0.12);
+            --bg: #fbfaf7;
+            --surface: #ffffff;
+            --surface-2: #f3f1ec;
+            --border: #e7e3da;
+            --border-strong: #d6d0c4;
+            --text: #16181d;
+            --text-2: #4a4f5a;
+            --muted: #7a7f8a;
+            --accent: #1f4ed8;
+            --accent-soft: #e8eefc;
+            --gold: #a8741a;
+            --ok: #1a7f4b;
+            --ok-soft: #e6f4ec;
+            --soon: #8a5a00;
+            --soon-soft: #fbf1dc;
+            --btn-bg: #16181d;
+            --btn-text: #ffffff;
+            --header-bg: rgba(251,250,247,0.82);
+            --shadow: 0 1px 2px rgba(20,22,28,0.04), 0 8px 24px -12px rgba(20,22,28,0.12);
+            --serif: 'Instrument Serif', 'Iowan Old Style', Georgia, serif;
+            --sans: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            color-scheme: light dark;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --bg: #0d0f13;
+                --surface: #14171c;
+                --surface-2: #1b1f26;
+                --border: #262a33;
+                --border-strong: #343945;
+                --text: #eceef2;
+                --text-2: #b4bac5;
+                --muted: #8a909c;
+                --accent: #7aa2ff;
+                --accent-soft: #1a2440;
+                --gold: #e0b45c;
+                --ok: #4fd08a;
+                --ok-soft: #12291d;
+                --soon: #f0c060;
+                --soon-soft: #2b2311;
+                --btn-bg: #eceef2;
+                --btn-text: #0d0f13;
+                --header-bg: rgba(13,15,19,0.8);
+                --shadow: 0 1px 2px rgba(0,0,0,0.3), 0 8px 24px -12px rgba(0,0,0,0.5);
+            }
         }
 
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
         body {
-            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
-            background-color: var(--bg);
+            font-family: var(--sans);
+            background: var(--bg);
             color: var(--text);
             line-height: 1.6;
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
+            -webkit-font-smoothing: antialiased;
         }
+        a { color: inherit; }
+        .wrap { max-width: 1120px; margin: 0 auto; padding: 0 24px; }
 
-        /* ── SITE LOGO ── */
-        .site-logo {
-            display: flex;
-            justify-content: center;
-            margin-bottom: 1.75rem;
+        /* ── HEADER ── */
+        .site-header {
+            position: sticky; top: 0; z-index: 10;
+            background: var(--header-bg);
+            backdrop-filter: saturate(180%) blur(14px);
+            -webkit-backdrop-filter: saturate(180%) blur(14px);
+            border-bottom: 1px solid var(--border);
         }
-        .site-logo img {
-            height: 140px;
-            width: auto;
-            object-fit: contain;
+        .header-inner { display: flex; align-items: center; justify-content: space-between; height: 64px; }
+        .brand { display: flex; align-items: center; gap: 10px; text-decoration: none; font-weight: 600; font-size: 1rem; letter-spacing: -0.01em; }
+        .brand img { width: 32px; height: 32px; border-radius: 8px; object-fit: cover; }
+        .nav { display: flex; align-items: center; gap: 28px; }
+        .nav a { text-decoration: none; font-size: 0.9rem; color: var(--text-2); font-weight: 500; transition: color .15s; }
+        .nav a:hover { color: var(--text); }
+        .nav .nav-cta {
+            color: var(--btn-text); background: var(--btn-bg);
+            padding: 8px 16px; border-radius: 999px; font-weight: 600;
         }
+        .nav .nav-cta:hover { color: var(--btn-text); opacity: .88; }
+
+        /* ── BUTTONS ── */
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px;
+            padding: 12px 22px; border-radius: 999px;
+            font-weight: 600; font-size: 0.95rem; text-decoration: none;
+            border: 1px solid transparent; transition: transform .15s, opacity .15s, border-color .15s;
+        }
+        .btn:hover { transform: translateY(-1px); }
+        .btn-primary { background: var(--btn-bg); color: var(--btn-text); }
+        .btn-primary:hover { opacity: .9; }
+        .btn-ghost { border-color: var(--border-strong); color: var(--text); background: var(--surface); }
+        .btn-ghost:hover { border-color: var(--text-2); }
 
         /* ── HERO ── */
-        .hero {
-            flex: none;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            text-align: center;
-            padding: 6rem 1.5rem 5rem;
-            position: relative;
-            overflow: hidden;
-        }
-        .hero::before {
-            content: '';
-            position: absolute;
-            top: -120px;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 700px;
-            height: 700px;
-            background: radial-gradient(circle, rgba(79,142,247,0.08) 0%, transparent 70%);
-            pointer-events: none;
-        }
-        .hero-eyebrow {
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--accent);
-            margin-bottom: 1.25rem;
+        .hero { padding: 96px 0 88px; }
+        .hero-grid { display: grid; grid-template-columns: 1.15fr 0.85fr; gap: 64px; align-items: center; }
+        .eyebrow {
+            font-size: 0.78rem; font-weight: 600; letter-spacing: 0.12em; text-transform: uppercase;
+            color: var(--gold); margin-bottom: 20px;
         }
         .hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            color: #fff;
-            line-height: 1.1;
-            max-width: 700px;
-            margin-bottom: 1.25rem;
+            font-family: var(--serif); font-weight: 400;
+            font-size: clamp(2.75rem, 6vw, 4.6rem); line-height: 1.02; letter-spacing: -0.02em;
+            margin-bottom: 24px;
         }
-        .hero h1 span {
-            background: linear-gradient(135deg, #4f8ef7, #a78bfa);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-clip: text;
-        }
-        .hero-sub {
-            font-size: 1.1rem;
-            color: var(--muted);
-            max-width: 480px;
-            margin-bottom: 2.5rem;
-            font-weight: 400;
-        }
-        .hero-actions {
-            display: flex;
-            gap: 0.75rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-        .btn-primary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            background: var(--accent);
-            color: #fff;
-            padding: 0.7rem 1.4rem;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-decoration: none;
-            transition: background 0.2s, transform 0.15s;
-        }
-        .btn-primary:hover { background: #3a7de8; transform: translateY(-1px); }
-        .btn-secondary {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            background: var(--surface-2);
-            color: var(--text);
-            padding: 0.7rem 1.4rem;
-            border-radius: 8px;
-            font-weight: 600;
-            font-size: 0.9rem;
-            text-decoration: none;
-            border: 1px solid var(--border);
-            transition: background 0.2s, transform 0.15s;
-        }
-        .btn-secondary:hover { background: #22262f; transform: translateY(-1px); }
+        .hero h1 em { font-style: italic; color: var(--text-2); }
+        .hero-sub { font-size: 1.15rem; color: var(--text-2); max-width: 520px; margin-bottom: 36px; }
+        .hero-actions { display: flex; gap: 12px; flex-wrap: wrap; }
+        .hero-meta { display: flex; gap: 28px; margin-top: 44px; padding-top: 28px; border-top: 1px solid var(--border); flex-wrap: wrap; }
+        .hero-meta div { font-size: 0.85rem; color: var(--muted); }
+        .hero-meta strong { display: block; font-size: 1.5rem; font-weight: 600; color: var(--text); letter-spacing: -0.02em; }
 
-        /* ── PROVENANT SECTION ── */
-        .app-section {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 1.5rem 6rem;
-            width: 100%;
-        }
-        .section-label {
-            text-align: center;
-            font-size: 0.75rem;
-            font-weight: 600;
-            letter-spacing: 0.1em;
-            text-transform: uppercase;
-            color: var(--gold);
-            margin-bottom: 0.75rem;
-        }
-        .section-title {
-            text-align: center;
-            font-size: clamp(1.75rem, 4vw, 2.5rem);
-            font-weight: 800;
-            letter-spacing: -0.03em;
-            color: #fff;
-            margin-bottom: 1rem;
-        }
-        .section-sub {
-            text-align: center;
-            font-size: 1rem;
-            color: var(--muted);
-            max-width: 520px;
-            margin: 0 auto 3.5rem;
-        }
-
-        .app-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 20px;
-            overflow: hidden;
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
-        }
-        .app-card-content {
-            padding: 3rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-        }
-        .app-card-content h2 {
-            font-size: 1.75rem;
-            font-weight: 800;
-            letter-spacing: -0.025em;
-            color: #fff;
-            margin-bottom: 0.75rem;
-        }
-        .app-card-content p {
-            color: var(--muted);
-            font-size: 0.95rem;
-            margin-bottom: 2rem;
-            line-height: 1.7;
-        }
-        .coming-soon-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            background: var(--gold-glow);
-            border: 1px solid rgba(240,180,41,0.25);
-            color: var(--gold);
-            font-size: 0.8rem;
-            font-weight: 600;
-            padding: 0.35rem 0.75rem;
-            border-radius: 20px;
-            margin-bottom: 1.5rem;
-            width: fit-content;
-        }
-        .coming-soon-badge.is-available {
-            background: var(--green-glow);
-            border-color: rgba(46,204,113,0.25);
-            color: var(--green);
-        }
-        .store-buttons {
-            display: flex;
-            flex-direction: column;
-            gap: 0.6rem;
-        }
-        .store-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.75rem;
-            background: var(--surface-2);
-            border: 1px solid var(--border);
-            border-radius: 10px;
-            padding: 0.65rem 1rem;
-            max-width: 220px;
-            font-family: inherit;
-            cursor: default;
-            opacity: 0.6;
-            text-decoration: none;
-        }
-        .store-btn:not([disabled]) {
-            cursor: pointer;
-            opacity: 1;
-            transition: border-color 0.15s ease, transform 0.15s ease;
-        }
-        .store-btn:not([disabled]):hover {
-            border-color: var(--accent);
-            transform: translateY(-1px);
-        }
-        .store-btn-icon {
-            display: flex;
-            align-items: center;
-            color: var(--text);
-            flex-shrink: 0;
-        }
-        .store-btn-text { display: flex; flex-direction: column; }
-        .store-btn-sub { font-size: 0.65rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
-        .store-btn-name { font-size: 0.9rem; font-weight: 600; color: var(--text); }
-        .notify-cta {
-            margin-top: 1.25rem;
-            font-size: 0.8rem;
-            color: var(--muted);
-            line-height: 1.5;
-        }
-        .notify-link {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 500;
-        }
-        .notify-link:hover { text-decoration: underline; }
-
-        .app-card-visual {
-            background: linear-gradient(135deg, #0f1520 0%, #1a1f2e 50%, #0f1520 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            min-height: 340px;
-            position: relative;
+        .icon-stack { position: relative; height: 380px; }
+        .icon-stack a {
+            position: absolute; display: block; border-radius: 24%;
+            box-shadow: 0 24px 48px -16px rgba(20,22,28,.35), 0 0 0 1px rgba(0,0,0,.06);
+            transition: transform .25s ease;
             overflow: hidden;
         }
-        .app-card-visual::before {
-            content: '';
-            position: absolute;
-            inset: 0;
-            background: radial-gradient(circle at 60% 40%, rgba(240,180,41,0.08), transparent 60%);
-        }
-        .app-mockup-icon {
-            width: 52%;
-            max-width: 220px;
-            height: auto;
-            object-fit: contain;
-            position: relative;
-            z-index: 1;
-            filter: drop-shadow(0 20px 48px rgba(240,180,41,0.25));
-        }
-        /* App icons (as opposed to wordmarks) need the iOS squircle rounding. */
-        .app-mockup-icon.is-icon {
-            width: 44%;
-            max-width: 180px;
-            border-radius: 22%;
-        }
+        .icon-stack img { display: block; width: 100%; height: 100%; object-fit: cover; }
+        .icon-stack a:nth-child(1) { width: 190px; height: 190px; left: 8%;  top: 16px;  transform: rotate(-8deg); z-index: 2; }
+        .icon-stack a:nth-child(2) { width: 160px; height: 160px; right: 6%; top: 0;     transform: rotate(7deg);  z-index: 1; }
+        .icon-stack a:nth-child(3) { width: 170px; height: 170px; left: 34%; bottom: 0;  transform: rotate(-2deg); z-index: 3; }
+        .icon-stack a:hover { transform: rotate(0) scale(1.04); z-index: 4; }
 
-        /* ── FEATURES GRID ── */
-        .features-section {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 1.5rem 6rem;
-            width: 100%;
+        /* ── SECTIONS ── */
+        .section { padding: 96px 0; border-top: 1px solid var(--border); }
+        .section-head { display: flex; justify-content: space-between; align-items: end; gap: 32px; margin-bottom: 48px; flex-wrap: wrap; }
+        .section-head h2 {
+            font-family: var(--serif); font-weight: 400;
+            font-size: clamp(2.1rem, 4vw, 3rem); line-height: 1.05; letter-spacing: -0.015em;
         }
-        .features-grid {
-            display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 1rem;
-        }
-        .feature-card {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 1.75rem;
-            transition: border-color 0.2s;
-        }
-        .feature-card:hover { border-color: rgba(255,255,255,0.14); }
-        .feature-icon {
-            display: block;
-            width: 28px;
-            height: 28px;
-            margin-bottom: 1rem;
-            color: var(--accent);
-        }
-        .feature-card h3 {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #fff;
-            margin-bottom: 0.5rem;
-        }
-        .feature-card p {
-            font-size: 0.875rem;
-            color: var(--muted);
-            line-height: 1.6;
-        }
+        .section-head p { color: var(--text-2); max-width: 420px; }
 
-        /* ── DIVIDER ── */
-        .divider {
-            border: none;
-            border-top: 1px solid var(--border);
-            max-width: 1000px;
-            margin: 0 auto 6rem;
-            width: calc(100% - 3rem);
+        /* ── APP GRID ── */
+        .apps { display: grid; grid-template-columns: repeat(2, 1fr); gap: 20px; }
+        .app {
+            background: var(--surface); border: 1px solid var(--border); border-radius: 20px;
+            padding: 32px; display: flex; flex-direction: column;
+            box-shadow: var(--shadow); transition: border-color .2s, transform .2s;
         }
+        .app:hover { border-color: var(--border-strong); transform: translateY(-2px); }
+        .app-top { display: flex; align-items: center; gap: 18px; margin-bottom: 22px; }
+        .app-icon { width: 72px; height: 72px; border-radius: 22%; flex-shrink: 0; object-fit: cover; box-shadow: 0 0 0 1px rgba(0,0,0,.06); }
+        .app-icon-placeholder {
+            display: grid; place-items: center;
+            background: linear-gradient(145deg, #2a3f8f, #6b3fa0);
+            color: #fff; font-family: var(--serif); font-size: 2.4rem;
+        }
+        .app-title h3 { font-size: 1.3rem; font-weight: 650; letter-spacing: -0.02em; line-height: 1.2; }
+        .app-title .cat { font-size: 0.85rem; color: var(--muted); }
+        .status {
+            display: inline-flex; align-items: center; gap: 6px; margin-left: auto; align-self: flex-start;
+            font-size: 0.75rem; font-weight: 600; padding: 4px 10px; border-radius: 999px; white-space: nowrap;
+            color: var(--ok); background: var(--ok-soft);
+        }
+        .status::before { content: ''; width: 6px; height: 6px; border-radius: 50%; background: currentColor; }
+        .status.soon { color: var(--soon); background: var(--soon-soft); }
+        .app > p { color: var(--text-2); font-size: 0.97rem; margin-bottom: 18px; }
+        .app ul { list-style: none; margin-bottom: 28px; display: grid; gap: 8px; }
+        .app li { font-size: 0.9rem; color: var(--text-2); padding-left: 22px; position: relative; }
+        .app li::before {
+            content: ''; position: absolute; left: 2px; top: 0.5em; width: 10px; height: 6px;
+            border-left: 2px solid var(--accent); border-bottom: 2px solid var(--accent); transform: rotate(-45deg);
+        }
+        .app-foot { margin-top: auto; display: flex; align-items: center; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+        .stores { display: flex; gap: 8px; flex-wrap: wrap; }
+        .store {
+            display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
+            background: var(--btn-bg); color: var(--btn-text);
+            padding: 7px 14px 7px 12px; border-radius: 10px; line-height: 1.1;
+            transition: opacity .15s;
+        }
+        .store:hover { opacity: .85; }
+        .store svg { flex-shrink: 0; }
+        .store small { display: block; font-size: 0.6rem; letter-spacing: 0.04em; text-transform: uppercase; opacity: .75; }
+        .store b { font-size: 0.9rem; font-weight: 600; }
+        .store.disabled { background: var(--surface-2); color: var(--muted); cursor: default; }
+        .store.disabled:hover { opacity: 1; }
+        .more { font-size: 0.9rem; font-weight: 600; color: var(--accent); text-decoration: none; white-space: nowrap; }
+        .more:hover { text-decoration: underline; }
+        .app > p.fine { font-size: 0.78rem; color: var(--muted); margin: 18px 0 0; line-height: 1.5; }
 
-        /* ── ABOUT SECTION ── */
-        .about-section {
-            max-width: 1000px;
-            margin: 0 auto;
-            padding: 0 1.5rem 6rem;
-            width: 100%;
+        /* ── PRINCIPLES ── */
+        .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; }
+        .principle .num { font-family: var(--serif); font-size: 1.1rem; color: var(--gold); margin-bottom: 14px; }
+        .principle h3 { font-size: 1.15rem; font-weight: 650; letter-spacing: -0.015em; margin-bottom: 10px; }
+        .principle p { color: var(--text-2); font-size: 0.95rem; }
+
+        /* ── ABOUT / CONTACT ── */
+        .about-grid { display: grid; grid-template-columns: 1.2fr 0.8fr; gap: 64px; align-items: start; }
+        .about-text p { color: var(--text-2); font-size: 1.05rem; line-height: 1.75; margin-bottom: 18px; }
+        .about-text a { color: var(--text); text-decoration-color: var(--border-strong); text-underline-offset: 3px; }
+        .about-text a:hover { text-decoration-color: var(--text); }
+        .contact-card {
+            background: var(--surface); border: 1px solid var(--border); border-radius: 20px;
+            padding: 32px; box-shadow: var(--shadow);
         }
-        .about-grid {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 3rem;
-            margin-top: 3rem;
+        .contact-card h3 { font-family: var(--serif); font-weight: 400; font-size: 1.8rem; margin-bottom: 6px; }
+        .contact-card > p { color: var(--text-2); font-size: 0.95rem; margin-bottom: 24px; }
+        .contact-row {
+            display: flex; align-items: center; gap: 14px; padding: 14px 0;
+            border-top: 1px solid var(--border); text-decoration: none;
         }
-        .about-text p {
-            font-size: 0.95rem;
-            color: var(--muted);
-            line-height: 1.8;
-            margin-bottom: 1rem;
-        }
-        .about-contact {
-            background: var(--surface);
-            border: 1px solid var(--border);
-            border-radius: 14px;
-            padding: 2rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-        }
-        .about-contact h3 {
-            font-size: 1rem;
-            font-weight: 700;
-            color: #fff;
-        }
-        .about-contact > p {
-            font-size: 0.875rem;
-            color: var(--muted);
-            margin: 0;
-        }
-        .contact-item {
-            display: flex;
-            align-items: center;
-            gap: 0.6rem;
-            color: var(--accent);
-            text-decoration: none;
-            font-size: 0.9rem;
-            font-weight: 500;
-            transition: opacity 0.2s;
-        }
-        .contact-item:hover { opacity: 0.8; }
-        .contact-item svg { flex-shrink: 0; }
+        .contact-row svg { color: var(--muted); flex-shrink: 0; }
+        .contact-row small { display: block; font-size: 0.75rem; color: var(--muted); }
+        .contact-row span { font-weight: 500; }
+        .contact-row:hover span { color: var(--accent); }
 
         /* ── FOOTER ── */
-        footer {
-            margin-top: auto;
-            border-top: 1px solid var(--border);
-            padding: 2.5rem 2rem;
+        footer { border-top: 1px solid var(--border); padding: 64px 0 40px; }
+        .footer-grid { display: grid; grid-template-columns: 1.6fr 1fr 1fr 1fr; gap: 40px; }
+        .footer-brand p { color: var(--muted); font-size: 0.9rem; margin-top: 14px; max-width: 280px; }
+        .footer-col h4 { font-size: 0.78rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); margin-bottom: 14px; }
+        .footer-col a { display: block; text-decoration: none; color: var(--text-2); font-size: 0.92rem; padding: 4px 0; }
+        .footer-col a:hover { color: var(--text); }
+        .footer-bottom {
+            margin-top: 48px; padding-top: 24px; border-top: 1px solid var(--border);
+            display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap;
+            font-size: 0.82rem; color: var(--muted);
         }
-        .footer-inner {
-            max-width: 1000px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem;
-        }
-        .footer-brand {
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-        }
-        .footer-brand img { height: 24px; width: auto; }
-        .footer-brand-name { font-size: 0.875rem; font-weight: 600; color: var(--muted); }
-        .footer-copy { font-size: 0.8rem; color: var(--muted); }
-        .footer-links { display: flex; gap: 1.25rem; flex-wrap: wrap; }
-        .footer-links a {
-            color: var(--muted);
-            text-decoration: none;
-            font-size: 0.85rem;
-            transition: color 0.2s;
-        }
-        .footer-links a[href^="mailto"],
-        .footer-links a[href^="tel"] { color: var(--accent); }
-        .footer-links a:hover { color: var(--text); }
 
         /* ── RESPONSIVE ── */
-        @media (max-width: 700px) {
-            .hero { padding: 4rem 1.25rem 3.5rem; }
-            .app-card { grid-template-columns: 1fr; }
-            /* Stacked layout: lead with the app icon instead of burying it below the copy. */
-            .app-card-visual { min-height: 220px; order: -1; }
-            .app-card-content { padding: 2rem 1.5rem; }
-            .features-grid { grid-template-columns: 1fr 1fr; }
-            .about-grid { grid-template-columns: 1fr; gap: 2rem; }
-            .footer-inner { flex-direction: column; align-items: flex-start; }
+        @media (max-width: 900px) {
+            .hero-grid { grid-template-columns: 1fr; gap: 48px; }
+            .icon-stack { height: 300px; max-width: 440px; width: 100%; margin: 0 auto; }
+            .icon-stack a:nth-child(1) { width: 150px; height: 150px; }
+            .icon-stack a:nth-child(2) { width: 128px; height: 128px; }
+            .icon-stack a:nth-child(3) { width: 136px; height: 136px; }
+            .apps { grid-template-columns: 1fr; }
+            .principles { grid-template-columns: 1fr; gap: 32px; }
+            .about-grid { grid-template-columns: 1fr; gap: 40px; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .footer-brand { grid-column: 1 / -1; }
         }
-        @media (max-width: 500px) {
-            .features-grid { grid-template-columns: 1fr; }
+        @media (max-width: 640px) {
+            .wrap { padding: 0 16px; }
+            .nav a:not(.nav-cta) { display: none; }
+            .hero { padding: 56px 0 64px; }
+            .section { padding: 72px 0; }
+            .app { padding: 24px; }
+            .app-top { flex-wrap: wrap; }
+            .status { margin-left: 0; }
+            .hero-meta { display: grid; grid-template-columns: repeat(3, auto); justify-content: start; gap: 20px; }
+            .hero-meta strong { font-size: 1.1rem; }
+            .icon-stack { display: none; }
+            .hero h1 { font-size: 2.6rem; }
+        }
+        @media (prefers-reduced-motion: reduce) {
+            html { scroll-behavior: auto; }
+            * { transition: none !important; }
         }
     </style>
     <script type="application/ld+json">
@@ -638,266 +460,256 @@
 </head>
 <body>
 
-    <section class="hero">
-        <div class="site-logo">
-            <img src="assets/OaklandLabs.png" alt="Oakland Labs">
+    <header class="site-header">
+        <div class="wrap header-inner">
+            <a href="/" class="brand">
+                <img src="assets/OaklandLabs.png" alt="" width="32" height="32">
+                Oakland Labs
+            </a>
+            <nav class="nav" aria-label="Main">
+                <a href="#apps">Apps</a>
+                <a href="#approach">Approach</a>
+                <a href="#about">About</a>
+                <a href="#contact" class="nav-cta">Contact</a>
+            </nav>
         </div>
-        <p class="hero-eyebrow">iOS &amp; Android Development</p>
-        <h1>Apps built for<br><span>collectors who care.</span></h1>
-        <p class="hero-sub">Oakland Labs builds precise, thoughtful mobile experiences for people serious about what they collect.</p>
-        <div class="hero-actions">
-            <a href="#provenant" class="btn-secondary">Our Apps</a>
-            <a href="#about" class="btn-secondary">Get in Touch</a>
-        </div>
-    </section>
+    </header>
 
-    <section id="provenant" class="app-section">
-        <p class="section-label">Available Now</p>
-        <h2 class="section-title">Introducing Provenant</h2>
-        <p class="section-sub">The premier digital management platform for high-value sports memorabilia and collectibles.</p>
-
-        <div class="app-card">
-            <div class="app-card-content">
-                <span class="coming-soon-badge is-available">
-                    <span>●</span> Available Now
-                </span>
-                <p>Track history, verify authentication, and manage your entire collection with precision — all in one place. Built for serious collectors who want full visibility into their portfolio.</p>
-                <div class="store-buttons">
-                    <a href="https://apps.apple.com/us/app/provenant/id6766748210" target="_blank" rel="noopener" class="store-btn" aria-label="Download on the App Store">
-                        <span class="store-btn-icon">
-                            <svg width="18" height="22" viewBox="0 0 18 22" fill="currentColor" aria-hidden="true">
-                                <path d="M14.94 11.55c-.02-2.63 2.15-3.9 2.25-3.96-1.23-1.79-3.13-2.03-3.8-2.06-1.62-.16-3.17.95-3.99.95-.82 0-2.07-.93-3.4-.9C4.2 5.61 2.5 6.62 1.57 8.19.04 10.99 1.17 15 2.62 17.2c.73 1.05 1.6 2.23 2.74 2.19 1.1-.05 1.52-.71 2.85-.71 1.33 0 1.71.71 2.86.68 1.19-.02 1.93-1.06 2.65-2.12.53-.74.94-1.5 1.22-2.28-2.43-.93-2.99-4.41-.99-5.41zM12.31 3.67c.76-.93 1.27-2.2 1.13-3.47-1.09.04-2.41.73-3.19 1.64-.7.8-1.32 2.1-1.15 3.33 1.21.09 2.46-.62 3.21-1.5z"/>
-                            </svg>
-                        </span>
-                        <span class="store-btn-text">
-                            <span class="store-btn-sub">Download on the</span>
-                            <span class="store-btn-name">App Store</span>
-                        </span>
-                    </a>
-                    <a href="https://play.google.com/store/apps/details?id=com.provenant.app&hl=en_US" target="_blank" rel="noopener" class="store-btn" aria-label="Get it on Google Play">
-                        <span class="store-btn-icon">
-                            <svg width="18" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                                <polygon points="5 3 19 12 5 21 5 3"/>
-                            </svg>
-                        </span>
-                        <span class="store-btn-text">
-                            <span class="store-btn-sub">Get it on</span>
-                            <span class="store-btn-name">Google Play</span>
-                        </span>
-                    </a>
-                </div>
-                <p class="notify-cta">Now available on the App Store and Google Play. <a href="provenant/about/" class="notify-link">Learn more →</a></p>
-            </div>
-            <div class="app-card-visual">
-                <img src="assets/provenant-logo.png" alt="Provenant" class="app-mockup-icon is-icon">
-            </div>
-        </div>
-    </section>
-
-    <section id="timepiece" class="app-section">
-        <p class="section-label">Available Now</p>
-        <h2 class="section-title">Timepiece Tracker</h2>
-        <p class="section-sub">Know your collection. A watch-collection tracker for collectors who wear what they own.</p>
-
-        <div class="app-card">
-            <div class="app-card-content">
-                <span class="coming-soon-badge is-available">
-                    <span>●</span> Available Now
-                </span>
-                <p>Every watch's specs, photos, and value in one place — plus service reminders, accuracy tracking, a one-tap wear log with cost-per-wear, and daily eBay alerts for the grails on your wishlist.</p>
-                <div class="store-buttons">
-                    <a href="https://apps.apple.com/us/app/timepiece-tracker/id6792404644" target="_blank" rel="noopener" class="store-btn" aria-label="Download on the App Store">
-                        <span class="store-btn-icon">
-                            <svg width="18" height="22" viewBox="0 0 18 22" fill="currentColor" aria-hidden="true">
-                                <path d="M14.94 11.55c-.02-2.63 2.15-3.9 2.25-3.96-1.23-1.79-3.13-2.03-3.8-2.06-1.62-.16-3.17.95-3.99.95-.82 0-2.07-.93-3.4-.9C4.2 5.61 2.5 6.62 1.57 8.19.04 10.99 1.17 15 2.62 17.2c.73 1.05 1.6 2.23 2.74 2.19 1.1-.05 1.52-.71 2.85-.71 1.33 0 1.71.71 2.86.68 1.19-.02 1.93-1.06 2.65-2.12.53-.74.94-1.5 1.22-2.28-2.43-.93-2.99-4.41-.99-5.41zM12.31 3.67c.76-.93 1.27-2.2 1.13-3.47-1.09.04-2.41.73-3.19 1.64-.7.8-1.32 2.1-1.15 3.33 1.21.09 2.46-.62 3.21-1.5z"/>
-                            </svg>
-                        </span>
-                        <span class="store-btn-text">
-                            <span class="store-btn-sub">Download on the</span>
-                            <span class="store-btn-name">App Store</span>
-                        </span>
-                    </a>
-                </div>
-                <p class="notify-cta">Now available on the App Store; Android to follow. <a href="timepiece/" class="notify-link">Learn more →</a></p>
-            </div>
-            <div class="app-card-visual">
-                <img src="assets/timepiece.png" alt="Timepiece Tracker" class="app-mockup-icon is-icon">
-            </div>
-        </div>
-    </section>
-
-    <section id="housepour" class="app-section">
-        <p class="section-label">Available Now</p>
-        <h2 class="section-title">Housepour</h2>
-        <p class="section-sub">Your home bar, organized. A bar tracker for people who like to mix a good drink at home.</p>
-
-        <div class="app-card">
-            <div class="app-card-content">
-                <span class="coming-soon-badge is-available">
-                    <span>●</span> Available Now
-                </span>
-                <p>Track the bottles you own with a drag-to-set fill level, see which cocktails you can make tonight, and find the one bottle that unlocks the most new drinks. Everything stays on your device.</p>
-                <div class="store-buttons">
-                    <a href="https://apps.apple.com/us/app/housepour-home-bar-tracker/id6815329687" target="_blank" rel="noopener" class="store-btn" aria-label="Download on the App Store">
-                        <span class="store-btn-icon">
-                            <svg width="18" height="22" viewBox="0 0 18 22" fill="currentColor" aria-hidden="true">
-                                <path d="M14.94 11.55c-.02-2.63 2.15-3.9 2.25-3.96-1.23-1.79-3.13-2.03-3.8-2.06-1.62-.16-3.17.95-3.99.95-.82 0-2.07-.93-3.4-.9C4.2 5.61 2.5 6.62 1.57 8.19.04 10.99 1.17 15 2.62 17.2c.73 1.05 1.6 2.23 2.74 2.19 1.1-.05 1.52-.71 2.85-.71 1.33 0 1.71.71 2.86.68 1.19-.02 1.93-1.06 2.65-2.12.53-.74.94-1.5 1.22-2.28-2.43-.93-2.99-4.41-.99-5.41zM12.31 3.67c.76-.93 1.27-2.2 1.13-3.47-1.09.04-2.41.73-3.19 1.64-.7.8-1.32 2.1-1.15 3.33 1.21.09 2.46-.62 3.21-1.5z"/>
-                            </svg>
-                        </span>
-                        <span class="store-btn-text">
-                            <span class="store-btn-sub">Download on the</span>
-                            <span class="store-btn-name">App Store</span>
-                        </span>
-                    </a>
-                </div>
-                <p class="notify-cta">Now available on the App Store; Android to follow. <a href="housepour/" class="notify-link">Learn more →</a></p>
-                <p class="notify-cta">For adults of legal drinking age. Please drink responsibly.</p>
-            </div>
-            <div class="app-card-visual">
-                <img src="assets/housepour.png" alt="Housepour" class="app-mockup-icon is-icon">
-            </div>
-        </div>
-    </section>
-
-    <section id="binderly" class="app-section">
-        <p class="section-label">Coming Soon</p>
-        <h2 class="section-title">Binderly - Card Collection</h2>
-        <p class="section-sub">Your binder, tracked. A Pokémon TCG collection tracker for collectors who chase completion.</p>
-
-        <div class="app-card">
-            <div class="app-card-content">
-                <span class="coming-soon-badge">
-                    <span>●</span> Coming Soon
-                </span>
-                <p>Track your Pokémon TCG collection — scan cards to add them, know what your collection is worth, build decks that pass legality, and get grading ROI advice — plus a wishlist with eBay deal alerts.</p>
-                <div class="store-buttons">
-                    <div class="store-btn" aria-label="Coming soon to the App Store">
-                        <span class="store-btn-icon">
-                            <svg width="18" height="22" viewBox="0 0 18 22" fill="currentColor" aria-hidden="true">
-                                <path d="M14.94 11.55c-.02-2.63 2.15-3.9 2.25-3.96-1.23-1.79-3.13-2.03-3.8-2.06-1.62-.16-3.17.95-3.99.95-.82 0-2.07-.93-3.4-.9C4.2 5.61 2.5 6.62 1.57 8.19.04 10.99 1.17 15 2.62 17.2c.73 1.05 1.6 2.23 2.74 2.19 1.1-.05 1.52-.71 2.85-.71 1.33 0 1.71.71 2.86.68 1.19-.02 1.93-1.06 2.65-2.12.53-.74.94-1.5 1.22-2.28-2.43-.93-2.99-4.41-.99-5.41zM12.31 3.67c.76-.93 1.27-2.2 1.13-3.47-1.09.04-2.41.73-3.19 1.64-.7.8-1.32 2.1-1.15 3.33 1.21.09 2.46-.62 3.21-1.5z"/>
-                            </svg>
-                        </span>
-                        <span class="store-btn-text">
-                            <span class="store-btn-sub">Coming soon to the</span>
-                            <span class="store-btn-name">App Store</span>
-                        </span>
+    <main>
+        <section class="hero">
+            <div class="wrap hero-grid">
+                <div>
+                    <p class="eyebrow">Independent app studio</p>
+                    <h1>Apps for people who take what they collect <em>seriously.</em></h1>
+                    <p class="hero-sub">Oakland Labs builds focused iOS and Android apps for collectors and enthusiasts: memorabilia, watches, home bars, and trading cards.</p>
+                    <div class="hero-actions">
+                        <a href="#apps" class="btn btn-primary">Explore our apps</a>
+                        <a href="#contact" class="btn btn-ghost">Get in touch</a>
+                    </div>
+                    <div class="hero-meta">
+                        <div><strong>3</strong>apps on the App Store</div>
+                        <div><strong>iOS &amp; Android</strong>native experiences</div>
+                        <div><strong>Free</strong>to start, every app</div>
                     </div>
                 </div>
-                <p class="notify-cta">iOS and Android planned at launch. <a href="binderly/" class="notify-link">Learn more →</a></p>
-                <p class="notify-cta">Compatible with the Pokémon TCG. Not affiliated with or endorsed by Nintendo, Creatures Inc., Game Freak Inc., or The Pokémon Company.</p>
+                <div class="icon-stack" aria-hidden="true">
+                    <a href="#provenant" tabindex="-1"><img src="assets/provenant-logo.png" alt=""></a>
+                    <a href="#timepiece" tabindex="-1"><img src="assets/timepiece.png" alt=""></a>
+                    <a href="#housepour" tabindex="-1"><img src="assets/housepour.png" alt=""></a>
+                </div>
             </div>
-            <div class="app-card-visual">
-                <img src="assets/OaklandLabs.png" alt="Binderly - Card Collection" class="app-mockup-icon is-icon">
-            </div>
-        </div>
-    </section>
+        </section>
 
-    <hr class="divider">
+        <section id="apps" class="section">
+            <div class="wrap">
+                <div class="section-head">
+                    <h2>Our apps</h2>
+                    <p>Each one is built around a single passion, and free to download with an extensive free tier.</p>
+                </div>
 
-    <section class="features-section">
-        <p class="section-label">Provenant Features</p>
-        <h2 class="section-title">Everything your collection needs</h2>
-        <p class="section-sub">Purpose-built tools for memorabilia collectors, from weekend hobbyists to serious investors.</p>
+                <div class="apps">
+                    <article id="provenant" class="app">
+                        <div class="app-top">
+                            <img src="assets/provenant-logo.png" alt="Provenant app icon" class="app-icon" width="72" height="72">
+                            <div class="app-title">
+                                <h3>Provenant</h3>
+                                <span class="cat">Sports memorabilia &amp; autographs</span>
+                            </div>
+                            <span class="status">Available</span>
+                        </div>
+                        <p>The premier platform for managing high-value sports memorabilia, with full visibility into your collection.</p>
+                        <ul>
+                            <li>Catalog items with photos, grades, and purchase details</li>
+                            <li>Store COAs and PSA/BGS authentication records</li>
+                            <li>Track provenance and portfolio value over time</li>
+                        </ul>
+                        <div class="app-foot">
+                            <div class="stores">
+                                <a href="https://apps.apple.com/us/app/provenant/id6766748210" target="_blank" rel="noopener" class="store" aria-label="Download Provenant on the App Store">
+                                    <svg width="16" height="19" viewBox="0 0 18 22" fill="currentColor" aria-hidden="true"><path d="M14.94 11.55c-.02-2.63 2.15-3.9 2.25-3.96-1.23-1.79-3.13-2.03-3.8-2.06-1.62-.16-3.17.95-3.99.95-.82 0-2.07-.93-3.4-.9C4.2 5.61 2.5 6.62 1.57 8.19.04 10.99 1.17 15 2.62 17.2c.73 1.05 1.6 2.23 2.74 2.19 1.1-.05 1.52-.71 2.85-.71 1.33 0 1.71.71 2.86.68 1.19-.02 1.93-1.06 2.65-2.12.53-.74.94-1.5 1.22-2.28-2.43-.93-2.99-4.41-.99-5.41zM12.31 3.67c.76-.93 1.27-2.2 1.13-3.47-1.09.04-2.41.73-3.19 1.64-.7.8-1.32 2.1-1.15 3.33 1.21.09 2.46-.62 3.21-1.5z"/></svg>
+                                    <span><small>Download on the</small><b>App Store</b></span>
+                                </a>
+                                <a href="https://play.google.com/store/apps/details?id=com.provenant.app" target="_blank" rel="noopener" class="store" aria-label="Get Provenant on Google Play">
+                                    <svg width="16" height="18" viewBox="0 0 24 26" fill="currentColor" aria-hidden="true"><path d="M1.2.6C.9.9.8 1.4.8 2v22c0 .6.1 1.1.4 1.4l12.3-12.4L1.2.6zm13.6 13.7 3.5 3.5-13.9 7.9c-.6.3-1.2.4-1.6.2L14.8 14.3zm0-2.6L2.8.2c.4-.2 1-.1 1.6.2l13.9 7.9-3.5 3.4zm4.9-2.6 4 2.2c1.1.7 1.1 1.7 0 2.4l-4 2.2-3.8-3.4 3.8-3.4z"/></svg>
+                                    <span><small>Get it on</small><b>Google Play</b></span>
+                                </a>
+                            </div>
+                            <a href="provenant/about/" class="more">Learn more →</a>
+                        </div>
+                    </article>
 
-        <div class="features-grid">
-            <div class="feature-card">
-                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M9 5H7a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2V7a2 2 0 00-2-2h-2"/>
-                    <rect x="9" y="3" width="6" height="4" rx="2"/>
-                    <line x1="9" y1="12" x2="15" y2="12"/>
-                    <line x1="9" y1="16" x2="13" y2="16"/>
-                </svg>
-                <h3>Collection Tracking</h3>
-                <p>Catalog every piece with photos, purchase details, grades, and provenance — organized and searchable.</p>
-            </div>
-            <div class="feature-card">
-                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/>
-                    <polyline points="9 12 11 14 15 10"/>
-                </svg>
-                <h3>Authentication Records</h3>
-                <p>Store COAs, PSA/BGS grades, and authentication details alongside each item for instant verification.</p>
-            </div>
-            <div class="feature-card">
-                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <polyline points="22 7 13.5 15.5 8.5 10.5 2 17"/>
-                    <polyline points="16 7 22 7 22 13"/>
-                </svg>
-                <h3>Portfolio Value</h3>
-                <p>Monitor the estimated value of your collection over time and understand what your pieces are worth.</p>
-            </div>
-            <div class="feature-card">
-                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <polyline points="12 8 12 12 14 14"/>
-                    <path d="M3.05 11a9 9 0 1 0 .5-4H1"/>
-                    <polyline points="1 2 1 7 6 7"/>
-                </svg>
-                <h3>Item History</h3>
-                <p>Record the full chain of ownership and story behind each piece — because provenance matters.</p>
-            </div>
-            <div class="feature-card">
-                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <rect x="5" y="2" width="14" height="20" rx="2" ry="2"/>
-                    <line x1="12" y1="18" x2="12.01" y2="18"/>
-                </svg>
-                <h3>iOS &amp; Android</h3>
-                <p>A native experience on both platforms, built with performance and reliability from the ground up.</p>
-            </div>
-            <div class="feature-card">
-                <svg class="feature-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                    <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
-                    <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
-                </svg>
-                <h3>Private &amp; Secure</h3>
-                <p>Your collection data is yours. We never sell or share your information with third parties.</p>
-            </div>
-        </div>
-    </section>
+                    <article id="timepiece" class="app">
+                        <div class="app-top">
+                            <img src="assets/timepiece.png" alt="Timepiece Tracker app icon" class="app-icon" width="72" height="72">
+                            <div class="app-title">
+                                <h3>Timepiece Tracker</h3>
+                                <span class="cat">Watch collections</span>
+                            </div>
+                            <span class="status">Available</span>
+                        </div>
+                        <p>Know your collection. Built for watch collectors who wear what they own.</p>
+                        <ul>
+                            <li>Specs, photos, and value for every watch</li>
+                            <li>Service reminders, accuracy tracking, and cost-per-wear</li>
+                            <li>Daily eBay alerts for the grails on your wishlist</li>
+                        </ul>
+                        <div class="app-foot">
+                            <div class="stores">
+                                <a href="https://apps.apple.com/us/app/timepiece-tracker/id6792404644" target="_blank" rel="noopener" class="store" aria-label="Download Timepiece Tracker on the App Store">
+                                    <svg width="16" height="19" viewBox="0 0 18 22" fill="currentColor" aria-hidden="true"><path d="M14.94 11.55c-.02-2.63 2.15-3.9 2.25-3.96-1.23-1.79-3.13-2.03-3.8-2.06-1.62-.16-3.17.95-3.99.95-.82 0-2.07-.93-3.4-.9C4.2 5.61 2.5 6.62 1.57 8.19.04 10.99 1.17 15 2.62 17.2c.73 1.05 1.6 2.23 2.74 2.19 1.1-.05 1.52-.71 2.85-.71 1.33 0 1.71.71 2.86.68 1.19-.02 1.93-1.06 2.65-2.12.53-.74.94-1.5 1.22-2.28-2.43-.93-2.99-4.41-.99-5.41zM12.31 3.67c.76-.93 1.27-2.2 1.13-3.47-1.09.04-2.41.73-3.19 1.64-.7.8-1.32 2.1-1.15 3.33 1.21.09 2.46-.62 3.21-1.5z"/></svg>
+                                    <span><small>Download on the</small><b>App Store</b></span>
+                                </a>
+                            </div>
+                            <a href="timepiece/" class="more">Learn more →</a>
+                        </div>
+                        <p class="fine">Android to follow.</p>
+                    </article>
 
-    <hr class="divider">
+                    <article id="housepour" class="app">
+                        <div class="app-top">
+                            <img src="assets/housepour.png" alt="Housepour app icon" class="app-icon" width="72" height="72">
+                            <div class="app-title">
+                                <h3>Housepour</h3>
+                                <span class="cat">Home bar &amp; cocktails</span>
+                            </div>
+                            <span class="status">Available</span>
+                        </div>
+                        <p>Your home bar, organized. For people who like to mix a good drink at home.</p>
+                        <ul>
+                            <li>Track bottles with a drag-to-set fill level</li>
+                            <li>See which cocktails you can make tonight</li>
+                            <li>Find the one bottle that unlocks the most new drinks</li>
+                        </ul>
+                        <div class="app-foot">
+                            <div class="stores">
+                                <a href="https://apps.apple.com/us/app/housepour-home-bar-tracker/id6815329687" target="_blank" rel="noopener" class="store" aria-label="Download Housepour on the App Store">
+                                    <svg width="16" height="19" viewBox="0 0 18 22" fill="currentColor" aria-hidden="true"><path d="M14.94 11.55c-.02-2.63 2.15-3.9 2.25-3.96-1.23-1.79-3.13-2.03-3.8-2.06-1.62-.16-3.17.95-3.99.95-.82 0-2.07-.93-3.4-.9C4.2 5.61 2.5 6.62 1.57 8.19.04 10.99 1.17 15 2.62 17.2c.73 1.05 1.6 2.23 2.74 2.19 1.1-.05 1.52-.71 2.85-.71 1.33 0 1.71.71 2.86.68 1.19-.02 1.93-1.06 2.65-2.12.53-.74.94-1.5 1.22-2.28-2.43-.93-2.99-4.41-.99-5.41zM12.31 3.67c.76-.93 1.27-2.2 1.13-3.47-1.09.04-2.41.73-3.19 1.64-.7.8-1.32 2.1-1.15 3.33 1.21.09 2.46-.62 3.21-1.5z"/></svg>
+                                    <span><small>Download on the</small><b>App Store</b></span>
+                                </a>
+                            </div>
+                            <a href="housepour/" class="more">Learn more →</a>
+                        </div>
+                        <p class="fine">Android to follow. For adults of legal drinking age. Please drink responsibly.</p>
+                    </article>
 
-    <section id="about" class="about-section">
-        <p class="section-label">About Us</p>
-        <h2 class="section-title">Oakland Labs LLC</h2>
-        <div class="about-grid">
-            <div class="about-text">
-                <p>Oakland Labs LLC is an independent mobile software company based in the United States, founded to build precise, well-crafted apps for enthusiast communities. Our first product, <a href="provenant/about/" class="notify-link">Provenant</a>, is purpose-built for sports memorabilia and autograph collectors. <a href="timepiece/" class="notify-link">Timepiece Tracker</a>, for watch collectors, and <a href="housepour/" class="notify-link">Housepour</a>, for home bartenders, are now available on the App Store, and <a href="binderly/" class="notify-link">Binderly - Card Collection</a>, for Pokémon TCG collectors, is coming soon.</p>
-                <p>We design for people who take their collections seriously — building native iOS and Android experiences that respect user privacy and put data ownership first. Your collection data is never sold or shared with advertisers.</p>
+                    <article id="binderly" class="app">
+                        <div class="app-top">
+                            <div class="app-icon app-icon-placeholder" aria-hidden="true">B</div>
+                            <div class="app-title">
+                                <h3>Binderly</h3>
+                                <span class="cat">Pokémon TCG collections</span>
+                            </div>
+                            <span class="status soon">Coming soon</span>
+                        </div>
+                        <p>Your binder, tracked. For trading card collectors who chase completion.</p>
+                        <ul>
+                            <li>Scan cards to add them in seconds</li>
+                            <li>Know what your collection is worth</li>
+                            <li>Deck legality checks, grading ROI advice, and eBay deal alerts</li>
+                        </ul>
+                        <div class="app-foot">
+                            <div class="stores">
+                                <span class="store disabled" aria-label="Coming soon to iOS and Android">
+                                    <span><small>Launching on</small><b>iOS &amp; Android</b></span>
+                                </span>
+                            </div>
+                            <a href="binderly/" class="more">Learn more →</a>
+                        </div>
+                        <p class="fine">Compatible with the Pokémon TCG. Not affiliated with or endorsed by Nintendo, Creatures Inc., Game Freak Inc., or The Pokémon Company.</p>
+                    </article>
+                </div>
             </div>
-            <div class="about-contact">
-                <h3>Get in Touch</h3>
-                <p>We read every message.</p>
-                <a href="mailto:support@oaklandlabs.app" class="contact-item">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
-                        <polyline points="22,6 12,13 2,6"/>
-                    </svg>
-                    support@oaklandlabs.app
-                </a>
-                <a href="tel:+15093813920" class="contact-item">
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                        <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.67 9.81 19.79 19.79 0 01.61 1.18 2 2 0 012.6 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.95-.95a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.5v2.42z"/>
-                    </svg>
-                    (509) 381-3920
-                </a>
+        </section>
+
+        <section id="approach" class="section">
+            <div class="wrap">
+                <div class="section-head">
+                    <h2>How we build</h2>
+                    <p>Small, focused products that do one thing exceptionally well.</p>
+                </div>
+                <div class="principles">
+                    <div class="principle">
+                        <p class="num">01</p>
+                        <h3>Made for enthusiasts</h3>
+                        <p>Every app is designed around how real collectors think, from provenance and grading to service intervals and fill levels.</p>
+                    </div>
+                    <div class="principle">
+                        <p class="num">02</p>
+                        <h3>Private by default</h3>
+                        <p>Your collection is yours. We never sell your data or share it with advertisers, and you can delete it at any time.</p>
+                    </div>
+                    <div class="principle">
+                        <p class="num">03</p>
+                        <h3>Free to start</h3>
+                        <p>Every app is free to download with an extensive free tier. Optional upgrades are there when you want more.</p>
+                    </div>
+                </div>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section id="about" class="section">
+            <div class="wrap about-grid">
+                <div class="about-text">
+                    <div class="section-head" style="margin-bottom:28px">
+                        <h2>About Oakland Labs</h2>
+                    </div>
+                    <p>Oakland Labs LLC is an independent mobile software company based in the United States, founded to build precise, well-crafted apps for enthusiast communities.</p>
+                    <p>Our first product, <a href="provenant/about/">Provenant</a>, is purpose-built for sports memorabilia and autograph collectors. <a href="timepiece/">Timepiece Tracker</a>, for watch collectors, and <a href="housepour/">Housepour</a>, for home bartenders, are available now on the App Store, and <a href="binderly/">Binderly - Card Collection</a>, for Pokémon TCG collectors, is coming soon.</p>
+                    <p>We design native iOS and Android experiences that respect user privacy and put data ownership first.</p>
+                </div>
+                <div id="contact" class="contact-card">
+                    <h3>Get in touch</h3>
+                    <p>Questions, feedback, or partnership ideas. We read every message.</p>
+                    <a href="mailto:support@oaklandlabs.app" class="contact-row">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+                        <div><small>Email</small><span>support@oaklandlabs.app</span></div>
+                    </a>
+                    <a href="tel:+15093813920" class="contact-row">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.67 9.81 19.79 19.79 0 01.61 1.18 2 2 0 012.6 0h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.91 7.09a16 16 0 006 6l.95-.95a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 14.5v2.42z"/></svg>
+                        <div><small>Phone</small><span>(509) 381-3920</span></div>
+                    </a>
+                    <a href="https://www.linkedin.com/company/oaklandlabs/" target="_blank" rel="noopener" class="contact-row">
+                        <svg width="20" height="20" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28zM5.34 7.43a2.06 2.06 0 1 1 0-4.12 2.06 2.06 0 0 1 0 4.12zM7.12 20.45H3.56V9h3.56v11.45zM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0z"/></svg>
+                        <div><small>LinkedIn</small><span>Oakland Labs</span></div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
 
     <footer>
-        <div class="footer-inner">
-            <div>
+        <div class="wrap">
+            <div class="footer-grid">
                 <div class="footer-brand">
-                    <img src="assets/OaklandLabs.png" alt="Oakland Labs">
-                    <span class="footer-brand-name">Oakland Labs LLC</span>
+                    <a href="/" class="brand">
+                        <img src="assets/OaklandLabs.png" alt="" width="32" height="32">
+                        Oakland Labs
+                    </a>
+                    <p>Independent apps for collectors and enthusiasts.</p>
                 </div>
-                <p class="footer-copy" style="margin-top:0.4rem;">&copy; 2026 Oakland Labs LLC. All rights reserved.</p>
+                <div class="footer-col">
+                    <h4>Apps</h4>
+                    <a href="provenant/about/">Provenant</a>
+                    <a href="timepiece/">Timepiece Tracker</a>
+                    <a href="housepour/">Housepour</a>
+                    <a href="binderly/">Binderly</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="#about">About</a>
+                    <a href="#contact">Contact</a>
+                    <a href="https://www.linkedin.com/company/oaklandlabs/" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Legal</h4>
+                    <a href="privacy.html">Privacy Policy</a>
+                    <a href="terms.html">Terms of Service</a>
+                    <a href="delete-account.html">Delete Account</a>
+                </div>
             </div>
-            <div class="footer-links">
-                <a href="privacy.html">Privacy Policy</a>
-                <a href="terms.html">Terms of Service</a>
-                <a href="mailto:support@oaklandlabs.app">support@oaklandlabs.app</a>
-                <a href="tel:+15093813920">(509) 381-3920</a>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Oakland Labs LLC. All rights reserved.</span>
+                <a href="mailto:support@oaklandlabs.app" style="text-decoration:none">support@oaklandlabs.app</a>
             </div>
         </div>
     </footer>

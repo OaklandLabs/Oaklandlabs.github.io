@@ -114,6 +114,7 @@ a { color: inherit; }
     display: inline-flex; align-items: center; gap: 10px; text-decoration: none;
     background: var(--btn-bg); color: var(--btn-text);
     padding: 9px 18px 9px 14px; border-radius: 12px; line-height: 1.15;
+    min-width: 172px; height: 52px;
     transition: opacity .15s, transform .15s;
 }
 a.store-btn:hover { opacity: .88; transform: translateY(-1px); }

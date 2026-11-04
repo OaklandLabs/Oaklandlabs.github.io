@@ -105,6 +105,7 @@
             display: inline-flex; align-items: center; gap: 8px; text-decoration: none;
             background: var(--btn-bg); color: var(--btn-text);
             padding: 7px 14px 7px 12px; border-radius: 10px; line-height: 1.1;
+            min-width: 148px; height: 44px;
             transition: opacity .15s;
         }
         .store:hover { opacity: .85; }
@@ -115,7 +116,7 @@
         .store.disabled:hover { opacity: 1; }
         .more { font-size: 0.9rem; font-weight: 600; color: var(--accent); text-decoration: none; white-space: nowrap; }
         .more:hover { text-decoration: underline; }
-        .app > p.fine { font-size: 0.78rem; color: var(--muted); margin: 18px 0 0; line-height: 1.5; }
+        .app > p.fine { font-size: 0.78rem; color: var(--muted); margin: -12px 0 24px; line-height: 1.5; }
 
         /* ── PRINCIPLES ── */
         .principles { display: grid; grid-template-columns: repeat(3, 1fr); gap: 48px; }
@@ -449,6 +450,7 @@
                             <li>Service reminders, accuracy tracking, and cost-per-wear</li>
                             <li>Daily eBay alerts for the grails on your wishlist</li>
                         </ul>
+                        <p class="fine">Android to follow.</p>
                         <div class="app-foot">
                             <div class="stores">
                                 <a href="https://apps.apple.com/us/app/timepiece-tracker/id6792404644" target="_blank" rel="noopener" class="store" aria-label="Download Timepiece Tracker on the App Store">
@@ -458,7 +460,6 @@
                             </div>
                             <a href="timepiece/" class="more">Learn more →</a>
                         </div>
-                        <p class="fine">Android to follow.</p>
                     </article>
 
                     <article id="housepour" class="app">
@@ -476,6 +477,7 @@
                             <li>See which cocktails you can make tonight</li>
                             <li>Find the one bottle that unlocks the most new drinks</li>
                         </ul>
+                        <p class="fine">Android to follow. For adults of legal drinking age. Please drink responsibly.</p>
                         <div class="app-foot">
                             <div class="stores">
                                 <a href="https://apps.apple.com/us/app/housepour-home-bar-tracker/id6815329687" target="_blank" rel="noopener" class="store" aria-label="Download Housepour on the App Store">
@@ -485,7 +487,6 @@
                             </div>
                             <a href="housepour/" class="more">Learn more →</a>
                         </div>
-                        <p class="fine">Android to follow. For adults of legal drinking age. Please drink responsibly.</p>
                     </article>
 
                     <article id="binderly" class="app">
@@ -503,6 +504,7 @@
                             <li>Know what your collection is worth</li>
                             <li>Deck legality checks, grading ROI advice, and eBay deal alerts</li>
                         </ul>
+                        <p class="fine">Compatible with the Pokémon TCG. Not affiliated with or endorsed by Nintendo, Creatures Inc., Game Freak Inc., or The Pokémon Company.</p>
                         <div class="app-foot">
                             <div class="stores">
                                 <span class="store disabled" aria-label="Coming soon to iOS and Android">
@@ -511,7 +513,6 @@
                             </div>
                             <a href="binderly/" class="more">Learn more →</a>
                         </div>
-                        <p class="fine">Compatible with the Pokémon TCG. Not affiliated with or endorsed by Nintendo, Creatures Inc., Game Freak Inc., or The Pokémon Company.</p>
                     </article>
                 </div>
             </div>

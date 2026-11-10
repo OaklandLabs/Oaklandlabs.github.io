@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Privacy Policy | Oakland Labs LLC</title>
-    <meta name="description" content="Privacy Policy for Provenant and Oakland Labs LLC. Learn how we handle your data.">
+    <meta name="description" content="Privacy Policy for Provenant by Oakland Labs LLC: what we collect, the providers we use, ads in the free tier, and how to delete your data.">
     <link rel="canonical" href="https://oaklandlabs.app/privacy.html">
     <meta property="og:title" content="Privacy Policy | Oakland Labs LLC">
-    <meta property="og:description" content="Privacy Policy for Provenant and Oakland Labs LLC. Learn how we handle your data.">
+    <meta property="og:description" content="Privacy Policy for Provenant by Oakland Labs LLC: what we collect, the providers we use, ads in the free tier, and how to delete your data.">
     <meta property="og:type" content="website">
     <meta property="og:url" content="https://oaklandlabs.app/privacy.html">
     <meta property="og:site_name" content="Oakland Labs">
@@ -15,7 +15,7 @@
     <meta property="og:locale" content="en_US">
     <meta name="twitter:card" content="summary">
     <meta name="twitter:title" content="Privacy Policy | Oakland Labs LLC">
-    <meta name="twitter:description" content="Privacy Policy for Provenant and Oakland Labs LLC. Learn how we handle your data.">
+    <meta name="twitter:description" content="Privacy Policy for Provenant by Oakland Labs LLC: what we collect, the providers we use, ads in the free tier, and how to delete your data.">
     <meta name="twitter:image" content="https://oaklandlabs.app/assets/provenant-logo.png">
     <link rel="icon" type="image/png" href="assets/OaklandLabs.png">
     <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
@@ -65,26 +65,75 @@
     <main>
 
         <h1>Privacy Policy</h1>
-        <p class="last-updated">Last Updated: April 2026</p>
+        <p class="last-updated">Provenant by Oakland Labs LLC &mdash; Last Updated: November 2026</p>
 
         <div class="content">
-            <h2>1. Our Commitment to Your Data</h2>
-            <p>At Provenant, we believe your collection is your business. We are built for collectors, not advertisers, which is why we strictly never sell, rent, or share your data with third parties for marketing purposes. We collect collection data — such as item details and photos — which can be stored locally on your device on synced to our Cloud servers. For Premium subscribers, this data is synced to our secure cloud to allow access across multiple devices.</p>
+            <h2>1. The short version</h2>
+            <p>Your collection is yours. We never sell your collection, and we never give advertisers your email address, your items, or your photos. Provenant needs a free account (email address and username). On the free tier your collection stays on your device, except items you choose to make public; with Premium, it syncs to our cloud so it’s on all your devices.</p>
+            <p>The free tier shows banner ads from <strong>Google AdMob</strong>; Premium removes them. Ads are only personalized if you allow tracking (iPhone) or consent to it (EEA, UK, and Switzerland); see section 5. We also use crash reporting and product analytics, tied to your account, to fix bugs and improve the app.</p>
 
-            <h2>2. Information Collection and Usage</h2>
-            <p>We collect your email address solely for account authentication and synchronization purposes. While subscription status and purchase history are managed via RevenueCat, we do not store your credit card or payment details. We also collect anonymized crash reports and basic diagnostics to help us troubleshoot bugs and improve app performance; this data is never tied to your specific identity or collection items. Our website uses aggregate, cookieless analytics to understand overall traffic — this sets no cookies and collects no personally identifiable information. Recent searches are stored locally on your device and are removed when you uninstall the app.</p>
+            <h2>2. What we collect</h2>
+            <div class="table-scroll">
+            <table class="data-table">
+                <thead><tr><th>Data</th><th>Why</th><th>When</th></tr></thead>
+                <tbody>
+                    <tr><td>Email address</td><td>Signing in, password resets, account and subscription emails, and wishlist alert emails you turn on</td><td>Required to create your account</td></tr>
+                    <tr><td>Username, display name, avatar, and profile details</td><td>Your profile, follows, groups, and leaderboards</td><td>When you set up your profile; public only if you make it public</td></tr>
+                    <tr><td>Collection data (items, grades, authentication records, purchase details, values, notes, wishlist, sets, goals)</td><td>The core function of the app</td><td>On your device always; in our cloud with Premium sync, or for items you make public</td></tr>
+                    <tr><td>Item photos</td><td>Your gallery for each item</td><td>On your device always; uploaded with Premium sync or for public items</td></tr>
+                    <tr><td>Social activity (follows, likes, group memberships, blocks)</td><td>Community features, your feed, and notifications</td><td>When you use those features</td></tr>
+                    <tr><td>Push notification token</td><td>Delivering alerts you turn on</td><td>Only if you allow notifications</td></tr>
+                    <tr><td>Crash reports and performance data</td><td>Finding and fixing bugs</td><td>Always; linked to your account ID, with emails and file paths removed</td></tr>
+                    <tr><td>Product analytics (screens viewed, features used)</td><td>Understanding which features to improve</td><td>Always; linked to your account ID, never your item details</td></tr>
+                    <tr><td>Subscription status and purchase history</td><td>Unlocking Premium</td><td>Only if you purchase</td></tr>
+                    <tr><td>Advertising identifier and ad interactions</td><td>Showing and measuring ads (section 5)</td><td>Free tier; the advertising identifier only if you allow tracking</td></tr>
+                </tbody>
+            </table>
+            </div>
+            <p>We never collect payment card details: billing runs through the Apple App Store or Google Play. Recent searches are stored only on your device. Photo and label recognition used to help fill in items runs on your device.</p>
 
-            <h2>3. Public Profiles and Data Control</h2>
-            <p>Public profiles and group leaderboards are strictly opt-in. You maintain granular control over which items appear publicly, and group leaderboards primarily show aggregated statistics rather than individual item details. When you like content, your like is visible to the owner of that content and may be used to personalize the content shown in your feed; the owner also receives a notification identifying you as the person who liked it.</p>
-            <p>You also have total control over your data lifecycle. You can wipe your local collection at any time through the app settings or choose to permanently delete your account and all associated cloud data. Once an account is deleted, the data is erased and cannot be recovered.</p>
+            <h2>3. Service providers</h2>
+            <p>We use a small number of providers, each limited to the purpose listed:</p>
+            <ul>
+                <li><strong>Supabase</strong>: accounts, cloud database, and photo storage.</li>
+                <li><strong>RevenueCat</strong>: subscription status and purchase history (no card data).</li>
+                <li><strong>Google AdMob</strong>: ads in the free tier (section 5).</li>
+                <li><strong>Sentry</strong>: crash and error reporting.</li>
+                <li><strong>PostHog</strong>: product analytics.</li>
+                <li><strong>Resend</strong>: sending account, subscription, and wishlist alert emails.</li>
+                <li><strong>Expo</strong>: delivering push notifications.</li>
+                <li><strong>eBay</strong>: to estimate an item’s value or find listings for your wishlist, our servers send a description of the item (not your name or email) to eBay’s public API. We participate in the eBay Partner Network, so listing links carry an affiliate tag and we may earn a commission on a purchase, at no extra cost to you.</li>
+                <li><strong>PSA</strong> and <strong>Wikidata</strong>: looking up a certification number or a player you enter.</li>
+            </ul>
 
-            <h2>4. Your Privacy Rights (CCPA &amp; GDPR)</h2>
-            <p>California residents have the right to know what personal data we collect, request deletion of that data, and opt out of any sale of personal information. We do not sell personal information or data to anyone.</p>
-            <p>EU and UK residents have rights under GDPR including the right to access, correct, restrict processing of, and erase personal data we hold. To exercise any of these rights, contact us at <a href="mailto:support@oaklandlabs.app">support@oaklandlabs.app</a>. We will respond within 30 days.</p>
+            <h2>4. Public profiles, community, and notifications</h2>
+            <p>Public profiles, public items, and groups are opt-in, and you choose which items appear publicly. Group leaderboards mostly show aggregate statistics rather than item details. When you like something, the owner can see that you liked it and is notified, and your likes help personalize your feed. You can block other collectors.</p>
+            <p>If you allow notifications, we send pushes for activity like new followers, likes, group joins, and wishlist matches, and occasionally a reminder if you haven’t opened the app in a while. Wishlist alert emails are a daily digest you turn on; each has a one-click unsubscribe link. You can turn any of these off in the app’s settings. We don’t send marketing email.</p>
 
-            <h2>5. Data Retention and Security</h2>
-            <p>We retain your account data for as long as your account remains active, or unless you request data or account deletion. Upon account deletion, all cloud-stored data is permanently deleted within 30 days. We use industry-standard encryption in transit (TLS) and at rest to protect your information. We do not retain payment card details — all billing is handled exclusively by Apple App Store and Google Play.</p>
-            <p>For any privacy inquiries, please contact us at <a href="mailto:support@oaklandlabs.app">support@oaklandlabs.app</a> or call <a href="tel:+15093813920">(509) 381-3920</a>.</p>
+            <h2>5. Advertising and tracking</h2>
+            <p>The free tier shows banner ads served by <strong>Google AdMob</strong>; Premium removes them. To show ads, Google’s software receives device information (such as model, operating system, and IP address, from which it may estimate your general location), ad interactions, and, only if you allow it, your device’s advertising identifier. We never give Google or any advertiser your email address, collection, or photos.</p>
+            <ul>
+                <li><strong>iPhone:</strong> we ask through Apple’s App Tracking Transparency prompt. If you decline, the advertising identifier isn’t shared and ads aren’t personalized. Change it any time in Settings → Privacy &amp; Security → Tracking.</li>
+                <li><strong>Android:</strong> you can delete your advertising ID or opt out of ads personalization in your device’s Settings → Google → Ads.</li>
+                <li><strong>EEA, UK, and Switzerland:</strong> we show Google’s consent form, and ads are only personalized if you consent.</li>
+            </ul>
+            <p>See <a href="https://policies.google.com/technologies/partner-sites" target="_blank" rel="noopener">how Google uses information from apps that use its services</a>.</p>
+
+            <h2>6. Your rights</h2>
+            <p>We do not sell personal information for money. When you allow personalized ads, the information Google’s ads software receives may count as “sharing” for cross-context behavioral advertising under some U.S. state laws, including California’s. You can opt out at any time by declining tracking or ads personalization as described in section 5, or by upgrading to Premium. You also have the right to know what we collect and to have it deleted, and we won’t treat you differently for using these rights.</p>
+            <p>EU and UK residents have rights under GDPR to access, correct, restrict the processing of, object to, port, and erase their personal data, and to withdraw consent at any time. We rely on your consent for personalized ads and tracking, and on our legitimate interest in running and improving the service for crash reporting and analytics. To exercise any of these rights, email <a href="mailto:support@oaklandlabs.app">support@oaklandlabs.app</a>; we respond within 30 days.</p>
+
+            <h2>7. Deleting your data</h2>
+            <p>In the app you can delete your cloud data while keeping your account, or delete your account and everything in it; see <a href="delete-account.html">Delete Account or Data</a>. Crash reports and analytics events are kept by Sentry and PostHog for a limited period and then deleted.</p>
+
+            <h2>8. Retention and security</h2>
+            <p>We keep account data while your account is active. When you delete your account, cloud data is permanently deleted within 30 days. Data is encrypted in transit (TLS) and at rest.</p>
+
+            <h2>9. Children</h2>
+            <p>Provenant is not directed at children. You must be at least 13 years old to create an account. If you believe a child has given us personal information, contact us and we will delete it.</p>
+
+            <h2>10. Changes and contact</h2>
+            <p>If we make a material change to this policy, we’ll update the date above and, for significant changes, tell you in the app. Questions? Email <a href="mailto:support@oaklandlabs.app">support@oaklandlabs.app</a> or call <a href="tel:+15093813920">(509) 381-3920</a>.</p>
         </div>
 
         <a href="terms.html" class="sibling-link">Read our Terms of Service →</a>

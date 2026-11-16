@@ -2,7 +2,7 @@
 
 > Oakland Labs LLC is an independent mobile software company in the United States that builds iOS and Android apps for collectors and enthusiasts. Its apps are Provenant (sports memorabilia and autograph collection management), Timepiece Tracker (watch collection tracker), Housepour (home bar tracker), and Binderly - Card Collection (Pokémon TCG collection tracker, coming soon).
 
-Contact: support@oaklandlabs.app · (509) 381-3920 · https://oaklandlabs.app · [LinkedIn](https://www.linkedin.com/company/oaklandlabs/)
+Contact: support@oaklandlabs.app · https://oaklandlabs.app · [LinkedIn](https://www.linkedin.com/company/oaklandlabs/)
 
 Oakland Labs designs for people who take their collections seriously, with a focus on privacy and data ownership: user collection data is never sold or shared with advertisers.
 

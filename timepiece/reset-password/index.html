@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset Password | Timepiece Tracker</title>
+    <meta name="description" content="Reset your Timepiece Tracker password.">
+    <meta name="robots" content="noindex">
+    <link rel="icon" type="image/png" href="../../assets/OaklandLabs.png">
+    <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0d0f13" media="(prefers-color-scheme: dark)">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/site.css">
+</head>
+<body class="page-card">
+
+    <header class="site-header">
+        <div class="wrap header-inner">
+            <a href="/" class="brand">
+                <img src="../../assets/OaklandLabs.png" alt="" width="32" height="32">
+                Oakland Labs
+            </a>
+            <nav class="nav" aria-label="Main">
+                <a href="/#apps">Apps</a>
+                <a href="/#about">About</a>
+                <a href="/#contact" class="nav-cta">Contact</a>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <img src="../../assets/timepiece.png" alt="Timepiece Tracker" class="app-icon">
+        <h1 id="headline">Reset your password</h1>
+        <p class="tagline" id="tagline">Opening Timepiece Tracker so you can choose a new password…</p>
+
+        <div class="actions">
+            <a class="btn btn-primary" id="open-app" href="#" hidden>Open in Timepiece Tracker</a>
+            <a class="btn btn-secondary" href="../index.html">Download Timepiece Tracker</a>
+        </div>
+
+        <p class="sub" id="sub" hidden>Already have the app? Tap "Open in Timepiece Tracker" above. This link expires after a short time — if it doesn't work, request a new one from the app's sign-in screen.</p>
+    </main>
+
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="brand">
+                        <img src="../../assets/OaklandLabs.png" alt="" width="32" height="32">
+                        Oakland Labs
+                    </a>
+                    <p>Independent apps for collectors and enthusiasts.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Apps</h4>
+                    <a href="/provenant/about/">Provenant</a>
+                    <a href="/timepiece/">Timepiece Tracker</a>
+                    <a href="/housepour/">Housepour</a>
+                    <a href="/binderly/">Binderly</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="/#about">About</a>
+                    <a href="/#contact">Contact</a>
+                    <a href="https://www.linkedin.com/company/oaklandlabs/" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Timepiece Tracker</h4>
+                    <a href="/timepiece/privacy/">Privacy Policy</a>
+                    <a href="/timepiece/terms/">Terms of Service</a>
+                    <a href="/timepiece/delete-account/">Delete Account</a>
+                    <a href="/timepiece/support/">Support</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Oakland Labs LLC. All rights reserved.</span>
+                <a href="mailto:support@oaklandlabs.app">support@oaklandlabs.app</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            // The app handles this scheme and reads the Supabase recovery
+            // params off the query string.
+            var DEEP_LINK_BASE = "timepiece://reset-password";
+
+            var headline = document.getElementById("headline");
+            var tagline = document.getElementById("tagline");
+            var sub = document.getElementById("sub");
+            var openBtn = document.getElementById("open-app");
+
+            function fail(title, body) {
+                headline.textContent = title;
+                tagline.textContent = body;
+            }
+
+            // Supabase puts recovery params in the query string (token_hash flow)
+            // or in the URL fragment (implicit flow), depending on the template.
+            var search = new URLSearchParams(window.location.search);
+            var hash = new URLSearchParams((window.location.hash || "").replace(/^#/, ""));
+
+            function get(key) {
+                return search.get(key) || hash.get(key) || "";
+            }
+
+            // Expired / already-used links come back with an error instead of a token.
+            var error = get("error") || get("error_code");
+            if (error) {
+                fail(
+                    "This link has expired",
+                    "Password reset links are only valid for a short time and can be used once. Open Timepiece Tracker, tap “Forgot password?” on the sign-in screen, and we'll email you a fresh link."
+                );
+                return;
+            }
+
+            var forward = new URLSearchParams();
+            ["token_hash", "token", "access_token", "refresh_token", "code", "type"].forEach(function (key) {
+                var value = get(key);
+                if (value) forward.set(key, value);
+            });
+
+            if (!forward.has("token_hash") && !forward.has("token") &&
+                !forward.has("access_token") && !forward.has("code")) {
+                fail(
+                    "Invalid reset link",
+                    "This password reset link is missing its token. Open Timepiece Tracker, tap “Forgot password?” on the sign-in screen, and we'll email you a new one."
+                );
+                return;
+            }
+
+            if (!forward.has("type")) forward.set("type", "recovery");
+
+            var deepLink = DEEP_LINK_BASE + "?" + forward.toString();
+
+            openBtn.href = deepLink;
+            openBtn.hidden = false;
+            sub.hidden = false;
+
+            // Attempt to open the app immediately. If it isn't installed the
+            // user stays here with the manual button and a download link.
+            window.location.href = deepLink;
+        })();
+    </script>
+
+</body>
+</html>

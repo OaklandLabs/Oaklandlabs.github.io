@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1240 320">
+  <svg x="0" y="0" width="320" height="320" viewBox="0 0 512 512">  <defs>
+    <linearGradient id="sky" x1="0" y1="0" x2="0" y2="1">
+      <stop offset="0" stop-color="#fbf5ec"/>
+      <stop offset="1" stop-color="#f7e6da"/>
+    </linearGradient>
+    <clipPath id="tile"><rect width="512" height="512" rx="112"/></clipPath>
+  </defs>
+  <g clip-path="url(#tile)">
+    <rect width="512" height="512" fill="url(#sky)"/>
+    <!-- sun -->
+    <circle cx="256" cy="236" r="118" fill="#f8d6c3" opacity="0.75"/>
+    <!-- water -->
+    <rect y="378" width="512" height="140" fill="#cfe2e7"/>
+    <rect y="376" width="512" height="14" fill="#ead9c8"/>
+    <path d="M76 422 H186 M300 422 H436 M146 454 H326" stroke="#e4eff1" stroke-width="8" stroke-linecap="round"/>
+
+    <g transform="translate(-10 6)">
+    <!-- Coliseum -->
+    <g>
+      <path d="M68 300 V340 M224 300 V340" stroke="#a9c9b3" stroke-width="5" stroke-linecap="round"/>
+      <rect x="58" y="290" width="20" height="12" rx="3" fill="#a9c9b3"/>
+      <rect x="214" y="290" width="20" height="12" rx="3" fill="#a9c9b3"/>
+      <path d="M100 336 V308 Q100 302 106 302 H186 Q192 302 192 308 V336 Z" fill="#a9c9b3"/>
+      <path d="M52 336 H240 V366 Q240 372 234 372 H58 Q52 372 52 366 Z" fill="#b9d6c2"/>
+      <ellipse cx="146" cy="336" rx="94" ry="13" fill="#cfe5d5"/>
+      <ellipse cx="146" cy="337" rx="62" ry="6.5" fill="#a9cf9f"/>
+      <path d="M52 352 H240" stroke="#cfe5d5" stroke-width="3"/>
+    </g>
+
+    <!-- Tribune Tower -->
+    <g>
+      <rect x="246" y="208" width="40" height="164" fill="#ecb7b1"/>
+      <path d="M256 222 V360 M266 222 V360 M276 222 V360" stroke="#f4cfc9" stroke-width="3.5"/>
+      <rect x="240" y="200" width="52" height="10" rx="2" fill="#e3a6a0"/>
+      <rect x="249" y="166" width="34" height="36" fill="#ecb7b1"/>
+      <circle cx="266" cy="184" r="9" fill="#fbf3ea"/>
+      <path d="M242 202 V170 L246 156 L250 170 V202 Z M282 202 V170 L286 156 L290 170 V202 Z" fill="#e3a6a0"/>
+      <path d="M248 168 L266 124 L284 168 Z" fill="#e3a6a0"/>
+      <path d="M266 126 V104" stroke="#e3a6a0" stroke-width="4" stroke-linecap="round"/>
+    </g>
+
+    <!-- Port crane -->
+    <g stroke="#a3b8de" stroke-linecap="round" stroke-linejoin="round" fill="none">
+      <path d="M352 168 L328 230 M352 168 L382 230" stroke-width="7"/>
+      <path d="M352 168 L304 230 M352 168 L466 230" stroke-width="3"/>
+      <path d="M296 232 H474" stroke-width="10"/>
+      <path d="M336 240 V372 M410 240 V372" stroke-width="10" stroke-linecap="butt"/>
+      <path d="M330 244 H416 M336 304 H410" stroke-width="7"/>
+      <path d="M336 304 L410 244 M336 244 L410 304" stroke-width="3.5"/>
+      <path d="M448 236 V266" stroke-width="3"/>
+    </g>
+    <rect x="344" y="214" width="30" height="16" rx="2" fill="#a3b8de"/>
+    <rect x="436" y="264" width="24" height="12" rx="2" fill="#a3b8de"/>
+  </g>
+  </g>
+</svg>
+  <text x="372" y="204" font-family="'Instrument Serif', 'Iowan Old Style', Georgia, serif" font-size="150" fill="#2b2f36" letter-spacing="-1">Oakland <tspan font-style="italic" fill="#8a9a8e">Labs</tspan></text>
+</svg>

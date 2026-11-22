@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirm your email | Binderly</title>
+    <meta name="description" content="Confirm the email address on your Binderly account.">
+    <meta name="robots" content="noindex">
+    <meta name="referrer" content="no-referrer">
+    <link rel="icon" type="image/png" href="../../../assets/binderly-email.png">
+    <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0d0f13" media="(prefers-color-scheme: dark)">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../assets/site.css">
+    <style>
+        /* Binderly's auth forms: the site's page-card, plus fields. */
+        .bd-form { width: 100%; max-width: 380px; display: flex; flex-direction: column; gap: 14px; text-align: left; margin-bottom: 8px; }
+        .bd-form label { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-2); }
+        .bd-form input { width: 100%; margin-top: 6px; padding: 12px 14px; font: inherit; font-size: 1rem; color: var(--text);
+            background: var(--surface); border: 2px solid var(--border-strong); border-radius: 10px; }
+        .bd-form input:focus { outline: none; border-color: var(--text); }
+        .bd-form .btn { width: 100%; justify-content: center; }
+        .bd-error { color: #dc2626; font-size: 0.92rem; min-height: 1.2em; }
+        .bd-hint { color: var(--muted); font-size: 0.85rem; }
+        .bd-wordmark { font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.8rem; color: var(--text-2); margin: -16px 0 18px; }
+    </style>
+</head>
+<body class="page-card">
+    <header class="site-header">
+        <div class="wrap header-inner">
+            <a href="/" class="brand">
+                <img src="../../../assets/OaklandLabs.png" alt="" width="32" height="32">
+                Oakland Labs
+            </a>
+            <nav class="nav" aria-label="Main">
+                <a href="/#apps">Apps</a>
+                <a href="/#about">About</a>
+                <a href="/#contact" class="nav-cta">Contact</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <img src="../../../assets/binderly.png" alt="Binderly" class="app-icon">
+        <div class="bd-wordmark">Binderly</div>
+        <h1 id="headline">Confirm your email</h1>
+        <p class="tagline" id="tagline">One tap and your Binderly account is ready.</p>
+        <div class="actions" id="confirm-actions">
+            <button class="btn btn-primary" id="confirm" type="button">Confirm my email</button>
+        </div>
+        <div class="actions" id="done-actions" hidden>
+            <a class="btn btn-primary" id="open-app" href="binderly://sign-in">Open Binderly</a>
+        </div>
+        <p class="sub" id="note">You can close this page afterwards.</p>
+    </main>
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="brand">
+                        <img src="../../../assets/OaklandLabs.png" alt="" width="32" height="32">
+                        Oakland Labs
+                    </a>
+                    <p>Independent apps for collectors and enthusiasts.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Apps</h4>
+                    <a href="/binderly/">Binderly</a>
+                    <a href="/provenant/about/">Provenant</a>
+                    <a href="/timepiece/">Timepiece Tracker</a>
+                    <a href="/housepour/">Housepour</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="/#about">About</a>
+                    <a href="/#contact">Contact</a>
+                    <a href="https://www.linkedin.com/company/oaklandlabs/" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Binderly</h4>
+                    <a href="/binderly/privacy/">Privacy Policy</a>
+                    <a href="/binderly/terms/">Terms of Service</a>
+                    <a href="/delete-account.html">Delete Account</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Oakland Labs LLC. All rights reserved.</span>
+                <a href="mailto:support@oaklandlabs.app">support@oaklandlabs.app</a>
+            </div>
+        </div>
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js" integrity="sha384-GFr3yTh5lJznCbZfpTtXnwboFsxqtTQoeTZCRHhE0579KrRmlCzen5AA8ohaB5ug" crossorigin="anonymous"></script>
+    <script>
+        // Binderly's Supabase project. The anon key is public by design (it ships
+        // in the app); row-level security, not secrecy, protects the data.
+        var SUPABASE_URL = "https://vkfyffnrfgxthiutjdwi.supabase.co";
+        var SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZrZnlmZm5yZmd4dGhpdXRqZHdpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUxODMwMTMsImV4cCI6MjEwMDc1OTAxM30.AxJHWb-YEp4qHoFy9srfD8GIwlXrra5NjIqzi2tdZRc";
+        var sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+            auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false }
+        });
+        var params = new URLSearchParams(window.location.search);
+        var hash = new URLSearchParams(window.location.hash.replace(/^#/, ""));
+        function $(id) { return document.getElementById(id); }
+        function show(title, body) {
+            $("headline").textContent = title;
+            $("tagline").textContent = body;
+        }
+        // Supabase reports a dead link in the query or the fragment.
+        var linkError = params.get("error_description") || hash.get("error_description");
+        var tokenHash = params.get("token_hash");
+        // "email" confirms a new account; "email_change" confirms a new address.
+        var type = params.get("type") === "email_change" ? "email_change" : "email";
+        if (type === "email_change") {
+            show("Confirm your new email", "Tap below to switch your Binderly account to this address.");
+        }
+        function dead(message) {
+            $("confirm-actions").hidden = true;
+            $("done-actions").hidden = false;
+            show("This link didn't work", message);
+            $("note").textContent = "Need a hand? Email support@oaklandlabs.app.";
+        }
+        if (linkError) {
+            dead("It has expired or was already used. Open Binderly and sign in; if your email isn't confirmed yet, sign up again to get a fresh link.");
+        } else if (!tokenHash) {
+            dead("It's missing its confirmation code. Open the link straight from your email, or sign up again in Binderly for a new one.");
+        }
+        // Confirming waits for a tap: mail security scanners open links before
+        // people do, and a one-time link they open is spent.
+        $("confirm").addEventListener("click", function () {
+            var btn = $("confirm");
+            btn.disabled = true;
+            btn.textContent = "Confirming…";
+            sb.auth.verifyOtp({ token_hash: tokenHash, type: type }).then(function (res) {
+                if (res.error) {
+                    btn.disabled = false;
+                    btn.textContent = "Confirm my email";
+                    dead("It has expired or was already used. Open Binderly and sign in; if that doesn't work, sign up again for a fresh link.");
+                    return;
+                }
+                // The account is confirmed server-side; this page keeps no session.
+                sb.auth.signOut().catch(function () {});
+                $("confirm-actions").hidden = true;
+                $("done-actions").hidden = false;
+                show(
+                    type === "email_change" ? "Email updated" : "You're confirmed",
+                    type === "email_change"
+                        ? "Your Binderly account now uses this address. Sign in with it next time."
+                        : "Your Binderly account is ready. Open the app and sign in to sync your collection."
+                );
+                $("note").textContent = "Not on your phone? Open Binderly there and sign in with this email.";
+            });
+        });
+    </script>
+</body>
+</html>

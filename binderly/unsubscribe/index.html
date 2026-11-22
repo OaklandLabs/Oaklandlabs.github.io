@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Unsubscribe | Binderly</title>
+    <meta name="description" content="Unsubscribe from Binderly wishlist alert emails.">
+    <meta name="robots" content="noindex">
+    <meta name="referrer" content="no-referrer">
+    <link rel="icon" type="image/png" href="../../assets/binderly-email.png">
+    <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0d0f13" media="(prefers-color-scheme: dark)">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../assets/site.css">
+    <style>
+        /* Binderly's auth forms: the site's page-card, plus fields. */
+        .bd-form { width: 100%; max-width: 380px; display: flex; flex-direction: column; gap: 14px; text-align: left; margin-bottom: 8px; }
+        .bd-form label { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-2); }
+        .bd-form input { width: 100%; margin-top: 6px; padding: 12px 14px; font: inherit; font-size: 1rem; color: var(--text);
+            background: var(--surface); border: 2px solid var(--border-strong); border-radius: 10px; }
+        .bd-form input:focus { outline: none; border-color: var(--text); }
+        .bd-form .btn { width: 100%; justify-content: center; }
+        .bd-error { color: #dc2626; font-size: 0.92rem; min-height: 1.2em; }
+        .bd-hint { color: var(--muted); font-size: 0.85rem; }
+        .bd-wordmark { font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.8rem; color: var(--text-2); margin: -16px 0 18px; }
+    </style>
+</head>
+<body class="page-card">
+    <header class="site-header">
+        <div class="wrap header-inner">
+            <a href="/" class="brand">
+                <img src="../../assets/OaklandLabs.png" alt="" width="32" height="32">
+                Oakland Labs
+            </a>
+            <nav class="nav" aria-label="Main">
+                <a href="/#apps">Apps</a>
+                <a href="/#about">About</a>
+                <a href="/#contact" class="nav-cta">Contact</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <img src="../../assets/binderly.png" alt="Binderly" class="app-icon">
+        <div class="bd-wordmark">Binderly</div>
+        <h1 id="headline">Unsubscribing…</h1>
+        <p class="tagline" id="tagline">One moment while we update your email preferences.</p>
+        <div class="spinner" id="spinner"></div>
+        <div class="actions">
+            <button class="btn btn-primary" id="undo" type="button" hidden>Undo — keep me subscribed</button>
+            <a class="btn btn-secondary" href="../">Back to Binderly</a>
+        </div>
+    </main>
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="brand">
+                        <img src="../../assets/OaklandLabs.png" alt="" width="32" height="32">
+                        Oakland Labs
+                    </a>
+                    <p>Independent apps for collectors and enthusiasts.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Apps</h4>
+                    <a href="/binderly/">Binderly</a>
+                    <a href="/provenant/about/">Provenant</a>
+                    <a href="/timepiece/">Timepiece Tracker</a>
+                    <a href="/housepour/">Housepour</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="/#about">About</a>
+                    <a href="/#contact">Contact</a>
+                    <a href="https://www.linkedin.com/company/oaklandlabs/" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Binderly</h4>
+                    <a href="/binderly/privacy/">Privacy Policy</a>
+                    <a href="/binderly/terms/">Terms of Service</a>
+                    <a href="/delete-account.html">Delete Account</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Oakland Labs LLC. All rights reserved.</span>
+                <a href="mailto:support@oaklandlabs.app">support@oaklandlabs.app</a>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        (function () {
+            // Binderly's unsubscribe function (project vkfyffnrfgxthiutjdwi). This
+            // page performs the unsubscribe itself so the recipient stays on the
+            // brand domain; the email's List-Unsubscribe header points straight at
+            // the function for one-click.
+            var FUNCTION_URL = "https://vkfyffnrfgxthiutjdwi.supabase.co/functions/v1/wishlist-alerts-unsubscribe";
+            var headline = document.getElementById("headline");
+            var tagline = document.getElementById("tagline");
+            var spinner = document.getElementById("spinner");
+            var undoBtn = document.getElementById("undo");
+            function show(title, body) {
+                headline.textContent = title;
+                tagline.textContent = body;
+                spinner.hidden = true;
+                spinner.style.display = "none";
+            }
+            var token = new URLSearchParams(window.location.search).get("token") || "";
+            // Token shape is "<userId>.<signature>"; reject anything malformed early.
+            if (!token || token.indexOf(".") <= 0) {
+                show("Invalid link", "This unsubscribe link is missing or malformed. Turn off email alerts in Binderly under Settings → Notifications, or email support@oaklandlabs.app.");
+                return;
+            }
+            function post(action) {
+                var qs = "?token=" + encodeURIComponent(token);
+                if (action) qs += "&action=" + encodeURIComponent(action);
+                return fetch(FUNCTION_URL + qs, { method: "POST" });
+            }
+            post()
+                .then(function (resp) {
+                    if (resp.ok) {
+                        show("You're unsubscribed", "You won't get any more wishlist alert emails from Binderly. Changed your mind?");
+                        undoBtn.hidden = false;
+                    } else {
+                        show("Couldn't unsubscribe", "Something went wrong on our end. Try again in a minute, or email support@oaklandlabs.app and we'll remove you by hand.");
+                    }
+                })
+                .catch(function () {
+                    show("Couldn't unsubscribe", "We couldn't reach our servers. Check your connection and try again, or email support@oaklandlabs.app.");
+                });
+            undoBtn.addEventListener("click", function () {
+                undoBtn.disabled = true;
+                undoBtn.textContent = "Re-subscribing…";
+                post("resubscribe")
+                    .then(function (resp) {
+                        if (!resp.ok) throw new Error("failed");
+                        undoBtn.hidden = true;
+                        show("You're subscribed again", "Wishlist alert emails are back on. Change this any time in Binderly under Settings → Notifications.");
+                    })
+                    .catch(function () {
+                        undoBtn.disabled = false;
+                        undoBtn.textContent = "Undo — keep me subscribed";
+                        tagline.textContent = "Couldn't re-subscribe just now. Try again, or turn alerts back on in Binderly under Settings → Notifications.";
+                    });
+            });
+        })();
+    </script>
+</body>
+</html>

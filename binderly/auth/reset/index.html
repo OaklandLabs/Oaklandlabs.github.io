@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reset your password | Binderly</title>
+    <meta name="description" content="Choose a new password for your Binderly account.">
+    <meta name="robots" content="noindex">
+    <meta name="referrer" content="no-referrer">
+    <link rel="icon" type="image/png" href="../../../assets/binderly-email.png">
+    <meta name="theme-color" content="#fbfaf7" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#0d0f13" media="(prefers-color-scheme: dark)">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../../../assets/site.css">
+    <style>
+        /* Binderly's auth forms: the site's page-card, plus fields. */
+        .bd-form { width: 100%; max-width: 380px; display: flex; flex-direction: column; gap: 14px; text-align: left; margin-bottom: 8px; }
+        .bd-form label { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.04em; text-transform: uppercase; color: var(--text-2); }
+        .bd-form input { width: 100%; margin-top: 6px; padding: 12px 14px; font: inherit; font-size: 1rem; color: var(--text);
+            background: var(--surface); border: 2px solid var(--border-strong); border-radius: 10px; }
+        .bd-form input:focus { outline: none; border-color: var(--text); }
+        .bd-form .btn { width: 100%; justify-content: center; }
+        .bd-error { color: #dc2626; font-size: 0.92rem; min-height: 1.2em; }
+        .bd-hint { color: var(--muted); font-size: 0.85rem; }
+        .bd-wordmark { font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; font-size: 0.8rem; color: var(--text-2); margin: -16px 0 18px; }
+    </style>
+</head>
+<body class="page-card">
+    <header class="site-header">
+        <div class="wrap header-inner">
+            <a href="/" class="brand">
+                <img src="../../../assets/OaklandLabs.png" alt="" width="32" height="32">
+                Oakland Labs
+            </a>
+            <nav class="nav" aria-label="Main">
+                <a href="/#apps">Apps</a>
+                <a href="/#about">About</a>
+                <a href="/#contact" class="nav-cta">Contact</a>
+            </nav>
+        </div>
+    </header>
+    <main>
+        <img src="../../../assets/binderly.png" alt="Binderly" class="app-icon">
+        <div class="bd-wordmark">Binderly</div>
+        <h1 id="headline">Choose a new password</h1>
+        <p class="tagline" id="tagline">Set it here, or open the link in the Binderly app.</p>
+        <form class="bd-form" id="form" novalidate>
+            <label>New password
+                <input type="password" id="password" autocomplete="new-password" required>
+            </label>
+            <label>Confirm password
+                <input type="password" id="confirmation" autocomplete="new-password" required>
+            </label>
+            <div class="bd-hint">Use at least 8 characters, including a number.</div>
+            <div class="bd-error" id="error" role="alert"></div>
+            <button class="btn btn-primary" id="save" type="submit">Save new password</button>
+        </form>
+        <div class="actions">
+            <a class="btn btn-secondary" id="open-app" href="binderly://new-password">Open in Binderly instead</a>
+        </div>
+        <p class="sub" id="note">Didn't ask for this? Ignore the email; your password stays the same.</p>
+    </main>
+    <footer class="site-footer">
+        <div class="wrap">
+            <div class="footer-grid">
+                <div class="footer-brand">
+                    <a href="/" class="brand">
+                        <img src="../../../assets/OaklandLabs.png" alt="" width="32" height="32">
+                        Oakland Labs
+                    </a>
+                    <p>Independent apps for collectors and enthusiasts.</p>
+                </div>
+                <div class="footer-col">
+                    <h4>Apps</h4>
+                    <a href="/binderly/">Binderly</a>
+                    <a href="/provenant/about/">Provenant</a>
+                    <a href="/timepiece/">Timepiece Tracker</a>
+                    <a href="/housepour/">Housepour</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Company</h4>
+                    <a href="/#about">About</a>
+                    <a href="/#contact">Contact</a>
+                    <a href="https://www.linkedin.com/company/oaklandlabs/" target="_blank" rel="noopener">LinkedIn</a>
+                </div>
+                <div class="footer-col">
+                    <h4>Binderly</h4>
+                    <a href="/binderly/privacy/">Privacy Policy</a>
+                    <a href="/binderly/terms/">Terms of Service</a>
+                    <a href="/delete-account.html">Delete Account</a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>&copy; 2026 Oakland Labs LLC. All rights reserved.</span>
+                <a href="mailto:support@oaklandlabs.app">support@oaklandlabs.app</a>
+            </div>
+        </div>
+    </footer>
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2.45.4/dist/umd/supabase.min.js" integrity="sha384-GFr3yTh5lJznCbZfpTtXnwboFsxqtTQoeTZCRHhE0579KrRmlCzen5AA8ohaB5ug" crossorigin="anonymous"></script>
+    <script>
+        // Binderly's Supabase project. The anon key is public by design (it ships
+        // in the app); row-level security, not secrecy, protects the data.
+        var SUPABASE_URL = "https://vkfyffnrfgxthiutjdwi.supabase.co";
+        var SUPABASE_ANON_KEY = "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InZrZnlmZm5yZmd4dGhpdXRqZHdpIiwicm9sZSI6ImFub24iLCJpYXQiOjE3ODUxODMwMTMsImV4cCI6MjEwMDc1OTAxM30.AxJHWb-YEp4qHoFy9srfD8GIwlXrra5NjIqzi2tdZRc";
+        var sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY, {
+            auth: { persistSession: false, autoRefreshToken: false, detectSessionInUrl: false }
+        });
+        var params = new URLSearchParams(window.location.search);
+        var hash = new URLSearchParams(window.location.hash.replace(/^#/, ""));
+        function $(id) { return document.getElementById(id); }
+        function show(title, body) {
+            $("headline").textContent = title;
+            $("tagline").textContent = body;
+        }
+        // Supabase reports a dead link in the query or the fragment.
+        var linkError = params.get("error_description") || hash.get("error_description");
+        var tokenHash = params.get("token_hash");
+        var code = params.get("code");
+        // The app can take the same link: it verifies the token itself.
+        var appLink = "binderly://new-password";
+        if (tokenHash) appLink += "?token_hash=" + encodeURIComponent(tokenHash) + "&type=recovery";
+        else if (code) appLink += "?code=" + encodeURIComponent(code);
+        $("open-app").href = appLink;
+        function dead(message) {
+            $("form").hidden = true;
+            show("This link didn't work", message);
+            $("open-app").textContent = "Open Binderly";
+            $("open-app").href = "binderly://reset-password";
+            $("note").textContent = "Need a hand? Email support@oaklandlabs.app.";
+        }
+        if (linkError) {
+            dead("Reset links work once and expire after an hour. Open Binderly and tap “Forgot your password?” for a new one.");
+        } else if (!tokenHash) {
+            // An app-started link carries a code only the requesting phone can redeem.
+            if (code) {
+                $("form").hidden = true;
+                show("Finish in Binderly", "Open this link on the phone where you asked for it, and Binderly will take you to the new-password screen.");
+                $("open-app").textContent = "Open Binderly";
+            } else {
+                dead("It's missing its reset code. Open the link straight from your email, or ask Binderly for a new one.");
+            }
+        }
+        function rule(password, confirmation) {
+            if (password.length < 8 || !/\d/.test(password)) return "Use at least 8 characters, including a number.";
+            if (password !== confirmation) return "Those passwords don't match.";
+            return null;
+        }
+        // The token is spent only on submit, never on page load: mail scanners
+        // open links before people do.
+        $("form").addEventListener("submit", function (e) {
+            e.preventDefault();
+            var password = $("password").value;
+            var problem = rule(password, $("confirmation").value);
+            $("error").textContent = problem || "";
+            if (problem) return;
+            var btn = $("save");
+            btn.disabled = true;
+            btn.textContent = "Saving…";
+            sb.auth.verifyOtp({ token_hash: tokenHash, type: "recovery" })
+                .then(function (res) {
+                    if (res.error) throw new Error("expired");
+                    return sb.auth.updateUser({ password: password });
+                })
+                .then(function (res) {
+                    if (res.error) throw res.error;
+                    // A link-made session shouldn't outlive the page.
+                    return sb.auth.signOut();
+                })
+                .then(function () {
+                    $("form").hidden = true;
+                    show("Password updated", "Open Binderly and sign in with your new password.");
+                    $("open-app").textContent = "Open Binderly";
+                    $("open-app").href = "binderly://sign-in";
+                    $("note").textContent = "You can close this page.";
+                })
+                .catch(function (err) {
+                    btn.disabled = false;
+                    btn.textContent = "Save new password";
+                    if (err && err.message === "expired") {
+                        dead("Reset links work once and expire after an hour. Open Binderly and tap “Forgot your password?” for a new one.");
+                    } else {
+                        $("error").textContent = (err && err.message) || "Couldn't save your password. Try again.";
+                    }
+                });
+        });
+    </script>
+</body>
+</html>

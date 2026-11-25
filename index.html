@@ -78,11 +78,6 @@
         .app:hover { border-color: var(--border-strong); transform: translateY(-2px); }
         .app-top { display: flex; align-items: center; gap: 18px; margin-bottom: 22px; }
         .app-icon { width: 72px; height: 72px; border-radius: 22%; flex-shrink: 0; object-fit: cover; box-shadow: 0 0 0 1px rgba(0,0,0,.06); }
-        .app-icon-placeholder {
-            display: grid; place-items: center;
-            background: linear-gradient(145deg, #2a3f8f, #6b3fa0);
-            color: #fff; font-family: var(--serif); font-size: 2.4rem;
-        }
         .app-title h3 { font-size: 1.3rem; font-weight: 650; letter-spacing: -0.02em; line-height: 1.2; }
         .app-title .cat { font-size: 0.85rem; color: var(--muted); }
         .status {
@@ -495,7 +490,7 @@
 
                     <article id="binderly" class="app">
                         <div class="app-top">
-                            <div class="app-icon app-icon-placeholder" aria-hidden="true">B</div>
+                            <img src="assets/binderly.png" alt="Binderly app icon" class="app-icon" width="72" height="72">
                             <div class="app-title">
                                 <h3>Binderly</h3>
                                 <span class="cat">Trading card collections</span>
